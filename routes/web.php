@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['guest'])->group(function () {
+
+    Route::get('/login', 'Auth\LoginController@index');
+    Route::post('/login', 'Auth\LoginController@login');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::match(['get', 'delete'], '/logout', 'Auth\LoginController@logout');
+
+    Route::get('/dashboard', 'DashboardController@index');
+
+    Route::get('users', 'UserController@index');
 });
