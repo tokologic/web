@@ -4,8 +4,8 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-user-add">
-                Add user
+            <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-product-add">
+                Add product
             </button>
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
-                {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-user-list']) !!}
+                {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-product-list']) !!}
             </div>
         </div>
     </div>
@@ -35,8 +35,8 @@
 
     <script>
 
-        $('#btn-user-add').click(function () {
-            create("{{route('users.create')}}");
+        $('#btn-product-add').click(function () {
+            create("{{route('products.create')}}");
         });
 
     </script>

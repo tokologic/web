@@ -11,9 +11,16 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     @stack('styles')
-    @stack('style')
 
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    @stack('style')
+
+    <style>
+        /*https://stackoverflow.com/questions/48529880/bootbox-dialog-modal-bootstrap-4*/
+        .bootbox .modal-header{
+            display: block;
+        }
+    </style>
 </head>
 
 <body>

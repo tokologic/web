@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\DataTables\UsersDataTable;
+use App\Http\Requests\UserRequest;
 use App\Model\Midwife;
 use App\Model\User;
 use App\Traits\Crud;
@@ -24,18 +25,9 @@ class UsersController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $validatedData = $request->validate([
-            'email'      => 'required|email',
-            'password'   => 'required',
-            'first_name' => 'required',
-            'last_name'  => 'required',
-            'role'       => 'required'
-        ]);
-
         $data = $this->gatherRequest(User::class, $request);
-
         User::create($data);
     }
 

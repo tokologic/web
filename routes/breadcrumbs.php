@@ -8,13 +8,11 @@ try {
         $trail->parent('dashboard');
         $trail->push('Users', route('users.index'));
     });
-    Breadcrumbs::for('users.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
-        $trail->parent('users.index');
-        $trail->push('Create user', route('users.create'));
+
+    Breadcrumbs::for('products.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Products', route('products.index'));
     });
-    Breadcrumbs::for('users.edit', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
-        $trail->parent('users.index');
-        $trail->push('Edit user', route('users.edit', $id));
-    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }
