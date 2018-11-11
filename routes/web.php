@@ -20,7 +20,8 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::match(['get', 'delete'], '/logout', 'Auth\LoginController@logout');
 
-    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-    Route::get('users', 'UserController@index');
+    Route::resource('users', 'UsersController');
+    Route::resource('products', 'ProductsController');
 });

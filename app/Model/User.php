@@ -19,7 +19,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password', 'first_name', 'last_name'
     ];
 
     /**
@@ -30,4 +30,14 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            $encryptedPassword = bcrypt($model->password);
+            $model->password = $encryptedPassword;
+        });
+    }
 }
