@@ -19,6 +19,13 @@
                 Products
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('companies.index')}}">
+                <span data-feather="shopping-cart"></span>
+                Suppliers
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="users"></span>
