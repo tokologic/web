@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::resource('users', 'UsersController');
-    Route::resource('products', 'ProductsController');
+    Route::resource('brands', 'BrandsController');
     Route::resource('companies', 'CompaniesController');
+    Route::resource('brands.products', 'ProductsController');
 });

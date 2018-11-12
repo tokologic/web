@@ -7,6 +7,14 @@ namespace App\Model\Stall;
 use App\Contract\GoodsReceiveInterface;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Model\Stall\GoodsReceive
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\GoodsReceive newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\GoodsReceive newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\GoodsReceive query()
+ * @mixin \Eloquent
+ */
 class GoodsReceive extends Model implements GoodsReceiveInterface
 {
 

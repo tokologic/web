@@ -9,9 +9,9 @@ try {
         $trail->push('Users', route('users.index'));
     });
 
-    Breadcrumbs::for('products.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+    Breadcrumbs::for('brands.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Products', route('products.index'));
+        $trail->push('Brands', route('brands.index'));
     });
 
     Breadcrumbs::for('companies.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {

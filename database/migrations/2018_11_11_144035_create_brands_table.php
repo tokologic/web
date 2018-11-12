@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRoleInUsers extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddRoleInUsers extends Migration
      */
     public function up()
     {
-        \Schema::table('users', function (Blueprint $blueprint) {
-            $blueprint->string('role')->nullable();
+        Schema::create('brands', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('company_id')->nullable();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddRoleInUsers extends Migration
      */
     public function down()
     {
-        \Schema::table('users', function (Blueprint $blueprint) {
-            $blueprint->dropColumn('role');
-        });
+        Schema::dropIfExists('brands');
     }
 }

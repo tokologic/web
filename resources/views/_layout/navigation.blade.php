@@ -14,18 +14,20 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{route('products.index')}}">
+            <a class="nav-link" href="{{route('companies.index')}}">
                 <span data-feather="shopping-cart"></span>
-                Products
+                Company
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{route('companies.index')}}">
+            <a class="nav-link" href="{{route('brands.index')}}">
                 <span data-feather="shopping-cart"></span>
-                Suppliers
+                Brands
             </a>
         </li>
+
+
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="users"></span>
