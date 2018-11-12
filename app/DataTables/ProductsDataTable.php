@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\User;
+use App\Model\Product;
 use Yajra\DataTables\Services\DataTable;
 
 class ProductsDataTable extends DataTable
@@ -16,18 +16,25 @@ class ProductsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('action', 'producvariantsdatatable.action');
+            ->addColumn('action', function ($product) {
+
+//                dd($product->brand_id);
+                return view('brands.products.action')
+                    ->with(['product' => $product])
+                    ->render();
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\User $model
+     * @param Product $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Product $model)
     {
-        return $model->newQuery()->select('id', 'add-your-columns-here', 'created_at', 'updated_at');
+        return $model->newQuery()
+            ->select('id', 'name', 'description', 'barcode', 'brand_id','created_at', 'updated_at');
     }
 
     /**
@@ -38,10 +45,10 @@ class ProductsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->addAction(['width' => '80px'])
+            ->parameters($this->getBuilderParameters());
     }
 
     /**
@@ -53,9 +60,9 @@ class ProductsDataTable extends DataTable
     {
         return [
             'id',
-            'add your columns',
-            'created_at',
-            'updated_at'
+            'name',
+            'description',
+            'barcode',
         ];
     }
 
@@ -66,6 +73,6 @@ class ProductsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'ProducVariants_' . date('YmdHis');
+        return 'Products_' . date('YmdHis');
     }
 }

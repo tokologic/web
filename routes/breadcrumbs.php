@@ -19,5 +19,10 @@ try {
         $trail->push('Supplier', route('companies.index'));
     });
 
+    Breadcrumbs::for('brands.products.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $brand) {
+        $trail->parent('brands.index');
+        $trail->push($brand->name, route('brands.products.index', $brand));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

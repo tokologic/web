@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('brand_id');
             $table->string('name');
-            $table->text('description');
-            $table->string('barcode');
+            $table->text('description')->nullable();
+            $table->string('barcode')->nullable();
             $table->timestamps();
         });
     }

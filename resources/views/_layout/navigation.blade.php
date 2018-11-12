@@ -16,7 +16,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('companies.index')}}">
                 <span data-feather="shopping-cart"></span>
-                Company
+                Companies
             </a>
         </li>
 
@@ -31,7 +31,7 @@
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="users"></span>
-                Customers
+                Prices
             </a>
         </li>
         <li class="nav-item">

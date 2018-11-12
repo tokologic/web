@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 
 
 use App\DataTables\ProductsDataTable;
+use App\Model\Brand;
 use App\Model\Product;
-use App\Model\ProductVariant;
 use App\Traits\Crud;
 use Illuminate\Http\Request;
 
@@ -14,46 +14,46 @@ class ProductsController extends Controller
 {
     use Crud;
 
-    public function index(Product $product, ProductsDataTable $dataTable)
+    public function index(Brand $brand, ProductsDataTable $dataTable)
     {
-        return $dataTable->render('products.variants.index', compact('product'));
+        return $dataTable->render('brands.products.index', compact('brand'));
     }
 
-    public function create(Product $product)
+    public function create(Brand $brand)
     {
-        return view('products.variants.create', compact('product'));
+        return view('brands.products.create', compact('brand'));
     }
 
-    public function store(Product $product, Request $request)
+    public function store(Brand $brand, Request $request)
     {
-        $data = $this->gatherRequest(ProductVariant::class, $request);
+        $data = $this->gatherRequest(Product::class, $request);
 
-        $variant = new ProductVariant();
-        foreach ($data as $field => $value) $variant->{$field} = $value;
+        $product = new Product();
+        foreach ($data as $field => $value) $product->{$field} = $value;
 
-        $variant->product()->associate($product);
-        $variant->save();
+        $product->brand()->associate($brand);
+        $product->save();
     }
 
-    public function edit(Product $product, ProductVariant $variant)
+    public function edit(Brand $brand, Product $product)
     {
-        return view('products.variants.edit', compact('product', 'variant'));
+        return view('brands.products.edit', compact('brand', 'product'));
     }
 
-    public function update(Product $product, ProductVariant $variant, Request $request)
+    public function update(Brand $brand, Product $product, Request $request)
     {
-        $data = $this->gatherRequest(ProductVariant::class, $request);
+        $data = $this->gatherRequest(Product::class, $request);
 
-        foreach ($data as $field => $value) $variant->{$field} = $value;
+        foreach ($data as $field => $value) $product->{$field} = $value;
 
-        $variant->product()->associate($product);
-        $variant->save();
+        $product->brand()->associate($brand);
+        $product->save();
     }
 
-    public function destroy(Product $product, ProductVariant $variant)
+    public function destroy(Brand $brand, Product $product)
     {
         try {
-            $variant->delete();
+            $product->delete();
         } catch (\Exception $e) {
         }
     }
