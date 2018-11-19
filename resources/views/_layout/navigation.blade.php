@@ -29,7 +29,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('prices.index')}}">
                 <span data-feather="users"></span>
                 Prices
             </a>
