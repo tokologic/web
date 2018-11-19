@@ -251,54 +251,11 @@ class CreateAllPosTables extends Migration
         });
 
         \Schema::create('users_locations', function (Blueprint $table) {
-           $table->increments('id');
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('location_id');
             $table->unsignedInteger('location_type');
-           $table->timestamps();
-        });
-
-        \Schema::table('products', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories');
-        });
-
-        \Schema::table('regions', function (Blueprint $table) {
-            $table->foreign('parent_id')->references('id')->on('regions');
-        });
-
-        \Schema::table('product_images', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('asset_id')->references('id')->on('assets');
-        });
-
-        \Schema::table('suppliers', function (Blueprint $table) {
-            $table->foreign('region_id')->references('id')->on('regions');
-        });
-
-        \Schema::table('supplier_products', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
-        });
-
-        \Schema::table('product_prices', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
-        });
-
-        \Schema::table('warehouse_purchase_orders', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('supplier_id')->references('id')->on('users');
-            $table->foreign('approver_id')->references('id')->on('users');
-            $table->foreign('issuer_id')->references('id')->on('users');
-            $table->foreign('warehouse_id')->references('id')->on('warehouses');
-        });
-
-        \Schema::table('warehouse_po_items', function (Blueprint $table) {
-            $table->foreign('po_id')->references('id')->on('warehouse_purchase_orders');
-            $table->foreign('product_id')->references('id')->on('products');
-        });
-
-        \Schema::table('warehouses', function (Blueprint $table) {
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->timestamps();
         });
     }
 

@@ -20,13 +20,14 @@
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.5",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
+        "ntimyeboah/laravel-database-trigger": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0",
-        "barryvdh/laravel-ide-helper": "^2.5"
+        "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "classmap": [
