@@ -86,7 +86,7 @@ class CreateAllPosTables extends Migration
             $table->dateTime('issued_date');
             $table->date('delivery_date');
             $table->integer('tax');
-            $table->string('status');
+//            $table->string('status');
             $table->text('description');
             $table->text('reference');
             $table->string('status');
