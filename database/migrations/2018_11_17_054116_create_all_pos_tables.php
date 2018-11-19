@@ -86,7 +86,6 @@ class CreateAllPosTables extends Migration
             $table->dateTime('issued_date');
             $table->date('delivery_date');
             $table->integer('tax');
-//            $table->string('status');
             $table->text('description');
             $table->text('reference');
             $table->string('status');
@@ -105,8 +104,8 @@ class CreateAllPosTables extends Migration
             $table->bigInteger('gross_price');
             $table->timestamps();
 
-            $table->foreign('po_id')->references('id')->on('warehouse_purchase_orders');
-            $table->foreign('product_id')->references('id')->on('products');
+//            $table->foreign('po_id')->references('id')->on('warehouse_purchase_orders');
+//            $table->foreign('product_id')->references('id')->on('products');
 
         });
 
@@ -117,7 +116,7 @@ class CreateAllPosTables extends Migration
             $table->text('address');
             $table->timestamps();
 
-            $table->foreign('region_id')->references('id')->on('regions');
+//            $table->foreign('region_id')->references('id')->on('regions');
 
         });
 
@@ -129,7 +128,7 @@ class CreateAllPosTables extends Migration
             $table->string('status');
             $table->timestamps();
 
-            $table->foreign('gr_id')->references('id')->on('warehouse_goods_receives');
+//            $table->foreign('gr_id')->references('id')->on('warehouse_goods_receives');
 
         });
 
@@ -141,8 +140,8 @@ class CreateAllPosTables extends Migration
             $table->string('reference');
             $table->timestamps();
 
-            $table->foreign('gr_id')->references('id')->on('warehouse_goods_receives');
-            $table->foreign('product_id')->references('id')->on('products');
+//            $table->foreign('gr_id')->references('id')->on('warehouse_goods_receives');
+//            $table->foreign('product_id')->references('id')->on('products');
 
         });
 
@@ -152,8 +151,8 @@ class CreateAllPosTables extends Migration
             $table->unsignedInteger('product_id');
             $table->timestamps();
 
-            $table->foreign('warehouse_id')->references('id')->on('warehouses');
-            $table->foreign('product_id')->references('id')->on('products');
+//            $table->foreign('warehouse_id')->references('id')->on('warehouses');
+//            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
