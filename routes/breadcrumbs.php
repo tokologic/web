@@ -1,6 +1,12 @@
 <?php
 
 try {
+    Breadcrumbs::for('root', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+
+        $trail->push('Root', route('root'));
+    });
+
     Breadcrumbs::for('dashboard', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->push('Dashboard', route('dashboard'));
     });

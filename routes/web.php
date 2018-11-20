@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('blankon');
-});
+
+    $page = (object)[
+        'title' => 'Main',
+        'subTitle' => 'jus'
+    ];
+
+    return view('main', [
+        'page'  => $page
+    ]);
+})->name('root');
 
 Route::middleware(['guest'])->group(function () {
 
