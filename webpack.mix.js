@@ -20,6 +20,6 @@ mix.styles([
     'public/css/components.css',
     'public/css/plugins.css',
     'public/css/theme.css',
-], 'public/css/kios-sehati.css');
+], 'public/css/kios-sehati.css').version();
 
-mix.scripts(['resources/js/blankon.js'], 'public/js/kios-sehati.js');
+mix.scripts(['resources/js/blankon.js'], 'public/js/kios-sehati.js').version();

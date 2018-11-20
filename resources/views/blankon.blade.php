@@ -21,7 +21,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
 
-    <link href="{{asset('css/kios-sehati.css')}}" rel="stylesheet">
+    <link href="{{asset(mix('css/kios-sehati.css'))}}" rel="stylesheet">
 </head>
 
 <body class="page-header-fixed">
@@ -618,7 +618,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-sound/3.0.7/js/ion.sound.min.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-<script src="{{asset('js/kios-sehati.js')}}"></script>
+<script src="{{asset(mix('js/kios-sehati.js'))}}"></script>
 
 </body>
 </html>
