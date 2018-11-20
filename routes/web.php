@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('blankon', function () {
+Route::get('/', function () {
     return view('blankon');
 });
 
