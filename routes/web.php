@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('blankon', function () {
+    return view('blankon');
+});
+
 Route::middleware(['guest'])->group(function () {
 
     Route::get('/login', 'Auth\LoginController@index');
