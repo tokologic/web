@@ -50,7 +50,7 @@
                         <h3 class="panel-title">Items</h3>
                     </div>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-success">
+                        <button type="button" class="btn btn-primary">
                             <i class="fa fa-plus"></i> Add Item
                         </button>
                     </div>
