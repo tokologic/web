@@ -17,5 +17,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {
-
+    protected $table = 'store_purchase_orders';
 }
