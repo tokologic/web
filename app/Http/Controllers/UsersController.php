@@ -17,7 +17,8 @@ class UsersController extends Controller
 
     public function index(UsersDataTable $dataTable)
     {
-        return $dataTable->render('users.index');
+        $page = (object)['icon' => 'fa-user-o', 'title' => 'Users'];
+        return $dataTable->render('users.index', compact('page'));
     }
 
     public function create()

@@ -10,7 +10,6 @@ function create(route) {
 }
 
 
-
 function store(formId, dataTablesId) {
     let $form = $('#' + formId);
     let route = $form.attr('action');

@@ -12,7 +12,6 @@ class LoginController extends Controller
 
     public function index()
     {
-//        dd(\Sentinel::check());
         return view('auth.login');
     }
 

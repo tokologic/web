@@ -1,4 +1,4 @@
-@extends('_layout.main')
+@extends('_layout.blankon')
 
 @section('content')
     <div

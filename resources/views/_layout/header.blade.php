@@ -6,7 +6,8 @@
     </div>
     <div class="navbar-header">
         <a class="navbar-brand" href="dashboard.html">
-            <img class="logo" src="{{asset('img/blank-avatar.jpeg')}}" alt="brand logo"/>
+            {{--<img class="logo" src="{{asset('img/blank-avatar.jpeg')}}" alt="brand logo"/>--}}
+            <span>Kios Sehati</span>
         </a>
     </div>
     <!-- Start offcanvas right: This menu will take position at the top of template header (mobile only). Make sure that only

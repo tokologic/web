@@ -47,7 +47,7 @@
 
     <section id="page-content">
         <div class="header-content">
-            <h2><i class="fa fa-file-o"></i>{{$page->title}} <span>{{$page->subTitle}}</span></h2>
+            <h2><i class="fa {{$page->icon ?? 'fa-file-o'}}"></i>{{$page->title ?? ''}} <span>{{$page->subTitle ?? ''}}</span></h2>
             <div class="breadcrumb-wrapper hidden-xs">
                 <span class="label">You are here:</span>
 
@@ -63,6 +63,8 @@
 
 
 </section>
+
+@include('_layout.modal')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>

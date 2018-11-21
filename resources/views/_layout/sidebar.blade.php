@@ -1,5 +1,4 @@
 <div class="sidebar-content">
-    <a href="#" class="close">×</a>
     <div class="media">
         <a class="pull-left has-notif avatar" href="page-profile.html">
             <img src="{{asset('img/blank-avatar.jpeg')}}" alt="admin">
@@ -12,6 +11,12 @@
     </div>
 </div><!-- /.sidebar-content -->
 <ul class="sidebar-menu">
+    <li>
+        <a href="{{route('users.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Users</span>
+        </a>
+    </li>
     <li>
         <a href="frontend-themes.html">
             <span class="icon"><i class="fa fa-leaf"></i></span>

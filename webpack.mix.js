@@ -23,3 +23,5 @@ mix.styles([
 ], 'public/css/kios-sehati.css').version();
 
 mix.scripts(['resources/js/blankon.js'], 'public/js/kios-sehati.js').version();
+
+mix.copyDirectory('bower_components/datatables/media', 'public/vendor/datatables')

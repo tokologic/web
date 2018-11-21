@@ -13,14 +13,11 @@
 
 Route::get('/', function () {
 
-    $page = (object)[
-        'title' => 'Main',
-        'subTitle' => 'jus'
-    ];
+    if (Sentinel::check()) {
+        return redirect()->to('dashboard');
+    }
 
-    return view('main', [
-        'page'  => $page
-    ]);
+    return redirect()->to('login');
 })->name('root');
 
 Route::middleware(['guest'])->group(function () {
