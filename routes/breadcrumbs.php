@@ -15,6 +15,11 @@ try {
         $trail->push('Users', route('users.index'));
     });
 
+    Breadcrumbs::for('midwives.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Midwife', route('midwives.index'));
+    });
+
     Breadcrumbs::for('brands.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Brands', route('brands.index'));

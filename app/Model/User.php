@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -40,7 +41,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\User whereUpdatedAt($value)
  */
-class User extends Model
+class User extends EloquentUser
 {
     use Notifiable;
 
@@ -52,7 +53,11 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'first_name', 'last_name'
+        'email',
+        'password',
+        'last_name',
+        'first_name',
+        'permissions',
     ];
 
     /**

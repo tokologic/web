@@ -4,6 +4,7 @@
 namespace App\Model;
 
 
+use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
