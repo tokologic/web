@@ -13,7 +13,7 @@
             </div>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-user-add">
-                    <i class="fa fa-add"></i> Add user
+                    <i class="fa fa-plus"></i> Add user
                 </button>
             </div>
             <div class="clearfix"></div>
