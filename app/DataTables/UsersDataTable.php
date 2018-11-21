@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Model\User;
+use Cartalyst\Sentinel\Users\EloquentUser;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
@@ -17,6 +18,13 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->addColumn('role', function ($item) {
+                if (count($item->roles) > 0) {
+                    return optional($item->roles[0])->name;
+                }
+
+                return '-';
+            })
             ->addColumn('action', function ($data) {
                 return view('users.action')
                     ->with(['user' => $data])
@@ -27,12 +35,12 @@ class UsersDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Model\User $model
+     * @param EloquentUser $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(EloquentUser $model)
     {
-        return $model->newQuery()->select('id', 'email');
+        return $model->newQuery()->with('roles')->select('id', 'email');
     }
 
     /**
@@ -45,7 +53,7 @@ class UsersDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '150px'])
             ->parameters($this->getBuilderParameters());
     }
 
@@ -57,8 +65,9 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'email'
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
+            'email',
+            'role'
         ];
     }
 
@@ -71,4 +80,5 @@ class UsersDataTable extends DataTable
     {
         return 'Users_' . date('YmdHis');
     }
+
 }

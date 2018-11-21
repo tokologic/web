@@ -23,18 +23,33 @@ class UsersController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $roles = \Sentinel::getRoleRepository()->createModel()->all();
+        return view('users.create', compact('roles'));
     }
 
     public function store(UserRequest $request)
     {
-        $data = $this->gatherRequest(User::class, $request);
-        User::create($data);
+//        $data = $this->gatherRequest(User::class, $request);
+        $user = \Sentinel::registerAndActivate([
+            'email'    => $request->get('email'),
+            'password' => $request->get('password')
+        ]);
+
+        $role = \Sentinel::findRoleBySlug($request->get('role'));
+        $role->users()->attach($user);
+
+        # Update rest of fields
+        $user->first_name = $request->get('first_name');
+        $user->last_name = $request->get('last_name');
+        $user->save();
     }
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $userSentinel = \Sentinel::findById($user->id);
+        $roles = \Sentinel::getRoleRepository()->createModel()->all();
+
+        return view('users.edit', compact('roles'))->with(['user' => $userSentinel]);
     }
 
     public function update(User $user, Request $request)

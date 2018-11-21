@@ -1,11 +1,11 @@
 @if (count($breadcrumbs))
 
     <ol class="breadcrumb">
-        <li>
-            <i class="fa fa-home"></i>
-            <a href="{{ url('/') }}">Home</a>
-            <i class="fa fa-angle-right"></i>
-        </li>
+        {{--<li>--}}
+            {{--<i class="fa fa-home"></i>--}}
+            {{--<a href="{{ url('/') }}">Home</a>--}}
+            {{--<i class="fa fa-angle-right"></i>--}}
+        {{--</li>--}}
 
         @foreach ($breadcrumbs as $breadcrumb)
             @if ($breadcrumb->url && !$loop->last)

@@ -25,7 +25,9 @@
             <div class="form-group">
                 <label for="role">Role</label>
                 <select name="role" id="role" class="form-control form-control-sm">
-                    <option value="admin">Admin</option>
+                    @foreach($roles as $role)
+                        <option value="{{ $role->slug }}">{{ $role->name }}</option>
+                    @endforeach
                 </select>
                 <div class="invalid-feedback"></div>
 
