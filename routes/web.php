@@ -38,4 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('brands.products', 'ProductsController');
 
     Route::resource('prices', 'PricesController');
+
+    Route::get('purchase-orders', 'Warehouse\PurchaseOrdersController@index')->name('warehouse.po.index');
+    Route::get('purchase-orders/create', 'Warehouse\PurchaseOrdersController@create')->name('warehouse.po.create');
 });

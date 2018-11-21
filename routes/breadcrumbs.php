@@ -10,6 +10,7 @@ try {
     Breadcrumbs::for('dashboard', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->push('Dashboard', route('dashboard'));
     });
+
     Breadcrumbs::for('users.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Users', route('users.index'));
@@ -38,6 +39,16 @@ try {
     Breadcrumbs::for('prices.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Prices', route('prices.index'));
+    });
+
+    Breadcrumbs::for('warehouse.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+       $trail->parent('dashboard');
+       $trail->push('Purchase Orders', route('warehouse.po.index'));
+    });
+
+    Breadcrumbs::for('warehouse.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('warehouse.po.index');
+        $trail->push('New', route('warehouse.po.create'));
     });
 
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {

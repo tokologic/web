@@ -18,26 +18,20 @@
         </a>
     </li>
     <li>
-        <a href="frontend-themes.html">
+        <a href="{{route('midwives.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Frontend</span>
-        </a>
-    </li>
-    <li>
-        <a href="dashboard.html">
-            <span class="icon"><i class="fa fa-home"></i></span>
-            <span class="text">Dashboard</span>
-        </a>
-    </li>
-    <li>
-        <a href="index.html">
-            <span class="icon"><i class="fa fa-rocket"></i></span>
-            <span class="text">Landing</span>
+            <span class="text">Midwives</span>
         </a>
     </li>
     <li class="sidebar-category">
-        <span>UI KIT</span>
+        <span>Purchase Orders</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
+    </li>
+    <li>
+        <a href="{{route('warehouse.po.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">PO</span>
+        </a>
     </li>
     <li class="submenu">
         <a href="javascript:void(0);">
