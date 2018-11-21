@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class GoodsReceive extends Model implements GoodsReceiveInterface
 {
+    protected $table = 'store_goods_receives';
 
     public function isQuantityFull()
     {
