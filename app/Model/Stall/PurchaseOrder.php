@@ -5,6 +5,7 @@ namespace App\Model\Stall;
 
 
 use App\Contract\PurchaseOrderInterface;
+use App\PurchaseOrderItem;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -18,4 +19,14 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {
     protected $table = 'store_purchase_orders';
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function purchaseorderitems()
+    {
+        return $this->hasMany(PurchaseOrderItem::class);
+    }
 }

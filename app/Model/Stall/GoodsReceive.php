@@ -19,6 +19,11 @@ class GoodsReceive extends Model implements GoodsReceiveInterface
 {
     protected $table = 'store_goods_receives';
 
+    public function purchaseorder()
+    {
+        return $this->belongsTo(PurchaseOrder::class);
+    }
+
     public function isQuantityFull()
     {
         // TODO: Implement isQuantityFull() method.
