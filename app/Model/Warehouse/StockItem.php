@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Model\Stall;
+namespace App\Model\Warehouse;
 
 
 use App\Contract\StockItemInterface;
