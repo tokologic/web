@@ -24,6 +24,7 @@ class PurchaseOrderItemObserver
 
         # select sum(gross_price) from po_item where po_id = x
         $sum = PurchaseOrderItem::where('po_id', '=', $po->id)->sum('gross_price');
-        $poItem->purchaseOrder()->update(['amount' => $sum]);
+        $amount = $sum + ($po->tax / 100 * $sum);
+        $poItem->purchaseOrder()->update(['amount' => $amount]);
     }
 }
