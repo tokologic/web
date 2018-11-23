@@ -51,5 +51,17 @@ try {
         $trail->push('New', route('warehouse.po.create'));
     });
 
+    Breadcrumbs::for('warehouse.po.edit', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $po = \App\Model\Warehouse\PurchaseOrder::find($id);
+        $trail->parent('warehouse.po.index');
+        $trail->push($po->id, route('warehouse.po.edit', $po->id));
+    });
+
+    Breadcrumbs::for('warehouse.po.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $po = \App\Model\Warehouse\PurchaseOrder::find($id);
+        $trail->parent('warehouse.po.index');
+        $trail->push($po->id, route('warehouse.po.show', $po->id));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

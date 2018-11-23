@@ -5,6 +5,8 @@ namespace App\Model\Warehouse;
 
 
 use App\Contract\PurchaseOrderInterface;
+use App\Model\Supplier;
+use App\Model\Warehouse;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -22,4 +24,15 @@ class PurchaseOrder extends Model implements PurchaseOrderInterface
     protected $fillable = ['user_id', 'supplier_id', 'warehouse_id', 'issuer_id',
                            'delivery_date','tax',
         'description','reference','issued_date','approved_date'];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+
+    }
 }

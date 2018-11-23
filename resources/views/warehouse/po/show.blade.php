@@ -24,38 +24,34 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="{{route('warehouse.po.store')}}" method="post">
-                                {{csrf_field()}}
 
-                                <div class="form-group">
-                                    <label for="supplier">Supplier</label>
-                                    <select id="supplier" name="supplier"></select>
-                                </div>
 
-                                <div class="form-group">
-                                    <label for="warehouse">Warehouse</label>
-                                    <select id="warehouse" name="warehouse"></select>
-                                </div>
+                            <div class="form-group">
+                                <label class="control-label">Supplier</label>
+                                <p class="form-control-static">{{ $po->supplier->name }}</p>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="delivery_date">Delivery date</label>
-                                    <input type="text" id="delivery_date" name="delivery_date" class="form-control" autocomplete="off">
-                                </div>
+                            <div class="form-group">
+                                <label class="control-label">Warehouse</label>
+                                <p class="form-control-static">{{ $po->warehouse->name }}</p>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" id="description" class="form-control"></textarea>
-                                </div>
+                            <div class="form-group">
+                                <label class="control-label">Delivery date</label>
+                                <p class="form-control-static">{{ $po->delivery_date }}</p>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="reference">Reference</label>
-                                    <textarea name="reference" id="reference" class="form-control"></textarea>
-                                </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <p class="form-control-static">{{ $po->description }}</p>
 
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fa fa-floppy-o"></i> Save
-                                </button>
-                            </form>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reference">Reference</label>
+                                <p class="form-control-static">{{ $po->reference }}</p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
