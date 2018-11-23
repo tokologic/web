@@ -35,7 +35,7 @@
 @push('scripts')
     <script src="{{asset('vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('vendor/datatables/js/dataTables.bootstrap.min.js')}}"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    {{--<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">--}}
     {{--<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>--}}
     {{--<script src="/vendor/datatables/buttons.server-side.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>

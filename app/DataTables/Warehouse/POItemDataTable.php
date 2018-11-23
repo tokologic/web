@@ -2,10 +2,10 @@
 
 namespace App\DataTables\Warehouse;
 
-use App\Model\Warehouse\PurchaseOrder;
+use App\Model\Warehouse\PurchaseOrderItem;
 use Yajra\DataTables\Services\DataTable;
 
-class PODataTables extends DataTable
+class POItemDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -17,8 +17,8 @@ class PODataTables extends DataTable
     {
         return datatables($query)
             ->addColumn('action', function ($data) {
-                return view('warehouse.po.action')
-                    ->with(['po' => $data])
+                return view('warehouse.item.action')
+                    ->with(['item' => $data])
                     ->render();
             });
     }
@@ -26,12 +26,14 @@ class PODataTables extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param PurchaseOrder $model
+     * @param PurchaseOrderItem $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(PurchaseOrder $model)
+    public function query(PurchaseOrderItem $model)
     {
-        return $model->newQuery()->select('id', 'delivery_date', 'status', 'amount', 'description');
+        return $model->newQuery()
+            ->where('po_id', '=', $this->po->id)
+            ->select('id', 'discount', 'currency', 'unit_price', 'sub_total', 'gross_price');
     }
 
     /**
@@ -56,11 +58,8 @@ class PODataTables extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'delivery_date',
-            'amount',
-            'status',
-            'description',
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
+            'discount', 'currency', 'unit_price', 'sub_total', 'gross_price'
         ];
     }
 
@@ -71,6 +70,6 @@ class PODataTables extends DataTable
      */
     protected function filename()
     {
-        return 'PODataTables_' . date('YmdHis');
+        return 'POItem_' . date('YmdHis');
     }
 }

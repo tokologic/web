@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('brands.products', 'ProductsController');
     Route::get('suppliers/select', 'SupplierController@select2')->name('suppliers.select');
     Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
+    Route::get('products/select', 'ProductsController@select2')->name('products.select');
 
     Route::resource('prices', 'PricesController');
 
@@ -48,4 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('purchase-orders/{po}/edit', 'Warehouse\PurchaseOrdersController@edit')->name('warehouse.po.edit');
     Route::get('purchase-orders/{po}', 'Warehouse\PurchaseOrdersController@show')->name('warehouse.po.show');
     Route::delete('purchase-orders/{po}', 'Warehouse\PurchaseOrdersController@edit')->name('warehouse.po.destroy');
+
+    Route::get('purchase-orders/{po}/create', 'Warehouse\PurchaseOrderItemsController@create')->name('warehouse.po.item.create');
+    Route::post('purchase-orders/{po}', 'Warehouse\PurchaseOrderItemsController@store')->name('warehouse.po.item.store');
+
 });

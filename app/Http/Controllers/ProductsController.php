@@ -4,15 +4,18 @@
 namespace App\Http\Controllers;
 
 
+use Api\Transformers\ProductTransformer;
 use App\DataTables\ProductsDataTable;
 use App\Model\Brand;
 use App\Model\Product;
 use App\Traits\Crud;
+use App\Traits\Transformer;
 use Illuminate\Http\Request;
+use League\Fractal\Resource\Collection;
 
 class ProductsController extends Controller
 {
-    use Crud;
+    use Crud, Transformer;
 
     public function index(Brand $brand, ProductsDataTable $dataTable)
     {
@@ -56,5 +59,19 @@ class ProductsController extends Controller
             $product->delete();
         } catch (\Exception $e) {
         }
+    }
+
+    public function select2(Request $request)
+    {
+        $q = $request->get('q');
+        if ($q == '')
+            $products = [];
+        else
+            $products = Product::where("name", "like", "%$q%")->get();
+
+
+        $resource = new Collection($products, new ProductTransformer());
+        $data = $this->fractal->createData($resource)->toArray();
+        return response()->json($data);
     }
 }

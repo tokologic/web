@@ -6,10 +6,12 @@ use App\Model\Brand;
 use App\Model\Company;
 use App\Model\Product;
 use App\Model\User;
+use App\Model\Warehouse\PurchaseOrderItem;
 use App\Observers\BrandObserver;
 use App\Observers\CompanyObserver;
 use App\Observers\ProductObserver;
 use App\Observers\UserObserver;
+use App\Observers\Warehouse\PurchaseOrderItemObserver;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,6 +47,7 @@ class AppServiceProvider extends ServiceProvider
         Company::observe(CompanyObserver::class);
         Product::observe(ProductObserver::class);
         User::observe(UserObserver::class);
+        PurchaseOrderItem::observe(PurchaseOrderItemObserver::class);
     }
 
     private function logQuery(): void

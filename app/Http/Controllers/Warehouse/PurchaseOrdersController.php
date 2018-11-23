@@ -3,7 +3,8 @@
 
 namespace App\Http\Controllers\Warehouse;
 
-use App\DataTables\Warehouse\PODataTables;
+use App\DataTables\Warehouse\PODataTable;
+use App\DataTables\Warehouse\POItemDataTable;
 use App\Http\Controllers\Controller;
 use App\Model\Warehouse\PurchaseOrder;
 use App\Traits\Crud;
@@ -14,7 +15,7 @@ class PurchaseOrdersController extends Controller
 {
     use Crud;
 
-    public function index(PODataTables $dataTables)
+    public function index(PODataTable $dataTables)
     {
         return $dataTables->render('warehouse.po.index');
     }
@@ -28,12 +29,12 @@ class PurchaseOrdersController extends Controller
     {
 //        $data = $this->gatherRequest(PurchaseOrder::class, $request);
         $po = PurchaseOrder::create([
-            'user_id' => \Sentinel::getUser()->id,
-            'supplier_id' => $request->get('supplier'),
-            'warehouse_id' => $request->get('warehouse'),
+            'user_id'       => \Sentinel::getUser()->id,
+            'supplier_id'   => $request->get('supplier'),
+            'warehouse_id'  => $request->get('warehouse'),
             'delivery_date' => Carbon::parse($request->get('delivery_date')),
-            'description' => $request->get('description'),
-            'reference' => $request->get('reference'),
+            'description'   => $request->get('description'),
+            'reference'     => $request->get('reference'),
         ]);
 
         return redirect()->route('warehouse.po.edit', [$po->id]);
@@ -47,10 +48,11 @@ class PurchaseOrdersController extends Controller
 
     }
 
-    public function show($id, Request $request)
+    public function show($id, POItemDataTable $dataTable)
     {
         $po = PurchaseOrder::find($id);
 
-        return view('warehouse.po.show', compact('po'));
+        return $dataTable->with('po', $po)
+            ->render('warehouse.po.show', compact('po'));
     }
 }
