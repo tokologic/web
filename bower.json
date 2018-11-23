@@ -16,6 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "datatables": "^1.10.19"
+    "datatables": "^1.10.19",
+    "select2": "^4.0.5",
+    "bootstrap-datepicker-vitalets": "*",
+    "bootbox.js": "bootbox#^4.4.0"
   }
 }

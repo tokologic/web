@@ -18,4 +18,8 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {
     protected $table = 'warehouse_purchase_orders';
+
+    protected $fillable = ['user_id', 'supplier_id', 'warehouse_id', 'issuer_id',
+                           'delivery_date','tax',
+        'description','reference','issued_date','approved_date'];
 }

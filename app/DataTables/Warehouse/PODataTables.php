@@ -3,7 +3,6 @@
 namespace App\DataTables\Warehouse;
 
 use App\Model\Warehouse\PurchaseOrder;
-use App\User;
 use Yajra\DataTables\Services\DataTable;
 
 class PODataTables extends DataTable
@@ -32,7 +31,7 @@ class PODataTables extends DataTable
      */
     public function query(PurchaseOrder $model)
     {
-        return $model->newQuery()->select('id', 'delivery_date', 'status', 'amount');
+        return $model->newQuery()->select('id', 'delivery_date', 'status', 'amount', 'description');
     }
 
     /**
@@ -59,8 +58,9 @@ class PODataTables extends DataTable
         return [
             'id',
             'delivery_date',
+            'amount',
             'status',
-            'amount'
+            'description',
         ];
     }
 

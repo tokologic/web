@@ -26,7 +26,7 @@ var BlankonApp = function(){
             BlankonApp.handlePanelScroll();
             // BlankonApp.handleTypehead();
             BlankonApp.handleFullscreen();
-            BlankonApp.handleSelect2();
+            // BlankonApp.handleSelect2();
             BlankonApp.handleTooltip();
             BlankonApp.handlePopover();
             BlankonApp.handlePanelToolAction();

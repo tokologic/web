@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapPosRoutes();
     }
 
     /**
@@ -51,9 +51,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+        \Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -65,9 +65,28 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+        if (\App::environment(['production', 'staging'])) {
+            $route = \Route::domain('api.' . config('app.domain'));
+        } else {
+            $route = \Route::prefix('api');
+        }
+
+        $route->middleware('api')
+            ->namespace('Api\Http\Controllers')
+            ->group(base_path('api/routes/api.php'));
+
+    }
+
+    protected function mapPosRoutes()
+    {
+        if (\App::environment(['production', 'staging'])) {
+            $route = \Route::domain('pos.' . config('app.domain'));
+        } else {
+            $route = \Route::prefix('pos');
+        }
+
+        $route->middleware('web')
+            ->namespace('Pos\Http\Controllers')
+            ->group(base_path('pos/routes/pos.php'));
     }
 }

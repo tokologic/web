@@ -36,9 +36,15 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('brands', 'BrandsController');
     Route::resource('companies', 'CompaniesController');
     Route::resource('brands.products', 'ProductsController');
+    Route::get('suppliers/select', 'SupplierController@select2')->name('suppliers.select');
+    Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
 
     Route::resource('prices', 'PricesController');
 
+//    Route::resource('wh/purchase-orders', 'Warehouse\PurchaseOrdersController');
     Route::get('purchase-orders', 'Warehouse\PurchaseOrdersController@index')->name('warehouse.po.index');
     Route::get('purchase-orders/create', 'Warehouse\PurchaseOrdersController@create')->name('warehouse.po.create');
+    Route::post('purchase-orders', 'Warehouse\PurchaseOrdersController@store')->name('warehouse.po.store');
+    Route::get('purchase-orders/{po}/edit', 'Warehouse\PurchaseOrdersController@edit')->name('warehouse.po.edit');
+    Route::delete('purchase-orders/{po}', 'Warehouse\PurchaseOrdersController@edit')->name('warehouse.po.destroy');
 });

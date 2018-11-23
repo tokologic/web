@@ -24,4 +24,7 @@ mix.styles([
 
 mix.scripts(['resources/js/blankon.js'], 'public/js/kios-sehati.js').version();
 
-mix.copyDirectory('bower_components/datatables/media', 'public/vendor/datatables')
+mix.copyDirectory('bower_components/datatables/media', 'public/vendor/datatables');
+mix.copyDirectory('bower_components/bootstrap-datepicker-vitalets/', 'public/vendor/bootstrap-datepicker-vitalets');
+mix.copyDirectory('bower_components/select2/dist', 'public/vendor/select2');
+// mix.copyDirectory('bower_components/bootbox.js', 'public/vendor/bootbox');
