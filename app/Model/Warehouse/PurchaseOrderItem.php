@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Model\Warehouse;
-
 
 use App\Model\Product;
 use Illuminate\Database\Eloquent\Model;
