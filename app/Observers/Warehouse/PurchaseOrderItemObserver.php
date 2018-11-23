@@ -17,4 +17,13 @@ class PurchaseOrderItemObserver
         $poItem->gross_price = $grossPrice;
         $poItem->currency = 'IDR';
     }
+
+    public function saved(PurchaseOrderItem $poItem)
+    {
+        $po = $poItem->purchaseOrder;
+
+        # select sum(gross_price) from po_item where po_id = x
+        $sum = PurchaseOrderItem::where('po_id', '=', $po->id)->sum('gross_price');
+        $poItem->purchaseOrder()->update(['amount' => $sum]);
+    }
 }
