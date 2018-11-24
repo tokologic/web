@@ -21,4 +21,14 @@ class PurchaseOrderItem extends Model
     {
         return $this->belongsTo(PurchaseOrder::class, 'po_id');
     }
+
+    /**
+     * Alias of purchaseOrder method
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function po()
+    {
+        return $this->purchaseOrder();
+    }
 }
