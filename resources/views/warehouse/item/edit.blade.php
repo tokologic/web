@@ -51,7 +51,8 @@
             delay: 250,
             data: function (params) {
                 return {
-                    q: params.term
+                    q: params.term,
+                    poId: {{ $item->po->id }}
                 };
             },
             processResults: function (data, params) {

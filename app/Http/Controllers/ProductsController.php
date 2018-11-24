@@ -8,6 +8,8 @@ use Api\Transformers\ProductTransformer;
 use App\DataTables\ProductsDataTable;
 use App\Model\Brand;
 use App\Model\Product;
+use App\Model\Warehouse\PurchaseOrder;
+use App\Model\Warehouse\PurchaseOrderItem;
 use App\Traits\Crud;
 use App\Traits\Transformer;
 use Illuminate\Http\Request;
@@ -66,8 +68,19 @@ class ProductsController extends Controller
         $q = $request->get('q');
         if ($q == '')
             $products = [];
-        else
-            $products = Product::where("name", "like", "%$q%")->get();
+        else {
+
+            if ($request->has('poId')) {
+                $productsId = PurchaseOrderItem::where('po_id','=', $request->get('poId'))
+                    ->pluck('product_id');
+                $products = Product::where("name", "like", "%$q%")
+                    ->whereNotIn('id', $productsId)
+                    ->get();
+            } else {
+                $products = Product::where("name", "like", "%$q%")->get();
+            }
+
+        }
 
 
         $resource = new Collection($products, new ProductTransformer());

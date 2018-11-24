@@ -40,7 +40,10 @@
             "App\\": "app/",
             "Pos\\": "pos/",
             "Api\\": "api/"
-        }
+        },
+        "files": [
+            "app/helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

@@ -16,6 +16,18 @@ class POItemDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->editColumn('discount', function ($data) {
+                return $data->discount . "%";
+            })
+            ->editColumn('unit_price', function ($data) {
+                return rupiah($data->unit_price);
+            })
+            ->editColumn('sub_total', function ($data) {
+                return rupiah($data->sub_total);
+            })
+            ->editColumn('gross_price', function ($data) {
+                return rupiah($data->gross_price);
+            })
             ->addColumn('product', function ($data) {
                 return optional($data->product)->name;
             })
@@ -62,7 +74,7 @@ class POItemDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
-            ['data' => 'product', 'name' => 'product', 'title' => 'product', 'orderable' => false, 'searchable' => false],
+            ['data' => 'product', 'name' => 'product', 'title' => 'Product', 'orderable' => false, 'searchable' => false],
             'qty', 'unit_price', 'sub_total', 'discount', 'gross_price'
         ];
     }

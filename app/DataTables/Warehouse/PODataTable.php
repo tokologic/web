@@ -16,6 +16,9 @@ class PODataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->editColumn('amount', function ($data) {
+                return rupiah($data->amount);
+            })
             ->addColumn('action', function ($data) {
                 return view('warehouse.po.action')
                     ->with(['po' => $data])
