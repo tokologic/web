@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('purchase-orders/{po}/edit', 'Warehouse\PurchaseOrdersController@edit')->name('warehouse.po.edit');
     Route::get('purchase-orders/{po}', 'Warehouse\PurchaseOrdersController@show')->name('warehouse.po.show');
     Route::delete('purchase-orders/{po}', 'Warehouse\PurchaseOrdersController@destroy')->name('warehouse.po.destroy');
+    Route::put('purchase-orders/{po}/status', 'Warehouse\PurchaseOrdersController@status')->name('warehouse.po.status');
 
     Route::get('purchase-orders/{po}/items/create', 'Warehouse\PurchaseOrderItemsController@create')->name('warehouse.po.item.create');
     Route::post('purchase-orders/{po}/items', 'Warehouse\PurchaseOrderItemsController@store')->name('warehouse.po.item.store');

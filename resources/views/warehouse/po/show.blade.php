@@ -13,7 +13,7 @@
             <div class="panel shadow">
                 <div class="panel-heading">
                     <div class="pull-left">
-                        <h3 class="panel-title">New Purchase Order</h3>
+                        <h3 class="panel-title">PO #{{ $po->id }} ({{ title_case($po->status) }})</h3>
                     </div>
                     <div class="pull-right">
 
@@ -27,11 +27,13 @@
                             <div class="form-group">
                                 <label class="control-label">Supplier</label>
                                 <p class="form-control-static">{{ $po->supplier->name }}</p>
+                                <p class="form-control-static small">{{ $po->supplier->address }}</p>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Warehouse</label>
                                 <p class="form-control-static">{{ $po->warehouse->name }}</p>
+                                <p class="form-control-static small">{{ $po->warehouse->address }}</p>
                             </div>
 
                             <div class="form-group">
@@ -49,6 +51,31 @@
                                 <label for="reference">Reference</label>
                                 <p class="form-control-static">{{ $po->reference }}</p>
                             </div>
+
+                            @if($po->status == 'draft')
+                                <button type="button" class="btn btn-success" id="btn-new">
+                                    <i class="fa fa-floppy-o"></i> New
+                                </button>
+                            @endif
+
+                            @if($po->status == 'new')
+                            <button type="button" class="btn btn-success" id="btn-issued">
+                                <i class="fa fa-check"></i> Issued
+                            </button>
+                            @endif
+
+                            @if($po->status == 'issued')
+                            <button type="button" class="btn btn-primary" id="btn-new">
+                                <i class="fa fa-money"></i> Approve
+                            </button>
+                            @endif
+
+                            @if($po->status == 'issued')
+                                <button type="button" class="btn btn-warning" id="btn-change">
+                                    <i class="fa fa-money"></i> Change
+                                </button>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -63,9 +90,11 @@
                         <h3 class="panel-title">Items</h3>
                     </div>
                     <div class="pull-right">
+                        @if(in_array($po->status, ['draft','new']))
                         <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-po-item-add">
                             <i class="fa fa-plus"></i> Add item
                         </button>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -75,6 +104,15 @@
                             <div class="table-responsive">
                                 {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-po-item-list']) !!}
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h3>Total </h3>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h3>{{ rupiah($po->amount) }}</h3>
                         </div>
                     </div>
                 </div>
@@ -99,6 +137,90 @@
     <script>
         $('#btn-po-item-add').click(function () {
             create("{{route('warehouse.po.item.create', [$po->id])}}");
+        });
+
+        $('#btn-change').click(function () {
+            bootbox.confirm({
+                // title: "Destroy planet?",
+                message: "Do you want make correction this PO?",
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            type: "PUT",
+                            url: "{{route('warehouse.po.status', [$po->id])}}",
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: 'correction'
+                            },
+                            success: function (data) {
+                                window.location.href = data
+                            },
+                            error: function (r) {
+
+                            }
+                        });
+
+                    }
+                }
+            })
+
+
+        });
+
+        $('#btn-new').click(function () {
+            bootbox.confirm({
+                // title: "Destroy planet?",
+                message: "Do you want make new this PO?",
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            type: "PUT",
+                            url: "{{route('warehouse.po.status', [$po->id])}}",
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: 'new'
+                            },
+                            success: function (data) {
+                                window.location.href = data
+                            },
+                            error: function (r) {
+
+                            }
+                        });
+
+                    }
+                }
+            })
+
+
+        });
+
+        $('#btn-issued').click(function () {
+            bootbox.confirm({
+                // title: "Destroy planet?",
+                message: "Do you want issued this PO?",
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            type: "PUT",
+                            url: "{{route('warehouse.po.status', [$po->id])}}",
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: 'issued'
+                            },
+                            success: function (data) {
+                                window.location.href = data
+                            },
+                            error: function (r) {
+
+                            }
+                        });
+
+                    }
+                }
+            })
+
+
         });
     </script>
 @endpush

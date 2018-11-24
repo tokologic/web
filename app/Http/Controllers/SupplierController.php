@@ -22,7 +22,7 @@ class SupplierController extends Controller
         if ($q == '')
             $suppliers = [];
         else
-            $suppliers = Supplier::where("name", "like", "%$q%")->get();
+            $suppliers = Supplier::where("name", "like", "%$q%")->limit(20)->get();
 
 
         $resource = new Collection($suppliers, new SupplierTransformer());
