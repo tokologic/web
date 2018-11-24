@@ -16,6 +16,9 @@ class POItemDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->addColumn('product', function ($data) {
+                return optional($data->product)->name;
+            })
             ->addColumn('action', function ($data) {
                 return view('warehouse.item.action')
                     ->with(['item' => $data])
@@ -31,9 +34,9 @@ class POItemDataTable extends DataTable
      */
     public function query(PurchaseOrderItem $model)
     {
-        return $model->newQuery()
-            ->where('po_id', '=', $this->po->id)
-            ->select('id', 'discount', 'currency', 'unit_price', 'sub_total', 'gross_price');
+        return $model->newQuery()->with('product')
+            ->where('po_id', '=', $this->po->id);
+//            ->select('id', 'discount', 'currency', 'unit_price', 'sub_total', 'gross_price');
     }
 
     /**
@@ -58,8 +61,9 @@ class POItemDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
-            'discount', 'currency', 'unit_price', 'sub_total', 'gross_price'
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
+            ['data' => 'product', 'name' => 'product', 'title' => 'product', 'orderable' => false, 'searchable' => false],
+            'qty', 'unit_price', 'sub_total', 'discount', 'gross_price'
         ];
     }
 

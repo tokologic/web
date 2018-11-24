@@ -15,6 +15,7 @@ class AddQtyInWarehouseProductItems extends Migration
     {
         \Schema::table('warehouse_po_items', function (Blueprint $table) {
             $table->unsignedInteger('qty');
+            $table->unique(['po_id', 'product_id']);
         });
     }
 
@@ -26,6 +27,7 @@ class AddQtyInWarehouseProductItems extends Migration
     public function down()
     {
         \Schema::table('warehouse_po_items', function (Blueprint $table) {
+//            $table->dropUnique('warehouse_po_items_po_id_product_id_unique');
             $table->dropColumn('qty');
         });
     }

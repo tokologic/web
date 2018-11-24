@@ -37,7 +37,7 @@ class PurchaseOrdersController extends Controller
             'reference'     => $request->get('reference'),
         ]);
 
-        return redirect()->route('warehouse.po.edit', [$po->id]);
+        return redirect()->route('warehouse.po.show', [$po->id]);
     }
 
     public function edit($id, Request $request)
