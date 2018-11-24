@@ -25,6 +25,18 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereUpdatedAt($value)
+ * @property int $brand_id
+ * @property string|null $description
+ * @property string|null $barcode
+ * @property int|null $category_id
+ * @property string|null $unit
+ * @property-read \App\Model\Brand $brand
+ * @property-read \App\Model\Category|null $category
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereBarcode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereBrandId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereUnit($value)
  */
 class Product extends Model
 {

@@ -23,6 +23,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Company whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Company whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Company whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Product[] $products
  */
 class Company extends Model
 {
