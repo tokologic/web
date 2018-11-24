@@ -19,16 +19,25 @@ class PurchaseOrdersController extends Controller
 
     public function index(PODataTable $dataTables)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.view']))
+            abort(404);
+
         return $dataTables->render('warehouse.po.index');
     }
 
     public function create()
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.create']))
+            abort(404);
+
         return view('warehouse.po.create');
     }
 
     public function store(Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.create']))
+            abort(404);
+
         $po = new PO();
         $po->delivery_date = Carbon::parse($request->get('delivery_date'));
         $po->description = $request->get('description');
@@ -48,14 +57,26 @@ class PurchaseOrdersController extends Controller
 
     public function edit($id, Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.update']))
+            abort(404);
+
         $po = PO::find($id);
 
         return view('warehouse.po.edit', compact('po'));
 
     }
 
+    public function update($id, Request $request)
+    {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.update']))
+            abort(404);
+    }
+
     public function show($id, POItemDataTable $dataTable)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.view']))
+            abort(404);
+
         $po = PO::find($id);
 
         return $dataTable->with('po', $po)
@@ -64,6 +85,9 @@ class PurchaseOrdersController extends Controller
 
     public function status($id, Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.update']))
+            abort(404);
+
         $status = $request->get('status');
         $po = PO::find($id);
         $po->status = $status;

@@ -17,18 +17,27 @@ class UsersController extends Controller
 
     public function index(UsersDataTable $dataTable)
     {
+        if (!\Sentinel::hasAnyAccess(['user.view']))
+            abort(404);
+
         $page = (object)['icon' => 'fa-user-o', 'title' => 'Users'];
         return $dataTable->render('users.index', compact('page'));
     }
 
     public function create()
     {
+        if (!\Sentinel::hasAnyAccess(['user.create']))
+            abort(404);
+
         $roles = \Sentinel::getRoleRepository()->createModel()->all();
         return view('users.create', compact('roles'));
     }
 
     public function store(UserRequest $request)
     {
+        if (!\Sentinel::hasAnyAccess(['user.create']))
+            abort(404);
+
 //        $data = $this->gatherRequest(User::class, $request);
         $user = \Sentinel::registerAndActivate([
             'email'    => $request->get('email'),
@@ -46,6 +55,9 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        if (!\Sentinel::hasAnyAccess(['user.update']))
+            abort(404);
+
         $userSentinel = \Sentinel::findById($user->id);
         $roles = \Sentinel::getRoleRepository()->createModel()->all();
 
@@ -54,12 +66,26 @@ class UsersController extends Controller
 
     public function update(User $user, Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['user.update']))
+            abort(404);
+
         $data = $this->gatherRequest(User::class, $request);
         $user->update($data);
+
+        // Remove all permissions
+        $user->roles()->detach();
+
+        // Then re-attach
+        $userSentinel = \Sentinel::findById($user->id);
+        $role = \Sentinel::findRoleBySlug($request->get('role'));
+        $userSentinel->roles()->attach($role);
     }
 
     public function destroy(User $user)
     {
+        if (!\Sentinel::hasAnyAccess(['user.delete']))
+            abort(404);
+
         try {
             $user->delete();
         } catch (\Exception $e) {
