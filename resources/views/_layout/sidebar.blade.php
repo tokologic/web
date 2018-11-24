@@ -23,6 +23,12 @@
             <span class="text">Midwives</span>
         </a>
     </li>
+    <li>
+        <a href="{{route('categories.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Categories</span>
+        </a>
+    </li>
     <li class="sidebar-category">
         <span>Purchase Orders</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>

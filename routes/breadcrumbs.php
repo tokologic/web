@@ -63,5 +63,10 @@ try {
         $trail->push($po->id, route('warehouse.po.show', $po->id));
     });
 
+    Breadcrumbs::for('categories.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Categories', route('categories.index'));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }
