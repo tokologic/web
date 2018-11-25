@@ -85,6 +85,7 @@ function update(formId, dataTablesId) {
 }
 
 function destroy(obj) {
+    const alert = $(".alert");
     let $obj = $(obj);
     bootbox.confirm({
         // title: "Destroy planet?",
@@ -97,7 +98,13 @@ function destroy(obj) {
                     data: {
                         _token: $obj.data('token')
                     },
-                    success: function () {
+                    success: function (data) {
+                        alert.removeClass('hidden');
+                        if (data['error'])
+                            alert.text(data['message']);
+                        else
+                            alert.text('Successfully destroy data');
+
                         window.LaravelDataTables[$obj.data('table')].ajax.reload();
                     },
                     error: function (r) {
