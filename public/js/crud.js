@@ -1,5 +1,5 @@
 function create(route) {
-
+    $('#modal .btn-save').unbind('click');
     $('#modal .modal-body').html('Loading, please wait...');
 
     $.get(route, function (response) {
@@ -18,7 +18,6 @@ function store(formId, dataTablesId) {
         url: route,
         data: $form.serialize(),
         success: function () {
-            $('#modal .btn-save').unbind('click');
             window.LaravelDataTables[dataTablesId].ajax.reload();
             $('#modal').modal('hide');
         },
