@@ -73,5 +73,10 @@ try {
         $trail->push('Regions', route('regions.index'));
     });
 
+    Breadcrumbs::for('suppliers.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Suppliers', route('suppliers.index'));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

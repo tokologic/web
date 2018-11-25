@@ -33,4 +33,16 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model
 {
     protected $table = 'suppliers';
+    protected $fillable = [
+        'region_id',
+        'name',
+        'email',
+        'phone',
+        'address'
+    ];
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }

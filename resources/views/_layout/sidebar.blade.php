@@ -41,6 +41,12 @@
             <span class="text">Regions</span>
         </a>
     </li>
+    <li>
+        <a href="{{route('suppliers.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Suppliers</span>
+        </a>
+    </li>
     <li class="sidebar-category">
         <span>Purchase Orders</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
