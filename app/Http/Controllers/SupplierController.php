@@ -57,7 +57,7 @@ class SupplierController extends Controller
         return view('suppliers.edit', compact('regions', 'supplier'));
     }
 
-    public function update(Supplier $supplier, Request $request)
+    public function update(Supplier $supplier, SupplierRequest $request)
     {
         $data = $this->gatherRequest(Supplier::class, $request);
         $supplier->update($data);
