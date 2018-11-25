@@ -5,8 +5,8 @@
             <i class="online"></i>
         </a>
         <div class="media-body">
-            <h4 class="media-heading">Hello, <span>Lee</span></h4>
-            <small>Web Designer</small>
+            <h4 class="media-heading">{{ __('Hello') }}, <span>{{ Sentinel::getUser()->first_name }}</span></h4>
+            <small>d</small>
         </div>
     </div>
 </div><!-- /.sidebar-content -->

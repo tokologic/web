@@ -26,7 +26,13 @@
                 <label for="role">Role</label>
                 <select name="role" id="role" class="form-control">
                     @foreach($roles as $role)
-                        <option value="{{ $role->slug }}" @if($role->slug == $user->roles[0]->slug) selected @endif>{{ $role->name }}</option>
+                        <option value="{{ $role->slug }}"
+                                @if(count($user->roles) > 0)
+                                    @if($role->slug == $user->roles[0]->slug) selected @endif
+                                @endif
+                        >
+                            {{ $role->name }}
+                        </option>
                     @endforeach
                 </select>
                 <div class="invalid-feedback"></div>

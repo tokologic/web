@@ -4,7 +4,7 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" class="form-control form-control-sm" name="email">
+                <input type="text" id="email" class="form-control form-control-sm" name="email" autocomplete="off">
                 <div class="invalid-feedback"></div>
             </div>
 
@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control form-control-sm" name="password">
+                <input type="password" id="password" class="form-control form-control-sm" name="password" autocomplete="off">
                 <div class="invalid-feedback"></div>
 
             </div>

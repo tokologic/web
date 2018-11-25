@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\ProductImage whereAssetId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\ProductImage whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\ProductImage whereUpdatedAt($value)
+ * @property-read \App\Model\Asset $asset
  */
 class ProductImage extends Model
 {

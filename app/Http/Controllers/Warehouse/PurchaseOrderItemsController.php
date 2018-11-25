@@ -14,12 +14,18 @@ class PurchaseOrderItemsController extends Controller
 {
     public function create($poId)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.create']))
+            abort(404);
+
         $po = PurchaseOrder::find($poId);
         return view('warehouse.item.create', compact('po'));
     }
 
     public function store($poId, Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.create']))
+            abort(404);
+
         $po = PurchaseOrder::find($poId);
         $product = Product::find($request->get('product'));
 
@@ -34,12 +40,17 @@ class PurchaseOrderItemsController extends Controller
 
     public function edit($poId, $itemId)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.edit']))
+            abort(404);
+
         $item = PurchaseOrderItem::find($itemId);
         return view('warehouse.item.edit', compact('item'));
     }
 
     public function update($poId, $itemId, Request $request)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.edit']))
+            abort(404);
 
         $product = Product::find($request->get('product'));
 
@@ -53,6 +64,9 @@ class PurchaseOrderItemsController extends Controller
 
     public function destroy($poId, $itemId)
     {
+        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.delete']))
+            abort(404);
+
         try {
             $item = PurchaseOrderItem::find($itemId);
             $item->delete();

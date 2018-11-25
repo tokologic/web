@@ -75,9 +75,12 @@ class ProductsController extends Controller
                     ->pluck('product_id');
                 $products = Product::where("name", "like", "%$q%")
                     ->whereNotIn('id', $productsId)
+                    ->limit(20)
                     ->get();
             } else {
-                $products = Product::where("name", "like", "%$q%")->get();
+                $products = Product::where("name", "like", "%$q%")
+                    ->limit(20)
+                    ->get();
             }
 
         }

@@ -24,7 +24,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="{{route('warehouse.po.store')}}" method="post">
+                            <form action="{{route('warehouse.po.store')}}" method="post" id="form-po-create">
                                 {{csrf_field()}}
 
                                 <div class="form-group">
@@ -51,10 +51,18 @@
                                     <label for="reference">Reference</label>
                                     <textarea name="reference" id="reference" class="form-control"></textarea>
                                 </div>
-
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fa fa-floppy-o"></i> Save
+                                <button type="button" class="btn btn-default" id="btn-draft">
+                                    <i class="fa fa-floppy-o"></i> Save Draft
                                 </button>
+
+                                <div class="btn-group pull-right" role="group" aria-label="Action">
+                                    <button type="submit" class="btn btn-success " id="btn-new">
+                                        <i class="fa fa-floppy-o"></i> New
+                                    </button>
+                                    <button type="submit" class="btn btn-success" id="btn-issued">
+                                        <i class="fa fa-check"></i> Issued
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -63,22 +71,6 @@
 
         </div>
 
-        <div class="col-md-8">
-            <div class="panel shadow">
-                <div class="panel-heading">
-                    <div class="pull-left">
-                        <h3 class="panel-title">Items</h3>
-                    </div>
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-primary">
-                            <i class="fa fa-plus"></i> Add Item
-                        </button>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="panel-body"></div>
-            </div>
-        </div>
     </div>
 
 @endsection
@@ -92,6 +84,49 @@
 
 @push('script')
     <script>
+
+        $('#btn-draft').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{route('warehouse.po.store')}}",
+                data: $('#form-po-create').serialize() + "&status=draft",
+                success: function (data) {
+                    window.location.href = data
+                },
+                error: function (r) {
+
+                }
+            });
+        });
+
+        $('#btn-new').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{route('warehouse.po.store')}}",
+                data: $('#form-po-create').serialize() + "&status=new",
+                success: function (data) {
+                    window.location.href = data
+                },
+                error: function (r) {
+
+                }
+            });
+        });
+
+        $('#btn-issued').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{route('warehouse.po.store')}}",
+                data: $('#form-po-create').serialize() + "&status=issued",
+                success: function (data) {
+                    window.location.href = data
+                },
+                error: function (r) {
+
+                }
+            });
+        });
+
         $('#delivery_date').datepicker({
             // format: 'mm-dd-yyyy',
             todayBtn: 'linked',

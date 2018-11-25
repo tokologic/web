@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Category whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Category whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Product[] $products
  */
 class Category extends Model
 {

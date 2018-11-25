@@ -36,6 +36,11 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Admin wherePermissions($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Admin whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Admin whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Activations\EloquentActivation[] $activations
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Persistences\EloquentPersistence[] $persistences
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Reminders\EloquentReminder[] $reminders
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Roles\EloquentRole[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Throttling\EloquentThrottle[] $throttle
  */
 class Admin extends User
 {

@@ -268,7 +268,7 @@
                             <img src="{{asset('img/blank-avatar.jpeg')}}" class="img-circle"
                                  alt="admin">
                         </span>
-                        <span class="text hidden-xs hidden-sm text-muted">Tol Lee</span>
+                        <span class="text hidden-xs hidden-sm text-muted">{{ Sentinel::getUser()->first_name .' '. Sentinel::getUser()->last_name }}</span>
                         <span class="caret"></span>
                     </span>
                 </a>
@@ -284,7 +284,7 @@
                     <li><a href="#"><i class="fa fa-dollar"></i>Earning</a></li>
                     <li><a href="#"><i class="fa fa-download"></i>Withdrawals</a></li>
                     <li class="divider"></li>
-                    <li><a href="page-signin.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    <li><a href="{{url('logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
                 </ul>
             </li>
         </ul>

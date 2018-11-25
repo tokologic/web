@@ -21,7 +21,7 @@ class WarehouseController extends Controller
         if ($q == '')
             $suppliers = [];
         else
-            $suppliers = Warehouse::where("name", "like", "%$q%")->get();
+            $suppliers = Warehouse::where("name", "like", "%$q%")->limit(20)->get();
 
 
         $resource = new Collection($suppliers, new WarehouseTransformer());

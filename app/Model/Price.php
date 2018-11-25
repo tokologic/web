@@ -27,6 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereTax($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereUnitPrice($value)
  */
 class Price extends Model
 {

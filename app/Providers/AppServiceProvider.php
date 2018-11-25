@@ -5,11 +5,13 @@ namespace App\Providers;
 use App\Model\Brand;
 use App\Model\Company;
 use App\Model\Product;
+use App\Model\Role;
 use App\Model\User;
 use App\Model\Warehouse\PurchaseOrderItem;
 use App\Observers\BrandObserver;
 use App\Observers\CompanyObserver;
 use App\Observers\ProductObserver;
+use App\Observers\RoleObserver;
 use App\Observers\UserObserver;
 use App\Observers\Warehouse\PurchaseOrderItemObserver;
 use Illuminate\Database\Events\QueryExecuted;
@@ -27,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
         # https://laravel-news.com/laravel-5-4-key-too-long-error
         \Schema::defaultStringLength(191);
 
-        $this->logQuery();
         $this->observeModel();
+        $this->logQuery();
     }
 
     /**
@@ -47,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
         Company::observe(CompanyObserver::class);
         Product::observe(ProductObserver::class);
         User::observe(UserObserver::class);
+        Role::observe(RoleObserver::class);
         PurchaseOrderItem::observe(PurchaseOrderItemObserver::class);
     }
 
