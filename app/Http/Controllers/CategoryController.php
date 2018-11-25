@@ -37,7 +37,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    public function update(Category $category, Request $request)
+    public function update(Category $category, CategoryRequest $request)
     {
         $data = $this->gatherRequest(Category::class, $request);
         $category->update($data);
