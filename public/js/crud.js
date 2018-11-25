@@ -18,6 +18,7 @@ function store(formId, dataTablesId) {
         url: route,
         data: $form.serialize(),
         success: function () {
+            $('#modal .btn-save').unbind('click');
             window.LaravelDataTables[dataTablesId].ajax.reload();
             $('#modal').modal('hide');
         },
