@@ -30,18 +30,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Region extends Model
 {
-    public function stores()
-    {
-        return $this->hasMany(Store::class);
-    }
+    protected $fillable = [
+        'parent_id',
+        'name',
+        'postal_code'
+    ];
 
-    public function suppliers()
+    public function parent()
     {
-        return $this->hasMany(Supplier::class);
-    }
-
-    public function warehouses()
-    {
-        return $this->hasMany(Warehouse::class);
+        return $this->belongsTo(Region::class, 'parent_id');
     }
 }

@@ -68,5 +68,10 @@ try {
         $trail->push('Categories', route('categories.index'));
     });
 
+    Breadcrumbs::for('regions.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Regions', route('regions.index'));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }
