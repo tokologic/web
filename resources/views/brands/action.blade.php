@@ -1,12 +1,10 @@
-{{--<a href="{{route('brands.variants.index', $brand->id)}}" class="btn btn-sm btn-outline-info">View</a>--}}
-
-<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-warning" data-route="{{route('brands.edit', $brand->id)}}" onclick="edit(this)">
-        Edit
+<div class="btn-group btn-group-xs" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-warning " data-route="{{route('brands.edit', $brand->id)}}" onclick="edit(this)">
+        <i class="fa fa-pencil"></i> Edit
     </button>
-    <button type="button" class="btn btn-outline-danger" data-route="{{route('brands.destroy', $brand->id)}}"
+    <button type="button" class="btn btn-danger" data-route="{{route('brands.destroy', $brand->id)}}"
             data-table="dataTables-brand-list"
             data-token="{{csrf_token()}}"
-            onclick="destroy(this)">Destroy
+            onclick="destroy(this)"> <i class="fa fa-trash"></i> Destroy
     </button>
 </div>

@@ -4,18 +4,13 @@
 
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" name="name">
+                <input type="text" id="name" class="form-control form-control-sm" name="name">
                 <div class="invalid-feedback"></div>
             </div>
 
             <div class="form-group">
-                <label for="company">Supplier</label>
-                <select name="company" id="company" class="form-control">
-                    <option value="0">-Choose supplier-</option>
-                    @foreach($companies as $company)
-                        <option value="{{$company->id}}">{{$company->name}}</option>
-                    @endforeach
-                </select>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control form-control-sm"></textarea>
                 <div class="invalid-feedback"></div>
             </div>
         </form>

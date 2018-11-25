@@ -16,10 +16,6 @@ class BrandsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['name','action'])
-            ->editColumn('name', function ($data) {
-                return "<a href='" . route('brands.products.index', $data->id) . "'>{$data->name}</a>";
-            })
             ->addColumn('action', function ($data) {
                 return view('brands.action')
                     ->with(['brand' => $data])
@@ -35,7 +31,7 @@ class BrandsDataTable extends DataTable
      */
     public function query(Brand $model)
     {
-        return $model->newQuery()->select('id', 'name');
+        return $model->newQuery()->select('id', 'name', 'description');
     }
 
     /**
@@ -48,7 +44,7 @@ class BrandsDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '150px'])
             ->parameters($this->getBuilderParameters());
     }
 
@@ -60,8 +56,9 @@ class BrandsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'name'
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
+            'name',
+            'description'
         ];
     }
 

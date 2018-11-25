@@ -1,19 +1,34 @@
-@extends('_layout.main')
+@extends('_layout.blankon')
+
+@push('styles')
+    <link rel="stylesheet" href="{{asset('vendor/datatables/css/dataTables.bootstrap.min.css')}}">
+@endpush
 
 @section('content')
+    
+    <div class="alert alert-info hidden">
 
-    <div class="row">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-brand-add">
-                Add brand
-            </button>
-        </div>
     </div>
+    <div class="panel shadow">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h3 class="panel-title">Brands</h3>
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-brand-add">
+                    <i class="fa fa-plus"></i> Add brand
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-brand-list']) !!}
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-brand-list']) !!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
