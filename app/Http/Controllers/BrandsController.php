@@ -15,7 +15,8 @@ class BrandsController extends Controller
 
     public function index(BrandsDataTable $dataTable)
     {
-        return $dataTable->render('brands.index');
+        $page = (object)['icon' => 'fa-bold', 'title' => 'Brands'];
+        return $dataTable->render('brands.index', compact('page'));
     }
 
     public function create()

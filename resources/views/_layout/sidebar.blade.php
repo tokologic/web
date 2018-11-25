@@ -6,50 +6,49 @@
         </a>
         <div class="media-body">
             <h4 class="media-heading">{{ __('Hello') }}, <span>{{ Sentinel::getUser()->first_name }}</span></h4>
-            <small>d</small>
         </div>
     </div>
 </div><!-- /.sidebar-content -->
 <ul class="sidebar-menu">
     <li>
         <a href="{{route('users.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-user"></i></span>
             <span class="text">Users</span>
         </a>
     </li>
     <li>
         <a href="{{route('midwives.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-users"></i></span>
             <span class="text">Midwives</span>
         </a>
     </li>
     <li>
         <a href="{{route('categories.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-tags"></i></span>
             <span class="text">Categories</span>
         </a>
     </li>
     <li>
         <a href="{{route('brands.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-bold"></i></span>
             <span class="text">Brands</span>
         </a>
     </li>
     <li>
         <a href="{{route('regions.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-globe"></i></span>
             <span class="text">Regions</span>
         </a>
     </li>
     <li>
         <a href="{{route('suppliers.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-user"></i></span>
             <span class="text">Suppliers</span>
         </a>
     </li>
     <li>
         <a href="{{route('warehouses.index')}}">
-            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="icon"><i class="fa fa-home"></i></span>
             <span class="text">Warehouses</span>
         </a>
     </li>
