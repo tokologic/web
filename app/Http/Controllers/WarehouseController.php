@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 
 
 use Api\Transformers\WarehouseTransformer;
+use App\DataTables\WarehouseDataTable;
+use App\Http\Requests\WarehouseRequest;
+use App\Model\Region;
 use App\Model\Warehouse;
 use App\Traits\Crud;
 use App\Traits\Transformer;
@@ -27,5 +30,47 @@ class WarehouseController extends Controller
         $resource = new Collection($suppliers, new WarehouseTransformer());
         $data = $this->fractal->createData($resource)->toArray();
         return response()->json($data);
+    }
+
+    public function index(WarehouseDataTable $dataTable)
+    {
+        $page = (object)['icon' => 'fa-home', 'title' => 'Warehouses'];
+        return $dataTable->render('warehouse.index', compact('page'));
+    }
+
+    public function create()
+    {
+        $regions = Region::all();
+        return view('warehouse.create', compact('regions'));
+    }
+
+    public function store(WarehouseRequest $request)
+    {
+        $warehouse = new Warehouse();
+        $warehouse->create($request->all());
+    }
+
+    public function edit(Warehouse $warehouse)
+    {
+        $regions = Region::all();
+        return view('warehouse.edit', compact('regions', 'warehouse'));
+    }
+
+    public function update(Warehouse $warehouse, WarehouseRequest $request)
+    {
+        $data = $this->gatherRequest(Warehouse::class, $request);
+        $warehouse->update($data);
+    }
+
+    public function destroy(Warehouse $warehouse)
+    {
+        try {
+            $warehouse ->delete();
+        } catch (\Exception $e) {
+            return [
+                'error' => true,
+                'message' => $e->getMessage()
+            ];
+        }
     }
 }

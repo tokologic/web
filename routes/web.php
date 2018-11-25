@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('categories', 'CategoryController');
     Route::resource('regions', 'RegionController');
     Route::resource('suppliers', 'SupplierController');
+    Route::resource('warehouses', 'WarehouseController');
     Route::get('suppliers/select', 'SupplierController@select2')->name('suppliers.select');
     Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
     Route::get('products/select', 'ProductsController@select2')->name('products.select');
