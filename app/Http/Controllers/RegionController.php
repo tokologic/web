@@ -39,7 +39,7 @@ class RegionController extends Controller
         return view('regions.edit', compact('parents', 'region'));
     }
 
-    public function update(Region $region, Request $request)
+    public function update(Region $region, RegionRequest $request)
     {
         $data = $this->gatherRequest(Region::class, $request);
         $region->update($data);
