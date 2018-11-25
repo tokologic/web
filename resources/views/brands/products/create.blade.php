@@ -9,8 +9,30 @@
             </div>
 
             <div class="form-group">
+                <label for="category_id">Category</label>
+                <select name="category_id" id="category_id" class="form-control">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" class="form-control" name="description"></textarea>
+                <textarea cols="30" rows="10" id="description" class="form-control" name="description"></textarea>
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="barcode">Barcode</label>
+                <input type="text" id="barcode" class="form-control" name="barcode">
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="unit">Unit</label>
+                <input type="text" id="unit" class="form-control" name="unit">
                 <div class="invalid-feedback"></div>
             </div>
         </form>

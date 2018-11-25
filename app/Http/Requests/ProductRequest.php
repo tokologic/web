@@ -23,8 +23,13 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->request->get('id');
         return [
-            'name'  => 'required'
+            'name'  => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'barcode' => "required|unique:products,barcode,$id",
+            'unit' => 'required'
         ];
     }
 }

@@ -40,7 +40,14 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class Product extends Model
 {
-    protected $fillable = ['name','description','barcode'];
+    protected $fillable = [
+        'name','description','barcode','brand_id','category_id','unit'
+    ];
+
+    public function scopeWhereBrandId($query, $brand_id)
+    {
+        return $query->where('brand_id', $brand_id);
+    }
 
     public function brand()
     {

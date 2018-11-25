@@ -16,9 +16,11 @@ class ProductsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->addColumn('category', function($product) {
+                return $product->category->name;
+            })
             ->addColumn('action', function ($product) {
-
-//                dd($product->brand_id);
+                $this->brand_id = $product->brand_id;
                 return view('brands.products.action')
                     ->with(['product' => $product])
                     ->render();
@@ -34,7 +36,9 @@ class ProductsDataTable extends DataTable
     public function query(Product $model)
     {
         return $model->newQuery()
-            ->select('id', 'name', 'description', 'barcode', 'brand_id','created_at', 'updated_at');
+            ->with(['brand','category'])
+            ->whereBrandId($this->brand_id) // Filter by brand id
+            ->select('id', 'name', 'description', 'category_id', 'barcode', 'unit', 'brand_id');
     }
 
     /**
@@ -47,7 +51,7 @@ class ProductsDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '150px'])
             ->parameters($this->getBuilderParameters());
     }
 
@@ -59,10 +63,12 @@ class ProductsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
             'name',
+            'category',
             'description',
             'barcode',
+            'unit'
         ];
     }
 
