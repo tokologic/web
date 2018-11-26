@@ -31,6 +31,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+
+    Route::get('suppliers/select', 'SupplierController@select2')->name('suppliers.select');
+    Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
+    Route::get('products/select', 'ProductsController@select2')->name('products.select');
+
     Route::resource('users', 'UsersController');
     Route::resource('midwives', 'MidwivesController');
     Route::resource('brands', 'BrandsController');
@@ -40,9 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('regions', 'RegionController');
     Route::resource('suppliers', 'SupplierController');
     Route::resource('warehouses', 'WarehouseController');
-    Route::get('suppliers/select', 'SupplierController@select2')->name('suppliers.select');
-    Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
-    Route::get('products/select', 'ProductsController@select2')->name('products.select');
 
     Route::resource('prices', 'PricesController');
 
