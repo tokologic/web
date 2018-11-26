@@ -28,7 +28,8 @@ class SupplierRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'product_ids' => 'array'
         ];
     }
 }

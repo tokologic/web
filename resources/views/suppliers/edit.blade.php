@@ -15,6 +15,15 @@
             </div>
 
             <div class="form-group">
+                <label for="product_ids">Products</label>
+                <select name="product_ids[]" id="product_ids" class="form-control form-control-sm" multiple>
+                    @foreach($products as $product)
+                        <option value="{{ $product->id }}" @if(in_array($product->id, $product_ids)) selected @endif>{{ $product->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" class="form-control form-control-sm" name="name" required value="{{ $supplier->name }}">
                 <div class="invalid-feedback"></div>

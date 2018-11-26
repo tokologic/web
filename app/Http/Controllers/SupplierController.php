@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use Api\Transformers\SupplierTransformer;
 use App\DataTables\SupplierDataTable;
 use App\Http\Requests\SupplierRequest;
+use App\Model\Product;
 use App\Model\Region;
 use App\Model\Supplier;
 use App\Traits\Crud;
@@ -44,31 +45,39 @@ class SupplierController extends Controller
     public function create()
     {
         $regions = Region::all();
-        return view('suppliers.create', compact('regions'));
+        $products = Product::all();
+        return view('suppliers.create', compact('regions', 'products'));
     }
 
     public function store(SupplierRequest $request)
     {
-        $supplier = new Supplier();
-        $supplier->create($request->all());
+        $product_ids = request()->get('product_ids');
+        $supplier = Supplier::create($request->all());
+
+        $supplier->products()->attach($product_ids);
     }
 
     public function edit(Supplier $supplier)
     {
         $regions = Region::all();
-        return view('suppliers.edit', compact('regions', 'supplier'));
+        $products = Product::all();
+        $product_ids = collect($supplier->products()->get())->pluck('id')->toArray();
+        return view('suppliers.edit', compact('regions', 'supplier', 'products', 'product_ids'));
     }
 
     public function update(Supplier $supplier, SupplierRequest $request)
     {
         $data = $this->gatherRequest(Supplier::class, $request);
         $supplier->update($data);
+
+        $supplier->products()->sync($request->get('product_ids'));
     }
 
     public function destroy(Supplier $supplier)
     {
         try {
-            $supplier ->delete();
+            $supplier->products()->detach();
+            $supplier->delete();
         } catch (\Exception $e) {
             return [
                 'error' => true,

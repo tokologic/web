@@ -13,6 +13,15 @@
             </div>
 
             <div class="form-group">
+                <label for="product_ids">Products</label>
+                <select name="product_ids[]" id="product_ids" class="form-control form-control-sm" multiple>
+                    @foreach($products as $product)
+                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" class="form-control form-control-sm" name="name">
                 <div class="invalid-feedback"></div>

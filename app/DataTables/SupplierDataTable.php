@@ -19,6 +19,14 @@ class SupplierDataTable extends DataTable
             ->addColumn('region', function ($item) {
                 return $item->region->name;
             })
+            ->addColumn('products', function ($items) {
+                $items = collect($items->products)->pluck('name')->toArray();
+
+                if(count($items) != 0)
+                    return implode(", ", $items);
+
+                return '-';
+            })
             ->addColumn('action', function ($data) {
                 return view('suppliers.action')
                     ->with(['supplier' => $data])
@@ -35,7 +43,7 @@ class SupplierDataTable extends DataTable
     public function query(Supplier $model)
     {
         return $model->newQuery()
-            ->with('region')
+            ->with(['region', 'products'])
             ->select([
                 'id',
                 'region_id',
@@ -69,6 +77,7 @@ class SupplierDataTable extends DataTable
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
             'region',
+            'products',
             'name',
             'email',
             'phone'
