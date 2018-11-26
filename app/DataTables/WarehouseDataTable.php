@@ -10,6 +10,7 @@ class WarehouseDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->rawColumns(['action'])
             ->addColumn('region', function($item){
                 return $item->region->name;
             })
