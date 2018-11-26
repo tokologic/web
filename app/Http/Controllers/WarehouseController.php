@@ -21,10 +21,14 @@ class WarehouseController extends Controller
     public function select2(Request $request)
     {
         $q = $request->get('q');
+        $q = strtolower($q);
+
         if ($q == '')
             $suppliers = [];
-        else
-            $suppliers = Warehouse::where("name", "like", "%$q%")->limit(20)->get();
+        else {
+
+            $suppliers = Warehouse::whereRaw("LOWER(name) like '%$q%'")->limit(20)->get();
+        }
 
 
         $resource = new Collection($suppliers, new WarehouseTransformer());

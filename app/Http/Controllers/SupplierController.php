@@ -22,11 +22,13 @@ class SupplierController extends Controller
     public function select2(Request $request)
     {
         $q = $request->get('q');
+        $q = strtolower($q);
+
         if ($q == '')
             $suppliers = [];
-        else
-            $suppliers = Supplier::where("name", "like", "%$q%")->limit(20)->get();
-
+        else {
+            $suppliers = Supplier::whereRaw("LOWER(name) like '%$q%'")->limit(20)->get();
+        }
 
         $resource = new Collection($suppliers, new SupplierTransformer());
         $data = $this->fractal->createData($resource)->toArray();

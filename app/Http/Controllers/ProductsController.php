@@ -73,6 +73,8 @@ class ProductsController extends Controller
     public function select2(Request $request)
     {
         $q = $request->get('q');
+        $q = strtolower($q);
+
         if ($q == '')
             $products = [];
         else {
@@ -80,12 +82,12 @@ class ProductsController extends Controller
             if ($request->has('poId')) {
                 $productsId = PurchaseOrderItem::where('po_id','=', $request->get('poId'))
                     ->pluck('product_id');
-                $products = Product::where("name", "like", "%$q%")
+                $products = Product::where("LOWER(name) like '%$q%'")
                     ->whereNotIn('id', $productsId)
                     ->limit(20)
                     ->get();
             } else {
-                $products = Product::where("name", "like", "%$q%")
+                $products = Product::whereRaw("LOWER(name) like '%$q%'")
                     ->limit(20)
                     ->get();
             }
