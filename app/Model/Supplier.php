@@ -45,4 +45,10 @@ class Supplier extends Model
     {
         return $this->belongsTo(Region::class);
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'supplier_products', 'supplier_id', 'product_id')
+            ->withTimestamps();
+    }
 }

@@ -49,6 +49,12 @@ class Product extends Model
         return $query->where('brand_id', $brand_id);
     }
 
+    public function suppliers()
+    {
+        return $this->belongsToMany(Supplier::class, 'supplier_products', 'product_id', 'supplier_id')
+            ->withTimestamps();
+    }
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);
