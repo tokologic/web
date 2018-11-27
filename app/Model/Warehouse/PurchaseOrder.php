@@ -96,4 +96,9 @@ class PurchaseOrder extends Model implements PurchaseOrderInterface
     {
         return $this->goodsReceive();
     }
+
+    public function items()
+    {
+        return $this->hasMany(PurchaseOrderItem::class, 'po_id');
+    }
 }

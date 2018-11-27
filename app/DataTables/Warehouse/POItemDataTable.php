@@ -73,7 +73,7 @@ class POItemDataTable extends DataTable
     protected function getColumns()
     {
         return [
-//            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
+            ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
             ['data' => 'product', 'name' => 'product', 'title' => 'Product', 'orderable' => false, 'searchable' => false],
             'qty', 'unit_price', 'sub_total', 'discount', 'gross_price'
         ];

@@ -71,10 +71,12 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', 'GoodsReceivesController@index')->name('index');
             Route::post('/', 'GoodsReceivesController@store')->name('store');
             Route::get('create', 'GoodsReceivesController@create')->name('create');
-            Route::get('{gr}', 'GoodsReceivesController@show')->name('show');
+            Route::get('{po}', 'GoodsReceivesController@show')->name('show');
 
+            Route::prefix('{po}/items')->name('item.')->group(function () {
+                Route::get('data-tables', 'GoodsReceivesController@dataTables')->name('datatables');
 
-
+            });
         });
     });
 

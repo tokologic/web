@@ -63,4 +63,9 @@ class PurchaseOrderItem extends Model
     {
         return $this->purchaseOrder();
     }
+
+    public function goodsReceiveItems()
+    {
+        return $this->hasMany(GoodsReceiveItem::class, 'po_item_id');
+    }
 }

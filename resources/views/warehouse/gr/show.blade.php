@@ -6,6 +6,8 @@
 
 @section('content')
 
+    <input type="hidden" id="selected-po-item-id">
+
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
@@ -69,7 +71,17 @@
                     <div class="row">
                         <div class="col-md-12">
 
-
+                            <div class="table-responsive">
+                                <table id="dataTables-gr-item-list" class="table table-bordered table-striped table-hover" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Qty</th>
+                                        <th>Reference</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,6 +106,41 @@
     {!! $dataTable->scripts() !!}
 
     <script>
+        let dtGrItem = $('#dataTables-gr-item-list').DataTable({
+
+            "serverSide":true,
+            "processing":true,
+            "ajax": {
+                "url":"{{route('warehouse.gr.item.datatables', [$po->id])}}",
+                "data": function(d) {
+                    d.item = $('#selected-po-item-id').val()
+                },
+                "type":"GET"
+            },
+            "columns":[
+                {"name":"id","data":"id","title":"#","orderable":true,"searchable":false},
+                {"name":"qty","data":"qty","title":"Qty","orderable":true,"searchable":true},
+                {"name":"reference","data":"reference","title":"Reference","orderable":true,"searchable":true}
+            ]
+        });
+
+
+
+        window.LaravelDataTables['dataTables-po-item-list'].on('click', 'tbody tr', function () {
+            let idPOItem = $(this).children().first().text();
+
+
+            //get textContent of the TD
+            // console.log('TD cell textContent : ', this)
+
+            $('#selected-po-item-id').val(idPOItem);
+            dtGrItem.ajax.reload(null, false);
+
+
+
+            //get the value of the TD using the API
+            // console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
+        })
 
     </script>
 @endpush
