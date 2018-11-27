@@ -83,5 +83,15 @@ try {
         $trail->push('Warehouses', route('warehouses.index'));
     });
 
+    Breadcrumbs::for('warehouse.gr.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Goods Receiving', route('warehouse.gr.index'));
+    });
+
+    Breadcrumbs::for('warehouse.gr.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $trail->parent('warehouse.gr.index');
+        $trail->push('PO #' . $id, route('warehouse.gr.show', [$id]));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

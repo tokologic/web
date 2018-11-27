@@ -85,6 +85,15 @@ class PurchaseOrder extends Model implements PurchaseOrderInterface
     public function warehouse()
     {
         return $this->belongsTo(Warehouse::class);
+    }
 
+    public function goodsReceive()
+    {
+        return $this->hasOne(GoodsReceive::class, 'po_id');
+    }
+
+    public function gr()
+    {
+        return $this->goodsReceive();
     }
 }

@@ -16,13 +16,23 @@ class PODataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->rawColumns(['action'])
             ->editColumn('amount', function ($data) {
                 return rupiah($data->amount);
             })
             ->addColumn('action', function ($data) {
-                return view('warehouse.po.action')
-                    ->with(['po' => $data])
-                    ->render();
+
+                if ($this->module == 'gr') {
+                    return view('warehouse.gr.action')
+                        ->with(['gr' => $data])
+                        ->render();
+                } else {
+                    return view('warehouse.po.action')
+                        ->with(['po' => $data])
+                        ->render();
+                }
+
+
             });
     }
 
@@ -47,7 +57,6 @@ class PODataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '150px'])
             ->parameters($this->getBuilderParameters());
     }
 
@@ -64,6 +73,7 @@ class PODataTable extends DataTable
             'amount',
             'status',
             'description',
+            'action'
         ];
     }
 

@@ -31,10 +31,16 @@ use Illuminate\Database\Eloquent\Model;
 class GoodsReceive extends Model implements GoodsReceiveInterface
 {
     protected $table = 'warehouse_goods_receives';
+    protected $fillable = ['status'];
 
-    public function purchaseorder()
+    public function purchaseOrder()
     {
         return $this->belongsTo(PurchaseOrder::class);
+    }
+
+    public function po()
+    {
+        return $this->purchaseOrder();
     }
 
     public function isQuantityFull()

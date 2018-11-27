@@ -48,23 +48,35 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('prices', 'PricesController');
 
-    Route::prefix('purchase-orders')->namespace('Warehouse')->name('warehouse.po.')->group(function (){
-        Route::get('/', 'PurchaseOrdersController@index')->name('index');
-        Route::post('/', 'PurchaseOrdersController@store')->name('store');
-        Route::get('create', 'PurchaseOrdersController@create')->name('create');
-        Route::get('{po}', 'PurchaseOrdersController@show')->name('show');
-        Route::delete('{po}', 'PurchaseOrdersController@destroy')->name('destroy');
-        Route::get('{po}/edit', 'PurchaseOrdersController@edit')->name('edit');
-        Route::put('{po}/status', 'PurchaseOrdersController@status')->name('status');
+    Route::namespace('Warehouse')->group(function () {
+        Route::prefix('purchase-orders')->name('warehouse.po.')->group(function () {
+            Route::get('/', 'PurchaseOrdersController@index')->name('index');
+            Route::post('/', 'PurchaseOrdersController@store')->name('store');
+            Route::get('create', 'PurchaseOrdersController@create')->name('create');
+            Route::get('{po}', 'PurchaseOrdersController@show')->name('show');
+            Route::delete('{po}', 'PurchaseOrdersController@destroy')->name('destroy');
+            Route::get('{po}/edit', 'PurchaseOrdersController@edit')->name('edit');
+            Route::put('{po}/status', 'PurchaseOrdersController@status')->name('status');
 
-        Route::prefix('{po}/items')->name('item.')->group(function () {
-
-            Route::post('/', 'PurchaseOrderItemsController@store')->name('store');
-            Route::get('create', 'PurchaseOrderItemsController@create')->name('create');
-            Route::put('{item}', 'PurchaseOrderItemsController@update')->name('update');
-            Route::delete('{item}', 'PurchaseOrderItemsController@destroy')->name('destroy');
-            Route::get('{item}/edit', 'PurchaseOrderItemsController@edit')->name('edit');
+            Route::prefix('{po}/items')->name('item.')->group(function () {
+                Route::post('/', 'PurchaseOrderItemsController@store')->name('store');
+                Route::get('create', 'PurchaseOrderItemsController@create')->name('create');
+                Route::put('{item}', 'PurchaseOrderItemsController@update')->name('update');
+                Route::delete('{item}', 'PurchaseOrderItemsController@destroy')->name('destroy');
+                Route::get('{item}/edit', 'PurchaseOrderItemsController@edit')->name('edit');
+            });
         });
 
+        Route::prefix('goods-receiving')->name('warehouse.gr.')->group(function () {
+            Route::get('/', 'GoodsReceivesController@index')->name('index');
+            Route::post('/', 'GoodsReceivesController@store')->name('store');
+            Route::get('create', 'GoodsReceivesController@create')->name('create');
+            Route::get('{gr}', 'GoodsReceivesController@show')->name('show');
+
+
+
+        });
     });
+
+
 });
