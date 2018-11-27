@@ -83,5 +83,10 @@ try {
         $trail->push('Warehouses', route('warehouses.index'));
     });
 
+    Breadcrumbs::for('stores.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stores', route('stores.index'));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

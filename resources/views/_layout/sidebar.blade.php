@@ -52,6 +52,12 @@
             <span class="text">Warehouses</span>
         </a>
     </li>
+    <li>
+        <a href="{{route('stores.index')}}">
+            <span class="icon"><i class="fa fa-home"></i></span>
+            <span class="text">Stores</span>
+        </a>
+    </li>
     <li class="sidebar-category">
         <span>Purchase Orders</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
