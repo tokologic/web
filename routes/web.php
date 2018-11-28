@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('regions', 'RegionController');
     Route::resource('suppliers', 'SupplierController');
     Route::resource('warehouses', 'WarehouseController');
-    Route::resource('stores', 'StoreController');
+    Route::resource('stalls', 'StallController');
     Route::resource('prices', 'PricesController');
 
     Route::namespace('Warehouse')->group(function () {

@@ -4,8 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Stall extends Model
 {
+    protected $table = 'stores';
     protected $fillable = [
         'midwife_id',
         'region_id',

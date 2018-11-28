@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <form action="{{route('stores.store')}}" method="post" id="form-store-add"> {{csrf_field()}}
+        <form action="{{route('stalls.store')}}" method="post" id="form-stall-add"> {{csrf_field()}}
 
             <div class="form-group">
                 <label for="midwife_id">Midwife</label>
@@ -47,6 +47,6 @@
 <script>
     $('#modal .btn-save').on('click', function (event) {
         event.preventDefault();
-        store('form-store-add', 'dataTables-store-list');
+        store('form-stall-add', 'dataTables-stall-list');
     });
 </script>

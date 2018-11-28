@@ -93,9 +93,10 @@ try {
         $trail->push('PO #' . $id, route('warehouse.gr.show', [$id]));
     });
 
-    Breadcrumbs::for('stores.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+    Breadcrumbs::for('stalls.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Stores', route('stores.index'));
+        $trail->push('Stalls', route('stalls.index'));
+    });
     });
 
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {

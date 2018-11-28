@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $postal_code
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Stall\Store[] $stores
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Stall\Store[] $stalls
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Supplier[] $suppliers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Warehouse[] $warehouses
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Region newModelQuery()

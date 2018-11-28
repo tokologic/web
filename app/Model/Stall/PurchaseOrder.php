@@ -5,6 +5,7 @@ namespace App\Model\Stall;
 
 
 use App\Contract\PurchaseOrderInterface;
+use App\Model\Stall;
 use App\PurchaseOrderItem;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,10 +38,17 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {
     protected $table = 'store_purchase_orders';
+    protected $fillable = [
+        'store_id',
+        'delivery_date',
+        'amount',
+        'payment_status',
+        'received_payment'
+    ];
 
-    public function store()
+    public function stall()
     {
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(Stall::class, 'store_id', 'id');
     }
 
     public function purchaseorderitems()

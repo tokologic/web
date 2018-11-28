@@ -2,11 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Model\Store;
-use App\User;
+use App\Model\Stall;
 use Yajra\DataTables\Services\DataTable;
 
-class StoreDataTable extends DataTable
+class StallDataTable extends DataTable
 {
     public function dataTable($query)
     {
@@ -18,13 +17,13 @@ class StoreDataTable extends DataTable
                 return $item->region->name;
             })
             ->addColumn('action', function($data) {
-                return view('stores.action')
+                return view('stalls.action')
                     ->with(['store' => $data])
                     ->render();
             });
     }
 
-    public function query(Store $model)
+    public function query(Stall $model)
     {
         return $model->newQuery()
             ->with(['region', 'midwife'])
@@ -61,6 +60,6 @@ class StoreDataTable extends DataTable
 
     protected function filename()
     {
-        return 'Store_' . date('YmdHis');
+        return 'Stall_' . date('YmdHis');
     }
 }

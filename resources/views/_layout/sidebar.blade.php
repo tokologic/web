@@ -53,9 +53,9 @@
         </a>
     </li>
     <li>
-        <a href="{{route('stores.index')}}">
+        <a href="{{route('stalls.index')}}">
             <span class="icon"><i class="fa fa-home"></i></span>
-            <span class="text">Stores</span>
+            <span class="text">Stalls</span>
         </a>
     </li>
     <li class="sidebar-category">

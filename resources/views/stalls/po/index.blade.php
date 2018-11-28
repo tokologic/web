@@ -5,18 +5,16 @@
 @endpush
 
 @section('content')
-    <div class="alert alert-info hidden">
 
-    </div>
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title">Stores</h3>
+                <h3 class="panel-title">Purchase-orders Stall</h3>
             </div>
             <div class="pull-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-store-add">
-                    <i class="fa fa-plus"></i> Add Store
-                </button>
+                <a href="{{route('stalls.po.create')}}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i> Add PO
+                </a>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -25,7 +23,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-store-list']) !!}
+                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-stall-list']) !!}
                     </div>
                 </div>
             </div>
@@ -49,9 +47,10 @@
 
     <script>
 
-        $('#btn-store-add').click(function () {
-            create("{{route('stores.create')}}");
+        $('#btn-stall-add').click(function () {
+            create("{{route('stalls.create')}}");
         });
 
     </script>
 @endpush
+
