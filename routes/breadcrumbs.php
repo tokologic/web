@@ -42,8 +42,8 @@ try {
     });
 
     Breadcrumbs::for('warehouse.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
-       $trail->parent('dashboard');
-       $trail->push('Purchase Orders', route('warehouse.po.index'));
+        $trail->parent('dashboard');
+        $trail->push('Purchase Orders', route('warehouse.po.index'));
     });
 
     Breadcrumbs::for('warehouse.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
@@ -91,6 +91,11 @@ try {
     Breadcrumbs::for('warehouse.gr.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $trail->parent('warehouse.gr.index');
         $trail->push('PO #' . $id, route('warehouse.gr.show', [$id]));
+    });
+
+    Breadcrumbs::for('stores.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stores', route('stores.index'));
     });
 
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
