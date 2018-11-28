@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('prices', 'PricesController');
 
     Route::namespace('Warehouse')->group(function () {
-        Route::prefix('purchase-orders')->name('warehouse.po.')->group(function () {
+        Route::prefix('warehouse/purchase-orders')->name('warehouse.po.')->group(function () {
             Route::get('/', 'PurchaseOrdersController@index')->name('index');
             Route::post('/', 'PurchaseOrdersController@store')->name('store');
             Route::get('create', 'PurchaseOrdersController@create')->name('create');
@@ -81,6 +81,4 @@ Route::middleware(['auth'])->group(function () {
             });
         });
     });
-
-
 });
