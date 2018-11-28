@@ -35,7 +35,7 @@ class GoodsReceive extends Model implements GoodsReceiveInterface
 
     public function purchaseOrder()
     {
-        return $this->belongsTo(PurchaseOrder::class);
+        return $this->belongsTo(PurchaseOrder::class, 'po_id');
     }
 
     public function po()

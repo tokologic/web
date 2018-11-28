@@ -7,12 +7,14 @@ use App\Model\Company;
 use App\Model\Product;
 use App\Model\Role;
 use App\Model\User;
+use App\Model\Warehouse\GoodsReceiveItem;
 use App\Model\Warehouse\PurchaseOrderItem;
 use App\Observers\BrandObserver;
 use App\Observers\CompanyObserver;
 use App\Observers\ProductObserver;
 use App\Observers\RoleObserver;
 use App\Observers\UserObserver;
+use App\Observers\Warehouse\GoodsReceiveItemObserver;
 use App\Observers\Warehouse\PurchaseOrderItemObserver;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\ServiceProvider;
@@ -51,6 +53,7 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Role::observe(RoleObserver::class);
         PurchaseOrderItem::observe(PurchaseOrderItemObserver::class);
+        GoodsReceiveItem::observe(GoodsReceiveItemObserver::class);
     }
 
     private function logQuery(): void

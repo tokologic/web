@@ -74,7 +74,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('{po}', 'GoodsReceivesController@show')->name('show');
 
             Route::prefix('{po}/items')->name('item.')->group(function () {
-                Route::get('data-tables', 'GoodsReceivesController@dataTables')->name('datatables');
+                Route::post('/', 'GoodsReceiveItemsController@store')->name('store');
+                Route::get('data-tables', 'GoodsReceiveItemsController@dataTables')->name('datatables');
+                Route::get('create', 'GoodsReceiveItemsController@create')->name('create');
 
             });
         });

@@ -4,6 +4,14 @@
     <link rel="stylesheet" href="{{asset('vendor/datatables/css/dataTables.bootstrap.min.css')}}">
 @endpush
 
+@push('style')
+    <style>
+        #dataTables-po-item-list tr {
+            cursor: pointer;
+        }
+    </style>
+@endpush
+
 @section('content')
 
     <input type="hidden" id="selected-po-item-id">
@@ -11,7 +19,7 @@
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title">PO #{{$po->id}}</h3>
+                <h3 class="panel-title">PO #{{$po->id}} - GR #{{$po->gr->id}}</h3>
             </div>
             <div class="pull-right">
 
@@ -25,6 +33,7 @@
 
                     <h3>Delivery date: {{$po->delivery_date}}</h3>
                     <h3>Amount: {{rupiah($po->amount)}}</h3>
+                    <h3>Status GR: {{$po->gr->status}}</h3>
 
                 </div>
             </div>
@@ -62,7 +71,9 @@
                         <h3 class="panel-title">PO Item Goods Receiving</h3>
                     </div>
                     <div class="pull-right">
-
+                        <button type="button" class="btn btn-primary" disabled data-toggle="modal" id="btn-gr-item-add">
+                            <i class="fa fa-plus"></i> Add GR Item
+                        </button>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -106,7 +117,7 @@
     {!! $dataTable->scripts() !!}
 
     <script>
-        let dtGrItem = $('#dataTables-gr-item-list').DataTable({
+         window.LaravelDataTables['dataTables-gr-item-list'] = $('#dataTables-gr-item-list').DataTable({
 
             "serverSide":true,
             "processing":true,
@@ -129,19 +140,16 @@
         window.LaravelDataTables['dataTables-po-item-list'].on('click', 'tbody tr', function () {
             let idPOItem = $(this).children().first().text();
 
-
-            //get textContent of the TD
-            // console.log('TD cell textContent : ', this)
+            $('#btn-gr-item-add').removeAttr('disabled');
 
             $('#selected-po-item-id').val(idPOItem);
-            dtGrItem.ajax.reload(null, false);
+            window.LaravelDataTables['dataTables-gr-item-list'].ajax.reload(null, false);
+        });
 
-
-
-            //get the value of the TD using the API
-            // console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
-        })
-
+        $('#btn-gr-item-add').click(function () {
+            let poItemId = $('#selected-po-item-id').val();
+            create("{{route('warehouse.gr.item.create', [$po->id])}}?po_item_id=" + poItemId);
+        });
     </script>
 @endpush
 

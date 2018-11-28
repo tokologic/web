@@ -32,20 +32,8 @@ class GoodsReceivesController extends Controller
         if (is_null($po->gr)) $po->gr()->create(['status' => 'new']);
 
         $page = (object)['icon' => 'fa-user-o', 'title' => 'Goods Receiving'];
-        $items = $po->items;
 
         return $dataTable->with(['po' => $po])
-            ->render('warehouse.gr.show', compact('po', 'page', 'items')); //->with(['gr' => $gr]);
-    }
-
-    public function dataTables($poId, Request $request)
-    {
-        try {
-            $itemId = $request->get('item');
-            $item = PurchaseOrderItem::find($itemId);
-
-            return datatables()->of(GoodsReceiveItem::where('po_item_id', $itemId))->make(true);
-        } catch (\Exception $e) {
-        }
+            ->render('warehouse.gr.show', compact('po', 'page')); //->with(['gr' => $gr]);
     }
 }
