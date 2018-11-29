@@ -97,7 +97,6 @@ try {
         $trail->parent('dashboard');
         $trail->push('Stalls', route('stalls.index'));
     });
-    });
 
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

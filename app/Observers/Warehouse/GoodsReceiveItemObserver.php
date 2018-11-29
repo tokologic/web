@@ -8,10 +8,20 @@ use App\Model\Warehouse\GoodsReceive;
 use App\Model\Warehouse\GoodsReceiveItem as GRItem;
 use App\Model\Warehouse\PurchaseOrder;
 use App\Model\Warehouse\PurchaseOrderItem as POItem;
+use App\Model\Warehouse\StockItem;
 
 class GoodsReceiveItemObserver
 {
     public function saved(GRItem $grItem)
+    {
+        $this->updateStatusGR($grItem);
+        $this->updateStockItems($grItem);
+    }
+
+    /**
+     * @param GRItem $grItem
+     */
+    protected function updateStatusGR(GRItem $grItem): void
     {
         $countPoItem = POItem::where('po_id', $grItem->gr->po->id)->count();
 
@@ -32,5 +42,29 @@ class GoodsReceiveItemObserver
         }
 
         $grItem->gr()->update(['status' => $status]);
+    }
+
+    protected function updateStockItems(GRItem $grItem)
+    {
+        $warehouse = $grItem->gr->po->warehouse;
+        $product = $grItem->poItem->product;
+
+        $isExist = StockItem::where('warehouse_id', $warehouse->id)->where('product_id', $product->id)->count();
+
+        $averagePrice = POItem::where('product_id', $product->id)->avg('unit_price');
+
+        if ($isExist) {
+            $stockItem = StockItem::where('warehouse_id', $warehouse->id)->where('product_id', $product->id)->first();
+            $stockItem->qty = $stockItem->qty + $grItem->qty;
+            $stockItem->average_price = $averagePrice;
+            $stockItem->save();
+        } else {
+            StockItem::create([
+                'warehouse_id'  => $warehouse->id,
+                'product_id'    => $product->id,
+                'qty'           => $grItem->qty,
+                'average_price' => $averagePrice
+            ]);
+        }
     }
 }

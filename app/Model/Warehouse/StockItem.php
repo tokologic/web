@@ -5,6 +5,9 @@ namespace App\Model\Warehouse;
 
 
 use App\Contract\StockItemInterface;
+use App\Model\Product;
+use App\Model\ProductPrice;
+use App\Model\Warehouse;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,5 +44,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class StockItem extends Model implements StockItemInterface
 {
+    protected $table = 'stock_items';
+    protected $fillable = ['warehouse_id', 'product_id', 'average_price', 'qty', 'min', 'max', 'whole_sale_price',
+                           'on_order', 'bin_location'];
 
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+
+    }
+
+    public function productPrices()
+    {
+        return $this->morphMany(ProductPrice::class, 'location');
+    }
 }
