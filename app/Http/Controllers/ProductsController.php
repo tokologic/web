@@ -80,9 +80,9 @@ class ProductsController extends Controller
         else {
 
             if ($request->has('poId')) {
-                $productsId = PurchaseOrderItem::where('po_id','=', $request->get('poId'))
+                $productsId = PurchaseOrderItem::whereRaw('po_id','=', $request->get('poId'))
                     ->pluck('product_id');
-                $products = Product::where("LOWER(name) like '%$q%'")
+                $products = Product::whereRaw("LOWER(name) like '%$q%'")
                     ->whereNotIn('id', $productsId)
                     ->limit(20)
                     ->get();
