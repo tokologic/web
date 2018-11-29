@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Region wherePostalCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Region whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Model\Region|null $parent
  */
 class Region extends Model
 {

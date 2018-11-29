@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\PurchaseOrderItem whereUnitPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\PurchaseOrderItem whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Warehouse\GoodsReceiveItem[] $goodsReceiveItems
  */
 class PurchaseOrderItem extends Model
 {

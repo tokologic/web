@@ -10,11 +10,14 @@ class WarehouseDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['action'])
-            ->addColumn('region', function($item){
+            ->rawColumns(['action', 'name'])
+            ->addColumn('region', function ($item) {
                 return $item->region->name;
             })
-            ->addColumn('action', function($data){
+            ->editColumn('name', function ($item) {
+                return "<a href='" . route('warehouses.stocks.index', $item->id) . "'>" . $item->name . "</a>";
+            })
+            ->addColumn('action', function ($data) {
                 return view('warehouse.action')
                     ->with(['warehouse' => $data])
                     ->render();
@@ -36,18 +39,18 @@ class WarehouseDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '150px'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->addAction(['width' => '150px'])
+            ->parameters($this->getBuilderParameters());
     }
 
     protected function getColumns()
     {
         return [
             'id',
-            'region',
             'name',
+            'region',
             'address'
         ];
     }

@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceive wherePoId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceive whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceive whereUpdatedAt($value)
+ * @property-read \App\Model\Warehouse\PurchaseOrder $purchaseOrder
  */
 class GoodsReceive extends Model implements GoodsReceiveInterface
 {

@@ -98,5 +98,11 @@ try {
         $trail->push('Stalls', route('stalls.index'));
     });
 
+    Breadcrumbs::for('warehouses.stocks.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $warehouse = \App\Model\Warehouse::find($id);
+        $trail->parent('warehouses.index');
+        $trail->push('Warehouse ' . $warehouse->name . ' Stock Item', route('warehouses.stocks.index', [$id]));
+    });
+
 } catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
 }

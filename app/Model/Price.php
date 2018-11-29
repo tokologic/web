@@ -30,6 +30,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereTax($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereUnitPrice($value)
+ * @property string $location_type
+ * @property int $location_id
+ * @property float $average_price
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereAveragePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Price whereLocationType($value)
  */
 class Price extends Model
 {

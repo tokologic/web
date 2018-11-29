@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Supplier whereRegionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Supplier whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Product[] $products
+ * @property-read \App\Model\Region $region
  */
 class Supplier extends Model
 {

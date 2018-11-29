@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('warehouses', 'WarehouseController');
     Route::resource('stalls', 'StallController');
     Route::resource('prices', 'PricesController');
+    Route::resource('warehouses.stocks', 'StocksController');
 
     Route::namespace('Warehouse')->group(function () {
         Route::prefix('warehouse/purchase-orders')->name('warehouse.po.')->group(function () {

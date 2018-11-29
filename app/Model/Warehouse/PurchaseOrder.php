@@ -54,6 +54,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\PurchaseOrder whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\PurchaseOrder whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\PurchaseOrder whereWarehouseId($value)
+ * @property-read \App\Model\Warehouse\GoodsReceive $goodsReceive
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Warehouse\PurchaseOrderItem[] $items
  */
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {

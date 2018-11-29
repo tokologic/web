@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\PurchaseOrder whereReceivedPayment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\PurchaseOrder whereStoreId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Stall\PurchaseOrder whereUpdatedAt($value)
+ * @property-read \App\Model\Stall $stall
  */
 class PurchaseOrder extends Model implements PurchaseOrderInterface
 {

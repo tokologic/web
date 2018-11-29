@@ -52,6 +52,7 @@ class GoodsReceiveItemObserver
         $isExist = StockItem::where('warehouse_id', $warehouse->id)->where('product_id', $product->id)->count();
 
         $averagePrice = POItem::where('product_id', $product->id)->avg('unit_price');
+        $wsp = $averagePrice + (1/10 * $averagePrice);
 
         if ($isExist) {
             $stockItem = StockItem::where('warehouse_id', $warehouse->id)->where('product_id', $product->id)->first();
@@ -60,10 +61,11 @@ class GoodsReceiveItemObserver
             $stockItem->save();
         } else {
             StockItem::create([
-                'warehouse_id'  => $warehouse->id,
-                'product_id'    => $product->id,
-                'qty'           => $grItem->qty,
-                'average_price' => $averagePrice
+                'warehouse_id'     => $warehouse->id,
+                'product_id'       => $product->id,
+                'qty'              => $grItem->qty,
+                'average_price'    => $averagePrice,
+                'whole_sale_price' => $wsp
             ]);
         }
     }

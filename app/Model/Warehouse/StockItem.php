@@ -41,6 +41,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\StockItem whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\StockItem whereWarehouseId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\StockItem whereWholeSalePrice($value)
+ * @property-read \App\Model\Product $product
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\ProductPrice[] $productPrices
+ * @property-read \App\Model\Warehouse $warehouse
  */
 class StockItem extends Model implements StockItemInterface
 {

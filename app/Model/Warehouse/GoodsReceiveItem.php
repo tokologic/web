@@ -25,6 +25,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceiveItem whereReference($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceiveItem whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $po_item_id
+ * @property-read \App\Model\Warehouse\GoodsReceive $goodsReceive
+ * @property-read \App\Model\Warehouse\PurchaseOrderItem $purchaseOrderItem
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse\GoodsReceiveItem wherePoItemId($value)
  */
 class GoodsReceiveItem extends Model
 {

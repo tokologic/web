@@ -4,6 +4,7 @@
 namespace App\Model;
 
 
+use App\Model\Warehouse\StockItem;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -25,6 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse whereRegionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Warehouse whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Model\Region $region
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Warehouse\StockItem[] $stocks
  */
 class Warehouse extends Model
 {
@@ -37,5 +40,10 @@ class Warehouse extends Model
     public function region()
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany(StockItem::class, 'warehouse_id');
     }
 }

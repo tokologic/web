@@ -37,6 +37,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Product whereUnit($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Supplier[] $suppliers
  */
 class Product extends Model
 {

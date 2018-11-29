@@ -68,6 +68,12 @@
             <span class="text">PO</span>
         </a>
     </li>
+    <li>
+        <a href="{{route('warehouse.gr.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">GR</span>
+        </a>
+    </li>
     <li class="submenu">
         <a href="javascript:void(0);">
             <span class="icon"><i class="fa fa-file-o"></i></span>
