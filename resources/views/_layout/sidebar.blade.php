@@ -5,8 +5,10 @@
             <i class="online"></i>
         </a>
         <div class="media-body">
+            @if(Sentinel::check())
             <h4 class="media-heading">{{ __('Hello') }}, <span>{{ Sentinel::getUser()->first_name }}</span></h4>
             <small>{{ implode(',', Sentinel::getUser()->roles->pluck('name')->toArray()) }}</small>
+            @endif
         </div>
     </div>
 </div><!-- /.sidebar-content -->

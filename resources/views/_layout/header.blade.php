@@ -268,7 +268,10 @@
                             <img src="{{asset('img/blank-avatar.jpeg')}}" class="img-circle"
                                  alt="admin">
                         </span>
+                        @if(Sentinel::check())
                         <span class="text hidden-xs hidden-sm text-muted">{{ Sentinel::getUser()->first_name .' '. Sentinel::getUser()->last_name }}</span>
+                        @endif
+
                         <span class="caret"></span>
                     </span>
                 </a>
