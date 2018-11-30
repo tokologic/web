@@ -47,7 +47,7 @@ class POItemDataTable extends DataTable
      */
     public function query(PurchaseOrderItem $model)
     {
-        return $model->newQuery()->with(['product','purchaseOrder'])
+        return $model->newQuery()->with(['product', 'purchaseOrder'])
             ->where('po_id', '=', $this->po->id);
 //            ->select('id', 'discount', 'currency', 'unit_price', 'sub_total', 'gross_price');
     }
@@ -75,7 +75,7 @@ class POItemDataTable extends DataTable
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
             ['data' => 'product', 'name' => 'product', 'title' => 'Product', 'orderable' => false, 'searchable' => false],
-            'qty', 'unit_price', 'sub_total', 'discount', 'gross_price'
+            'qty', 'unit_price', 'sub_total', 'discount', 'gross_price', 'action'
         ];
     }
 
