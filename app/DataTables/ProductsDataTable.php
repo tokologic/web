@@ -16,6 +16,7 @@ class ProductsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('category', function($product) {
                 return $product->category->name;
             })

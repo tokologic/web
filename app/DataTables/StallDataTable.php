@@ -10,6 +10,7 @@ class StallDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('midwife', function($item) {
                 return $item->midwife->first_name;
             })

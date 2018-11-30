@@ -16,6 +16,7 @@ class SupplierDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('region', function ($item) {
                 return $item->region->name;
             })

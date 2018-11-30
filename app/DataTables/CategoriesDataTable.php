@@ -16,6 +16,7 @@ class CategoriesDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('action', function($data){
 
                 return view('categories.action')

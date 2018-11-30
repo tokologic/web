@@ -16,6 +16,7 @@ class RegionsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('parent', function ($item) {
                 if ($item->parent)
                     return optional($item->parent)->name;

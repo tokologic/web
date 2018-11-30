@@ -16,6 +16,7 @@ class PricesDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('action', 'pricesdatatable.action');
     }
 

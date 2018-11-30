@@ -16,6 +16,7 @@ class CompaniesDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('action', function ($data) {
                 return view('companies.action')
                     ->with(['company' => $data])

@@ -18,6 +18,7 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('role', function ($item) {
                 if (count($item->roles) > 0) {
                     return optional($item->roles[0])->name;
