@@ -52,10 +52,10 @@
                 <span>{{$page->subTitle ?? ''}}</span>
             </h2>
             <div class="breadcrumb-wrapper hidden-xs">
-                @if(Breadcrumbs::exists('errors.404'))
+                {{--@if(Breadcrumbs::exists('errors.404'))--}}
                     <span class="label">You are here:</span>
                     {{ Breadcrumbs::render() }}
-                @endif
+                {{--@endif--}}
             </div>
         </div>
 

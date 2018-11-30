@@ -44,7 +44,17 @@ class PODataTable extends DataTable
      */
     public function query(PurchaseOrder $model)
     {
-        return $model->newQuery()->select('id', 'delivery_date', 'status', 'amount', 'description');
+        $user = \Sentinel::getUser();
+
+        $builder = $model->newQuery();//->select('id', 'delivery_date', 'status', 'amount', 'description');
+
+        $roles = $user->roles->pluck('slug')->toArray();
+        if (in_array('finance', $roles)) {
+            $builder->where('status', 'issued');
+        }
+
+        return $builder;
+
     }
 
     /**

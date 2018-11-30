@@ -12,9 +12,11 @@
                 <h3 class="panel-title">Purchase-orders</h3>
             </div>
             <div class="pull-right">
+                @if(Sentinel::hasAnyAccess(['warehouse.po.create']))
                 <a href="{{route('warehouse.po.create')}}" class="btn btn-primary">
                     <i class="fa fa-plus"></i> Add PO
                 </a>
+                @endif
             </div>
             <div class="clearfix"></div>
         </div>

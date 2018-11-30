@@ -61,8 +61,7 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'user.*'         => true,
-            'warehouse.po.*' => true,
+            '*' => true,
         ];
         $role->save();
     }
@@ -71,17 +70,21 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'warehouse.po.create'            => true,
-            'warehouse.po.update'            => true,
-            'warehouse.po.view'              => true,
-            'warehouse.po.delete'            => false,
-            'warehouse.po.status.approve'    => false,
-            'warehouse.po.status.correction' => false,
-            'warehouse.po.status.revoke'     => false,
-            'warehouse.po.status.attention'  => true,
-            'warehouse.po.status.draft'      => true,
-            'warehouse.po.status.issued'     => true,
-            'warehouse.po.status.new'        => true,
+            'warehouse.create'              => true,
+            'warehouse.update'              => true,
+            'warehouse.view'                => true,
+            'warehouse.delete'              => true,
+            'warehouse.po.create'           => true,
+            'warehouse.po.update'           => true,
+            'warehouse.po.view'             => true,
+            //            'warehouse.po.delete'            => false,
+            //            'warehouse.po.status.approve'    => false,
+            //            'warehouse.po.status.correction' => false,
+            //            'warehouse.po.status.revoke'     => false,
+            'warehouse.po.status.attention' => true,
+            'warehouse.po.status.draft'     => true,
+            'warehouse.po.status.issued'    => true,
+            'warehouse.po.status.new'       => true,
 
             'warehouse.po.item.*' => true,
         ];
@@ -92,13 +95,14 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
+            'warehouse.po.view'    => true,
             'warehouse.po.status.approve'    => true,
             'warehouse.po.status.correction' => true,
             'warehouse.po.status.revoke'     => true,
-            'warehouse.po.status.attention'  => false,
-            'warehouse.po.status.draft'      => false,
-            'warehouse.po.status.issued'     => false,
-            'warehouse.po.status.new'        => false,
+            //            'warehouse.po.status.attention'  => false,
+            //            'warehouse.po.status.draft'      => false,
+            //            'warehouse.po.status.issued'     => false,
+            //            'warehouse.po.status.new'        => false,
         ];
         $role->save();
     }
@@ -107,7 +111,16 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'warehouse.gr.'
+            'warehouse.gr.*'
+        ];
+        $role->save();
+    }
+
+    protected function midwifePermissions()
+    {
+        $role = $this->findRole(__FUNCTION__);
+        $role->permissions = [
+            'stall.view' => true,
         ];
         $role->save();
     }

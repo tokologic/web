@@ -32,7 +32,7 @@ class POItemDataTable extends DataTable
             ->addColumn('product', function ($data) {
                 return optional($data->product)->name;
             })
-            ->addAction('action', function ($data) {
+            ->addColumn('action', function ($data) {
                 return view('warehouse.item.action')
                     ->with(['item' => $data])
                     ->render();
