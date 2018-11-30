@@ -16,6 +16,7 @@ class POItemDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->rawColumns(['action'])
             ->editColumn('discount', function ($data) {
                 return $data->discount . "%";
             })
@@ -61,7 +62,6 @@ class POItemDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '150px'])
             ->parameters($this->getBuilderParameters());
     }
 
