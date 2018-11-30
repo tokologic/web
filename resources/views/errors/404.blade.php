@@ -1,4 +1,4 @@
-@extends('errors.blankon')
+@extends('_layout.blankon')
 
 @section('content')
 

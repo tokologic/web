@@ -47,12 +47,15 @@
 
     <section id="page-content">
         <div class="header-content">
-            <h2><i class="fa {{$page->icon ?? 'fa-file-o'}}"></i>{{$page->title ?? ''}} <span>{{$page->subTitle ?? ''}}</span></h2>
+            <h2>
+                <i class="fa {{$page->icon ?? 'fa-file-o'}}"></i>{{$page->title ?? ''}}
+                <span>{{$page->subTitle ?? ''}}</span>
+            </h2>
             <div class="breadcrumb-wrapper hidden-xs">
-                <span class="label">You are here:</span>
-
-                {{ Breadcrumbs::render() }}
-
+                @if(Breadcrumbs::exists('errors.404'))
+                    <span class="label">You are here:</span>
+                    {{ Breadcrumbs::render() }}
+                @endif
             </div>
         </div>
 
