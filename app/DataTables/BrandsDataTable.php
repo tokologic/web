@@ -16,7 +16,7 @@ class BrandsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['name','action'])
+            ->escapeColumns([])
             ->editColumn('name', function ($data) {
                 return "<a href='" . route('brands.products.index', $data->id) . "'>{$data->name}</a>";
             })

@@ -16,7 +16,7 @@ class PODataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['action'])
+            ->escapeColumns([])
             ->editColumn('amount', function ($data) {
                 return rupiah($data->amount);
             })

@@ -16,7 +16,7 @@ class POItemDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['action'])
+            ->escapeColumns([])
             ->editColumn('discount', function ($data) {
                 return $data->discount . "%";
             })
@@ -32,7 +32,7 @@ class POItemDataTable extends DataTable
             ->addColumn('product', function ($data) {
                 return optional($data->product)->name;
             })
-            ->addColumn('action', function ($data) {
+            ->addAction('action', function ($data) {
                 return view('warehouse.item.action')
                     ->with(['item' => $data])
                     ->render();

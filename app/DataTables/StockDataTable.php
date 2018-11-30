@@ -17,7 +17,7 @@ class StockDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->rawColumns(['action'])
+            ->escapeColumns([])
             ->addColumn('product', function ($data) {
                 return $data->product->name;
             })
