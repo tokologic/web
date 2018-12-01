@@ -6,7 +6,7 @@ namespace App\Model\Stall;
 
 use App\Contract\PurchaseOrderInterface;
 use App\Model\Stall;
-use App\PurchaseOrderItem;
+use App\Model\Stall\PurchaseOrderItem;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -52,8 +52,18 @@ class PurchaseOrder extends Model implements PurchaseOrderInterface
         return $this->belongsTo(Stall::class, 'store_id', 'id');
     }
 
-    public function purchaseorderitems()
+    public function items()
     {
-        return $this->hasMany(PurchaseOrderItem::class);
+        return $this->hasMany(PurchaseOrderItem::class, 'po_id');
+    }
+
+    public function goodsReceive()
+    {
+        return $this->hasOne(GoodsReceive::class, 'po_id');
+    }
+
+    public function gr()
+    {
+        return $this->goodsReceive();
     }
 }

@@ -6,6 +6,7 @@ use App\Model\Brand;
 use App\Model\Company;
 use App\Model\Product;
 use App\Model\Role;
+use App\Model\Stall\GoodsReceive;
 use App\Model\User;
 use App\Model\Warehouse\GoodsReceiveItem;
 use App\Model\Warehouse\PurchaseOrderItem;
@@ -57,6 +58,9 @@ class AppServiceProvider extends ServiceProvider
         PurchaseOrderItem::observe(PurchaseOrderItemObserver::class);
         GoodsReceiveItem::observe(GoodsReceiveItemObserver::class);
         StockItem::observe(StockItemObserver::class);
+
+        \App\Model\Stall\PurchaseOrderItem::observe(\App\Observers\Stall\PurchaseOrderItemObserver::class);
+        \App\Model\Stall\GoodsReceiveItem::observe(\App\Observers\Stall\GoodsReceiveItemObserver::class);
     }
 
     private function logQuery(): void

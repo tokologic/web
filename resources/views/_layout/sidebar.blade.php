@@ -95,7 +95,7 @@
     @endif
 
     <li class="sidebar-category">
-        <span>Purchase Orders</span>
+        <span>Warehouse</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
     </li>
 
@@ -103,21 +103,42 @@
     <li>
         <a href="{{route('warehouse.po.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">PO</span>
+            <span class="text">Purchase Orders</span>
         </a>
     </li>
     @endif
 
     @if(Sentinel::hasAnyAccess(['warehouse.gr.view']))
-
     <li>
         <a href="{{route('warehouse.gr.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">GR</span>
+            <span class="text">Goods Receives</span>
         </a>
     </li>
     @endif
 
+    <li class="sidebar-category">
+        <span>Stall</span>
+        <span class="pull-right"><i class="fa fa-magic"></i></span>
+    </li>
+
+    @if(Sentinel::hasAnyAccess(['stall.po.view']))
+    <li>
+        <a href="{{route('stalls.po.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Purchase Orders</span>
+        </a>
+    </li>
+    @endif
+
+    @if(Sentinel::hasAnyAccess(['stall.gr.view']))
+    <li>
+        <a href="{{route('stalls.gr.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Goods Receives</span>
+        </a>
+    </li>
+    @endif
 </ul><!-- /.sidebar-menu -->
 <div class="sidebar-footer hidden-xs hidden-sm hidden-md">
     <a class="pull-left" href="javascript:;" data-toggle="tooltip" data-placement="top" data-title="Setting"><i

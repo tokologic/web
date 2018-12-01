@@ -42,8 +42,8 @@ try {
     });
 
     Breadcrumbs::for('warehouse.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
-        $trail->parent('dashboard');
-        $trail->push('Purchase Orders', route('warehouse.po.index'));
+       $trail->parent('dashboard');
+       $trail->push('Warehouse Purchase Orders', route('warehouse.po.index'));
     });
 
     Breadcrumbs::for('warehouse.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
@@ -109,5 +109,32 @@ try {
         $trail->push('Warehouse ' . $warehouse->name . ' Stock Item', route('warehouses.stocks.index', [$id]));
     });
 
-} catch (\DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException $e) {
+    Breadcrumbs::for('stalls.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stall Purchase Orders', route('stalls.po.index'));
+    });
+
+    Breadcrumbs::for('stalls.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('stalls.po.index');
+        $trail->push('New', route('stalls.po.create'));
+    });
+
+    Breadcrumbs::for('stalls.po.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $po = \App\Model\Stall\PurchaseOrder::find($id);
+        $trail->parent('stalls.po.index');
+        $trail->push($po->id, route('stalls.po.show', $po->id));
+    });
+
+    Breadcrumbs::for('stalls.gr.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stall Goods Receiving', route('stalls.gr.index'));
+    });
+
+    Breadcrumbs::for('stalls.gr.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $trail->parent('stalls.gr.index');
+        $trail->push('PO #' . $id, route('stalls.gr.show', [$id]));
+    });
+
+} catch (\DaveJamesMiller\Breadcrumbs\ExceptionsDuplicateBreadcrumbException $e) {
+
 }

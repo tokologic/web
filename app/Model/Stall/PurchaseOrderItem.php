@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Model\Stall;
 
-use App\Model\Stall\PurchaseOrder;
-use App\Model\Stall\Store;
+use App\Model\Product;
+use App\Model\Stall;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -42,9 +42,20 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrderItem extends Model
 {
     protected $table = 'store_po_items';
+    protected $fillable = ['qty', 'unit_price', 'discount', 'sub_total','gross_price','currency'];
 
-    public function purchaseorder()
+    public function product()
     {
-        return $this->belongsTo(PurchaseOrder::class);
+        return $this->belongsTo(Product::class);
+    }
+
+    public function purchaseOrder()
+    {
+        return $this->belongsTo(PurchaseOrder::class, 'po_id');
+    }
+
+    public function po()
+    {
+        return $this->purchaseOrder();
     }
 }

@@ -30,9 +30,25 @@ use Illuminate\Database\Eloquent\Model;
 class GoodsReceiveItem extends Model
 {
     protected $table = 'store_gr_items';
+    protected $fillable = ['qty', 'reference'];
 
-    public function goodsreceive()
+    public function goodsReceive()
     {
-        return $this->belongsTo(GoodsReceive::class);
+        return $this->belongsTo(GoodsReceive::class, 'gr_id');
+    }
+
+    public function gr()
+    {
+        return $this->goodsReceive();
+    }
+
+    public function purchaseOrderItem()
+    {
+        return $this->belongsTo(PurchaseOrderItem::class, 'po_item_id');
+    }
+
+    public function poItem()
+    {
+        return $this->purchaseOrderItem();
     }
 }
