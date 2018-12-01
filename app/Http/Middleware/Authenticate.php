@@ -10,9 +10,9 @@ class Authenticate
 
     public function handle($request, \Closure $next)
     {
-        if (!\Sentinel::check())
-            abort(404);
-
+        if (!\Sentinel::check()) {
+            return redirect('/login');
+        }
 
         return $next($request);
     }

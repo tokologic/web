@@ -24,7 +24,7 @@ class StallRequest extends FormRequest
     public function rules()
     {
         return [
-            'midwife_id' => 'required',
+//            'midwife_id' => 'required',
             'region_id' => 'required',
             'name' => 'required',
             'address' => 'required',

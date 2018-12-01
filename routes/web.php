@@ -27,6 +27,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
     Route::match(['get', 'delete'], '/logout', 'Auth\LoginController@logout');
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -51,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::namespace('Warehouse')->group(function () {
         Route::prefix('warehouse/purchase-orders')->name('warehouse.po.')->group(function () {
+
             Route::get('/', 'PurchaseOrdersController@index')->name('index');
             Route::post('/', 'PurchaseOrdersController@store')->name('store');
             Route::get('create', 'PurchaseOrdersController@create')->name('create');

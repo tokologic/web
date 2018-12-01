@@ -98,6 +98,11 @@ try {
         $trail->push('Stalls', route('stalls.index'));
     });
 
+    Breadcrumbs::for('stalls.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('stalls.index');
+        $trail->push('Create', route('stalls.create'));
+    });
+
     Breadcrumbs::for('warehouses.stocks.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $warehouse = \App\Model\Warehouse::find($id);
         $trail->parent('warehouses.index');

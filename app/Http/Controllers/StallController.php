@@ -23,17 +23,39 @@ class StallController extends Controller
         return $dataTable->render('stalls.index', compact('page'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $regions = Region::all();
         $midwives = Midwife::all();
-        return view('stalls.create', compact('regions', 'midwives'));
+
+        if ($request->ajax()) {
+            return view('stalls.create', compact('regions', 'midwives'));
+        } else {
+            return view('stalls.midwife.create', compact('regions', 'midwives'));
+
+        }
     }
 
     public function store(StallRequest $request)
     {
         $stall = new Stall();
-        $stall->create($request->all());
+        $region = Region::find($request->get('region_id'));
+
+        $roles = \Sentinel::getUser()->roles->pluck('slug')->toArray();
+
+        $midwife = in_array('midwife', $roles) ? Midwife::find(\Sentinel::getUser()->id) : Midwife::find($request->get('midwife_id'));
+
+        $stall->name = $request->get('name');
+        $stall->address = $request->get('address');
+        $stall->acreage = $request->get('acreage');
+        $stall->region()->associate($region);
+        $stall->midwife()->associate($midwife);
+        $stall->save();
+
+        if (!$request->ajax())
+            return redirect()->url('/dashboard');
+
+
     }
 
     public function edit(Stall $store)
@@ -52,10 +74,10 @@ class StallController extends Controller
     public function destroy(Stall $stall)
     {
         try {
-            $stall ->delete();
+            $stall->delete();
         } catch (\Exception $e) {
             return [
-                'error' => true,
+                'error'   => true,
                 'message' => $e->getMessage()
             ];
         }

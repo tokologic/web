@@ -121,6 +121,7 @@ class DataRoles extends Command
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
             'stall.view' => true,
+            'stall.create' => true,
         ];
         $role->save();
     }

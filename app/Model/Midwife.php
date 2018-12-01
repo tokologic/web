@@ -50,7 +50,15 @@ class Midwife extends User
         parent::boot();
 
         static::addGlobalScope('midwife', function (Builder $builder) {
-            $builder->where('role','=','midwife');
+            $builder->select(['users.*'])
+                ->leftJoin('role_users', 'role_users.user_id', '=', 'users.id')
+                ->leftJoin('roles', 'roles.id', '=', 'role_users.role_id')
+                ->where('roles.slug', '=', 'midwife');
         });
+    }
+
+    public function stall()
+    {
+        return $this->hasOne(Stall::class, 'midwife_id');
     }
 }
