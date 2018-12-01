@@ -60,7 +60,8 @@ class PODatatable extends DataTable
             'delivery_date',
             'amount',
             'payment_status',
-            'received_payment'
+            'received_payment',
+            'action'
         ];
     }
 
