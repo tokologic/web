@@ -12,10 +12,10 @@ class StallDataTable extends DataTable
         return datatables($query)
             ->escapeColumns([])
             ->addColumn('midwife', function($item) {
-                return $item->midwife->first_name;
+                return optional($item->midwife)->first_name;
             })
             ->addColumn('region', function($item) {
-                return $item->region->name;
+                return optional($item->region)->name;
             })
             ->addColumn('action', function($data) {
                 return view('stalls.action')
@@ -26,7 +26,10 @@ class StallDataTable extends DataTable
 
     public function query(Stall $model)
     {
-        return $model->newQuery()
+        $user = \Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        $builder = $model->newQuery()
             ->with(['region', 'midwife'])
             ->select([
                 'id',
@@ -36,6 +39,12 @@ class StallDataTable extends DataTable
                 'address',
                 'acreage'
             ]);
+
+        if (in_array('midwife', $roles)) {
+            $builder->where('midwife_id', $user->id);
+        }
+
+        return $builder;
     }
 
     public function html()

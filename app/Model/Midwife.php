@@ -59,6 +59,6 @@ class Midwife extends User
 
     public function stall()
     {
-        return $this->hasOne(Stall::class, 'midwife_id');
+        return $this->hasMany(Stall::class, 'midwife_id');
     }
 }
