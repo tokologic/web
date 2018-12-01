@@ -10,6 +10,7 @@ class PODatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->editColumn('amount', function ($data) {
                 return rupiah($data->amount);
             })
@@ -48,7 +49,6 @@ class PODatatable extends DataTable
         return $this->builder()
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->addAction(['width' => '150px'])
                     ->parameters($this->getBuilderParameters());
     }
 
