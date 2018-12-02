@@ -115,3 +115,14 @@ function destroy(obj) {
         }
     })
 }
+
+function show(obj) {
+    let $obj = $(obj);
+    $('#modal .modal-body').html('Loading, please wait...');
+
+    $.get($obj.data('route'), function (response) {
+        $('#modal .modal-body').html(response);
+    });
+
+    $('#modal').modal('show');
+}

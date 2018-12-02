@@ -19,12 +19,20 @@ class StallController extends Controller
 
     public function index(StallDataTable $dataTable)
     {
+
+        if (!\Sentinel::hasAnyAccess(['stall.view']))
+            abort(404);
+
         $page = (object)['icon' => 'fa-home', 'title' => 'Stalls'];
         return $dataTable->render('stalls.index', compact('page'));
     }
 
     public function create(Request $request)
     {
+
+        if (!\Sentinel::hasAnyAccess(['stall.create']))
+            abort(404);
+
         $regions = Region::all();
         $midwives = Midwife::all();
 
@@ -38,6 +46,9 @@ class StallController extends Controller
 
     public function store(StallRequest $request)
     {
+        if (!\Sentinel::hasAnyAccess(['stall.create']))
+            abort(404);
+
         $stall = new Stall();
         $region = Region::find($request->get('region_id'));
 
@@ -58,8 +69,22 @@ class StallController extends Controller
 
     }
 
-    public function edit(Stall $store)
+    public function show($storeId)
     {
+//        if (!\Sentinel::hasAnyAccess(['stall.show']))
+//            abort(404);
+
+        $store = Stall::with(['midwife', 'region'])->find($storeId);
+        return view('stalls.show', compact('store'));
+
+    }
+
+    public function edit($storeId)
+    {
+        if (!\Sentinel::hasAnyAccess(['stall.update']))
+            abort(404);
+
+        $store = Stall::find($storeId);
         $regions = Region::all();
         $midwives = Midwife::all();
         return view('stalls.edit', compact('regions', 'midwives', 'store'));
@@ -67,12 +92,20 @@ class StallController extends Controller
 
     public function update(Stall $stall, StallRequest $request)
     {
+
+        if (!\Sentinel::hasAnyAccess(['stall.update']))
+            abort(404);
+
         $data = $this->gatherRequest(Stall::class, $request);
         $stall->update($data);
     }
 
     public function destroy(Stall $stall)
     {
+
+        if (!\Sentinel::hasAnyAccess(['stall.delete']))
+            abort(404);
+
         try {
             $stall->delete();
         } catch (\Exception $e) {

@@ -1,16 +1,22 @@
 <div class="row">
     <div class="col-md-12">
-        <form action="{{route('stalls', $store->id)}}" method="post" id="form-store-edit">
+        <form action="{{route('stalls.update', [$store->id])}}" method="post" id="form-store-edit">
             {{method_field('PUT')}}
             {{csrf_field()}}
 
-            <div class="form-group">
+            {{--<div class="form-group">
                 <label for="midwife_id">Midwife</label>
                 <select name="midwife_id" id="midwife_id" class="form-control form-control-sm">
                     @foreach($midwives as $midwife)
                         <option value="{{ $midwife->id }}" @if($store->midwife_id == $midwife->id) selected @endif>{{ $midwife->first_name }}</option>
                     @endforeach
                 </select>
+                <div class="invalid-feedback"></div>
+            </div>--}}
+
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" class="form-control form-control-sm" name="name" value="{{ $store->name }}">
                 <div class="invalid-feedback"></div>
             </div>
 
@@ -24,11 +30,7 @@
                 <div class="invalid-feedback"></div>
             </div>
 
-            <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" class="form-control form-control-sm" name="name" value="{{ $store->name }}">
-                <div class="invalid-feedback"></div>
-            </div>
+
 
             <div class="form-group">
                 <label for="address">Address *</label>

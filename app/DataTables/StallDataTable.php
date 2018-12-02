@@ -30,15 +30,7 @@ class StallDataTable extends DataTable
         $roles = $user->roles->pluck('slug')->toArray();
 
         $builder = $model->newQuery()
-            ->with(['region', 'midwife'])
-            ->select([
-                'id',
-                'midwife_id',
-                'region_id',
-                'name',
-                'address',
-                'acreage'
-            ]);
+            ->with(['region', 'midwife']);
 
         if (in_array('midwife', $roles)) {
             $builder->where('midwife_id', $user->id);
@@ -64,7 +56,8 @@ class StallDataTable extends DataTable
             'region',
             'name',
             'address',
-            'acreage'
+            'acreage',
+            'status'
         ];
     }
 

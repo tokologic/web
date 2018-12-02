@@ -3,14 +3,20 @@
         <form action="{{route('stalls.store')}}" method="post" id="form-stall-add"> {{csrf_field()}}
 
             <div class="form-group">
-                <label for="midwife_id">Midwife</label>
-                <select name="midwife_id" id="midwife_id" class="form-control form-control-sm">
-                    @foreach($midwives as $midwife)
-                        <option value="{{ $midwife->id }}">{{ $midwife->first_name }}</option>
-                    @endforeach
-                </select>
+                <label for="name">Name *</label>
+                <input type="text" id="name" class="form-control form-control-sm" name="name">
                 <div class="invalid-feedback"></div>
             </div>
+
+            {{--<div class="form-group">--}}
+                {{--<label for="midwife_id">Midwife</label>--}}
+                {{--<select name="midwife_id" id="midwife_id" class="form-control form-control-sm">--}}
+                    {{--@foreach($midwives as $midwife)--}}
+                        {{--<option value="{{ $midwife->id }}">{{ $midwife->first_name }}</option>--}}
+                    {{--@endforeach--}}
+                {{--</select>--}}
+                {{--<div class="invalid-feedback"></div>--}}
+            {{--</div>--}}
 
             <div class="form-group">
                 <label for="region_id">Region</label>
@@ -22,11 +28,7 @@
                 <div class="invalid-feedback"></div>
             </div>
 
-            <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" class="form-control form-control-sm" name="name">
-                <div class="invalid-feedback"></div>
-            </div>
+
 
             <div class="form-group">
                 <label for="address">Address *</label>

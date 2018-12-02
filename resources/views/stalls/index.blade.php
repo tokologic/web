@@ -14,9 +14,11 @@
                 <h3 class="panel-title">Stalls</h3>
             </div>
             <div class="pull-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-stall-add">
+                @if(Sentinel::hasAnyAccess(['stall.create']))
+                <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-store-add">
                     <i class="fa fa-plus"></i> Add Stall
                 </button>
+                @endif
             </div>
             <div class="clearfix"></div>
         </div>
@@ -25,7 +27,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-stall-list']) !!}
+                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-store-list']) !!}
                     </div>
                 </div>
             </div>
@@ -49,7 +51,7 @@
 
     <script>
 
-        $('#btn-stall-add').click(function () {
+        $('#btn-store-add').click(function () {
             create("{{route('stalls.create')}}");
         });
 

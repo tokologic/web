@@ -11,7 +11,7 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-save">Save changes</button>
+                <button type="button" class="btn btn-primary btn-save">Save</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

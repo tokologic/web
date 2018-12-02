@@ -87,6 +87,9 @@ class DataRoles extends Command
             'warehouse.po.status.new'       => true,
 
             'warehouse.po.item.*' => true,
+
+            'stall.view'   => true,
+            'stall.update' => true
         ];
         $role->save();
     }
@@ -95,7 +98,7 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'warehouse.po.view'    => true,
+            'warehouse.po.view'              => true,
             'warehouse.po.status.approve'    => true,
             'warehouse.po.status.correction' => true,
             'warehouse.po.status.revoke'     => true,
@@ -120,8 +123,9 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'stall.view' => true,
+            'stall.view'   => true,
             'stall.create' => true,
+            'stall.update' => true
         ];
         $role->save();
     }
