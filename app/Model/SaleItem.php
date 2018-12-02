@@ -33,6 +33,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SaleItem extends Model
 {
+    protected $fillable = ['qty', 'amount', 'unit_price', 'store_item_id', 'sale_id'];
+
     public function sale()
     {
         return $this->belongsTo(Sale::class);
@@ -40,6 +42,6 @@ class SaleItem extends Model
 
     public function item()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class, 'store_item_id', 'id');
     }
 }

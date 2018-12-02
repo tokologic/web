@@ -139,6 +139,14 @@
         </a>
     </li>
     @endif
+
+    <li>
+        <a href="{{route('sale.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Sale Transaction</span>
+        </a>
+    </li>
+
     <li>
         <a href="{{route('stallitem.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
