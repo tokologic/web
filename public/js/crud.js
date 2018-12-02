@@ -1,4 +1,6 @@
 function create(route) {
+    $('.modal-footer').removeClass('hidden');
+
     $('#modal .btn-save').unbind('click');
     $('#modal .modal-body').html('Loading, please wait...');
 
@@ -42,6 +44,8 @@ function store(formId, dataTablesId) {
 }
 
 function edit(obj) {
+    $('.modal-footer').removeClass('hidden');
+
     let $obj = $(obj);
     $('#modal .modal-body').html('Loading, please wait...');
 
@@ -117,6 +121,8 @@ function destroy(obj) {
 }
 
 function show(obj) {
+    $('.modal-footer').addClass('hidden');
+
     let $obj = $(obj);
     $('#modal .modal-body').html('Loading, please wait...');
 
