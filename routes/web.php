@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('stalls', 'StallController');
     Route::resource('prices', 'PricesController');
     Route::resource('warehouses.stocks', 'StocksController');
+    Route::resource('stallitem', 'StallItemController');
 
     Route::namespace('Stall')->group(function () {
         Route::prefix('stall/purchase-orders')->name('stalls.po.')->group(function () {
