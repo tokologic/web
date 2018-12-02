@@ -10,14 +10,14 @@
 
             <div class="form-group">
                 <label for="qty">Quantity</label>
-                <input type="text" id="qty" class="form-control form-control-sm" name="qty">
+                <input type="number" id="qty" class="form-control form-control-sm" name="qty">
                 <div class="invalid-feedback"></div>
 
             </div>
 
             <div class="form-group">
                 <label for="unit_price">Unit Price</label>
-                <input type="text" id="unit_price" class="form-control form-control-sm" name="unit_price">
+                <input type="number" id="unit_price" class="form-control form-control-sm" name="unit_price">
                 <div class="invalid-feedback"></div>
             </div>
 

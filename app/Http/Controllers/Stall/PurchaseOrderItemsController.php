@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Stall;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Stall\POItemRequest;
 use App\Model\Product;
 use App\Model\Stall\PurchaseOrder;
 use App\Model\Stall\PurchaseOrderItem;
@@ -19,7 +20,7 @@ class PurchaseOrderItemsController extends Controller
         return view('stalls.po.item.create', compact('po'));
     }
 
-    public function store($poId, Request $request)
+    public function store($poId, POItemRequest $request)
     {
 //        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.create']))
 //            abort(404);
