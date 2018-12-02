@@ -11,12 +11,12 @@
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title">Stalls</h3>
+                <h3 class="panel-title">Kios</h3>
             </div>
             <div class="pull-right">
                 @if(Sentinel::hasAnyAccess(['stall.create']))
                 <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-store-add">
-                    <i class="fa fa-plus"></i> Add Stall
+                    <i class="fa fa-plus"></i> Tambah Kios
                 </button>
                 @endif
             </div>

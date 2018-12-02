@@ -19,6 +19,14 @@
     "datatables": "^1.10.19",
     "select2": "^4.0.5",
     "bootstrap-datepicker-vitalets": "*",
-    "bootbox.js": "bootbox#^4.4.0"
+    "bootbox.js": "bootbox#^4.4.0",
+    "raphael": "^2.2.7",
+    "Flot": "flot#^0.8.3",
+    "morris.js": "morrisjs#^0.5.1",
+    "gmap3": "^7.2.0",
+    "jquery.gritter": "^1.7.4",
+    "counter-up": "^1.0.0",
+    "waypoints": "^4.0.1",
+    "jvectormap": "^2.0.4"
   }
 }
