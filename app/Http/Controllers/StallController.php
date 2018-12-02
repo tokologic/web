@@ -6,6 +6,7 @@ use Api\Transformers\StallTransformer;
 use App\DataTables\StallDataTable;
 use App\Http\Requests\StallRequest;
 use App\Model\Midwife;
+use App\Model\Package;
 use App\Model\Region;
 use App\Model\Stall;
 use App\Traits\Crud;
@@ -35,11 +36,12 @@ class StallController extends Controller
 
         $regions = Region::all();
         $midwives = Midwife::all();
+        $packages = Package::all();
 
         if ($request->ajax()) {
-            return view('stalls.create', compact('regions', 'midwives'));
+            return view('stalls.create', compact('regions', 'midwives', 'packages'));
         } else {
-            return view('stalls.midwife.create', compact('regions', 'midwives'));
+            return view('stalls.midwife.create', compact('regions', 'midwives', 'packages'));
 
         }
     }
@@ -51,7 +53,7 @@ class StallController extends Controller
 
         $stall = new Stall();
         $region = Region::find($request->get('region_id'));
-
+        $package = Package::find($request->get('package_id'));
         $roles = \Sentinel::getUser()->roles->pluck('slug')->toArray();
 
         $midwife = in_array('midwife', $roles) ? Midwife::find(\Sentinel::getUser()->id) : Midwife::find($request->get('midwife_id'));
@@ -59,8 +61,11 @@ class StallController extends Controller
         $stall->name = $request->get('name');
         $stall->address = $request->get('address');
         $stall->acreage = $request->get('acreage');
+        $stall->latitude = $request->get('latitude');
+        $stall->longitude = $request->get('longitude');
         $stall->region()->associate($region);
         $stall->midwife()->associate($midwife);
+        $stall->package()->associate($package);
         $stall->save();
 
         if (!$request->ajax())
@@ -130,5 +135,23 @@ class StallController extends Controller
         $resource = new Collection($suppliers, new StallTransformer());
         $data = $this->fractal->createData($resource)->toArray();
         return response()->json($data);
+    }
+
+    public function approve($storeId, Request $request)
+    {
+        if (!\Sentinel::hasAnyAccess(['stall.approve']))
+            abort(404);
+
+        $store = Stall::find($storeId);
+        $store->status = 'approved';
+        $store->save();
+
+    }
+
+    public function pay($storeId, Request $request)
+    {
+//        if (!\Sentinel::hasAnyAccess(['stall.pay']))
+//            abort(404);
+        return 'p';
     }
 }

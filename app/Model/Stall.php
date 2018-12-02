@@ -38,7 +38,9 @@ class Stall extends Model
         'region_id',
         'name',
         'address',
-        'acreage'
+        'acreage',
+        'latitude',
+        'longitude',
     ];
 
     public function midwife()
@@ -49,5 +51,10 @@ class Stall extends Model
     public function region()
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
     }
 }

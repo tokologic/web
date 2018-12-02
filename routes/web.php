@@ -47,6 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('regions', 'RegionController');
     Route::resource('suppliers', 'SupplierController');
     Route::resource('warehouses', 'WarehouseController');
+    Route::post('stalls/{stall}/approve', 'StallController@approve')->name('stalls.approve');
+    Route::get('stalls/{stall}/pay', 'StallController@pay')->name('stalls.pay');
     Route::resource('stalls', 'StallController');
     Route::resource('prices', 'PricesController');
     Route::resource('warehouses.stocks', 'StocksController');

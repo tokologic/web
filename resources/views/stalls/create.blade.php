@@ -42,6 +42,31 @@
                 <div class="invalid-feedback"></div>
             </div>
 
+            <div class="form-group">
+                <label for="package">Package</label>
+                <br><small>Untuk informasi paket lebih lengkap silahkan klik link <a href="#">berikut</a>.</small>
+                <select name="package_id" id="package" class="form-control">
+                    @foreach($packages as $package)
+                        <option value="{{ $package->id }}">{{ $package->name }} - {{ rupiah($package->price) }}</option>
+                    @endforeach
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" class="form-control form-control-sm" name="latitude">
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" class="form-control form-control-sm" name="longitude">
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <img src="{{ asset('img/map-dummy.png') }}" alt="Map" class="img-responsive">
+
         </form>
     </div>
 </div>

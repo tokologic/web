@@ -11,13 +11,16 @@ class StallDataTable extends DataTable
     {
         return datatables($query)
             ->escapeColumns([])
-            ->addColumn('midwife', function($item) {
+            ->addColumn('midwife', function ($item) {
                 return optional($item->midwife)->first_name;
             })
-            ->addColumn('region', function($item) {
+            ->addColumn('package', function ($item) {
+                return optional($item->package)->name . ' - ' . optional($item->package)->price;
+            })
+            ->addColumn('region', function ($item) {
                 return optional($item->region)->name;
             })
-            ->addColumn('action', function($data) {
+            ->addColumn('action', function ($data) {
                 return view('stalls.action')
                     ->with(['store' => $data])
                     ->render();
@@ -30,7 +33,7 @@ class StallDataTable extends DataTable
         $roles = $user->roles->pluck('slug')->toArray();
 
         $builder = $model->newQuery()
-            ->with(['region', 'midwife']);
+            ->with(['region', 'midwife', 'package']);
 
         if (in_array('midwife', $roles)) {
             $builder->where('midwife_id', $user->id);
@@ -42,10 +45,10 @@ class StallDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '150px'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->addAction(['width' => '150px'])
+            ->parameters($this->getBuilderParameters());
     }
 
     protected function getColumns()
@@ -56,7 +59,7 @@ class StallDataTable extends DataTable
             'region',
             'name',
             'address',
-            'acreage',
+            'package',
             'status'
         ];
     }

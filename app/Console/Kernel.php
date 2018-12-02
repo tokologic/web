@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DataPackage;
 use App\Console\Commands\DataRoles;
 use App\Console\Commands\ReferenceData;
 use Illuminate\Console\Scheduling\Schedule;
@@ -15,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        DataRoles::class
+        DataRoles::class,
+        DataPackage::class
     ];
 
     /**
