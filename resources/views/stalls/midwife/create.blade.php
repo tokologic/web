@@ -22,7 +22,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{route('stalls.store')}}" method="post" id="form-stall-add"> {{csrf_field()}}
+                    <form action="{{route('stalls.store')}}" method="post" id="form-store-add"> {{csrf_field()}}
 
                         <div class="form-group">
                             <label for="name">Store name *</label>
