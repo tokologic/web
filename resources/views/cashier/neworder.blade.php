@@ -16,9 +16,9 @@
                 <thead>
                 <tr>
                     <th>Item</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Sub Total</th>
+                    <th class="no-sort">Price</th>
+                    <th class="no-sort">Qty</th>
+                    <th class="no-sort">Sub Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,7 +81,11 @@
                 scrollY: '500px',
                 searching: false,
                 paging: false,
-                ordering: false,
+                ordering: true,
+                columnDefs: [{
+                   orderable: false,
+                   targets: 'no-sort'
+                }],
                 info: false
             });
         } );
