@@ -135,6 +135,16 @@ try {
         $trail->push('PO #' . $id, route('stalls.gr.show', [$id]));
     });
 
+    Breadcrumbs::for('sale.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Sale', route('sale.index'));
+    });
+
+    Breadcrumbs::for('sale.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $trail->parent('sale.index');
+        $trail->push('Sale #' . $id, route('sale.show', [$id]));
+    });
+
     Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Sale', route('sale.index'));

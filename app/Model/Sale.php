@@ -32,5 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Sale extends Model
 {
-    //
+    protected $table = 'sales';
+    protected $fillable = ['payment_method', 'amount', 'cash', 'change', 'tax','info'];
 }
