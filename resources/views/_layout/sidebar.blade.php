@@ -6,7 +6,7 @@
         </a>
         <div class="media-body">
             @if(Sentinel::check())
-            <h4 class="media-heading">{{ __('Hello') }}, <span>{{ Sentinel::getUser()->first_name }}</span></h4>
+            <h4 class="media-heading">Halo, <span>{{ Sentinel::getUser()->first_name }}</span></h4>
             <small>{{ implode(',', Sentinel::getUser()->roles->pluck('name')->toArray()) }}</small>
             @endif
         </div>
@@ -25,7 +25,7 @@
     <li>
         <a href="{{route('users.index')}}">
             <span class="icon"><i class="fa fa-user"></i></span>
-            <span class="text">Users</span>
+            <span class="text">Pengguna</span>
         </a>
     </li>
     @endif
@@ -34,7 +34,7 @@
     <li>
         <a href="{{route('midwives.index')}}">
             <span class="icon"><i class="fa fa-users"></i></span>
-            <span class="text">Midwives</span>
+            <span class="text">Bidan</span>
         </a>
     </li>
     @endif
@@ -43,7 +43,7 @@
     <li>
         <a href="{{route('categories.index')}}">
             <span class="icon"><i class="fa fa-tags"></i></span>
-            <span class="text">Categories</span>
+            <span class="text">Kategori</span>
         </a>
     </li>
     @endif
@@ -53,7 +53,7 @@
     <li>
         <a href="{{route('brands.index')}}">
             <span class="icon"><i class="fa fa-bold"></i></span>
-            <span class="text">Brands</span>
+            <span class="text">Brand</span>
         </a>
     </li>
     @endif
@@ -62,7 +62,7 @@
     <li>
         <a href="{{route('regions.index')}}">
             <span class="icon"><i class="fa fa-globe"></i></span>
-            <span class="text">Regions</span>
+            <span class="text">Wilayah</span>
         </a>
     </li>
     @endif
@@ -71,7 +71,7 @@
     <li>
         <a href="{{route('suppliers.index')}}">
             <span class="icon"><i class="fa fa-user"></i></span>
-            <span class="text">Suppliers</span>
+            <span class="text">Supplier</span>
         </a>
     </li>
     @endif
@@ -80,7 +80,7 @@
     <li>
         <a href="{{route('warehouses.index')}}">
             <span class="icon"><i class="fa fa-home"></i></span>
-            <span class="text">Warehouses</span>
+            <span class="text">Gudang</span>
         </a>
     </li>
     @endif
@@ -89,13 +89,13 @@
     <li>
         <a href="{{route('stalls.index')}}">
             <span class="icon"><i class="fa fa-home"></i></span>
-            <span class="text">Stalls</span>
+            <span class="text">Kios</span>
         </a>
     </li>
     @endif
 
     <li class="sidebar-category">
-        <span>Warehouse</span>
+        <span>Gudang</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
     </li>
 
@@ -103,7 +103,7 @@
     <li>
         <a href="{{route('warehouse.po.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Purchase Orders</span>
+            <span class="text">PO (Pemesanan)</span>
         </a>
     </li>
     @endif
@@ -112,13 +112,13 @@
     <li>
         <a href="{{route('warehouse.gr.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Goods Receives</span>
+            <span class="text">GR (Penerimaan)</span>
         </a>
     </li>
     @endif
 
     <li class="sidebar-category">
-        <span>Stall</span>
+        <span>Kios</span>
         <span class="pull-right"><i class="fa fa-magic"></i></span>
     </li>
 
@@ -126,7 +126,7 @@
     <li>
         <a href="{{route('stalls.po.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Purchase Orders</span>
+            <span class="text">PO (Pemesanan)</span>
         </a>
     </li>
     @endif
@@ -135,7 +135,7 @@
     <li>
         <a href="{{route('stalls.gr.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Goods Receives</span>
+            <span class="text">GR (Penerimaan)</span>
         </a>
     </li>
     @endif
@@ -143,7 +143,7 @@
     <li>
         <a href="{{route('sale.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
-            <span class="text">Sale Transaction</span>
+            <span class="text">Transaksi Toko</span>
         </a>
     </li>
 

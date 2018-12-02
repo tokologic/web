@@ -88,7 +88,7 @@ function destroy(obj) {
     let $obj = $(obj);
     bootbox.confirm({
         // title: "Destroy planet?",
-        message: "Do you want to delete this user?",
+        message: "Anda ingin menghapus data ini?",
         callback: function (result) {
             if (result) {
                 $.ajax({

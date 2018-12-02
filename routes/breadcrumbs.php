@@ -3,7 +3,6 @@
 try {
     Breadcrumbs::for('root', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-
         $trail->push('Root', route('root'));
     });
 
@@ -13,17 +12,17 @@ try {
 
     Breadcrumbs::for('users.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Users', route('users.index'));
+        $trail->push('User', route('users.index'));
     });
 
     Breadcrumbs::for('midwives.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Midwife', route('midwives.index'));
+        $trail->push('Bidan', route('midwives.index'));
     });
 
     Breadcrumbs::for('brands.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Brands', route('brands.index'));
+        $trail->push('Brand', route('brands.index'));
     });
 
     Breadcrumbs::for('companies.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
@@ -43,7 +42,7 @@ try {
 
     Breadcrumbs::for('warehouse.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
        $trail->parent('dashboard');
-       $trail->push('Warehouse Purchase Orders', route('warehouse.po.index'));
+       $trail->push('Gudang PO', route('warehouse.po.index'));
     });
 
     Breadcrumbs::for('warehouse.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
@@ -65,27 +64,27 @@ try {
 
     Breadcrumbs::for('categories.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Categories', route('categories.index'));
+        $trail->push('Kategori', route('categories.index'));
     });
 
     Breadcrumbs::for('regions.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Regions', route('regions.index'));
+        $trail->push('Wilayah', route('regions.index'));
     });
 
     Breadcrumbs::for('suppliers.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Suppliers', route('suppliers.index'));
+        $trail->push('Supplier', route('suppliers.index'));
     });
 
     Breadcrumbs::for('warehouses.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Warehouses', route('warehouses.index'));
+        $trail->push('Gudang', route('warehouses.index'));
     });
 
     Breadcrumbs::for('warehouse.gr.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Goods Receiving', route('warehouse.gr.index'));
+        $trail->push('GR (Penerimaan)', route('warehouse.gr.index'));
     });
 
     Breadcrumbs::for('warehouse.gr.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
@@ -95,23 +94,23 @@ try {
 
     Breadcrumbs::for('stalls.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Stalls', route('stalls.index'));
+        $trail->push('Kios', route('stalls.index'));
     });
 
     Breadcrumbs::for('stalls.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('stalls.index');
-        $trail->push('Create', route('stalls.create'));
+        $trail->push('Baru', route('stalls.create'));
     });
 
     Breadcrumbs::for('warehouses.stocks.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $warehouse = \App\Model\Warehouse::find($id);
         $trail->parent('warehouses.index');
-        $trail->push('Warehouse ' . $warehouse->name . ' Stock Item', route('warehouses.stocks.index', [$id]));
+        $trail->push('Gudang ' . $warehouse->name . ' Stock Item', route('warehouses.stocks.index', [$id]));
     });
 
     Breadcrumbs::for('stalls.po.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Stall Purchase Orders', route('stalls.po.index'));
+        $trail->push('PO (Permintaan)', route('stalls.po.index'));
     });
 
     Breadcrumbs::for('stalls.po.create', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
@@ -127,7 +126,7 @@ try {
 
     Breadcrumbs::for('stalls.gr.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Stall Goods Receiving', route('stalls.gr.index'));
+        $trail->push('GR (Penerimaan)', route('stalls.gr.index'));
     });
 
     Breadcrumbs::for('stalls.gr.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
@@ -137,18 +136,18 @@ try {
 
     Breadcrumbs::for('sale.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Sale', route('sale.index'));
+        $trail->push('Penjualan', route('sale.index'));
     });
 
     Breadcrumbs::for('sale.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $trail->parent('sale.index');
-        $trail->push('Sale #' . $id, route('sale.show', [$id]));
+        $trail->push('Penjualan #' . $id, route('sale.show', [$id]));
     });
 
     Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Sale', route('sale.index'));
     });
-} catch (\DaveJamesMiller\Breadcrumbs\ExceptionsDuplicateBreadcrumbException $e) {
+} catch (\DaveJamesMiller\Breadcrumbs\BreadcrumbsException $e) {
 
 }

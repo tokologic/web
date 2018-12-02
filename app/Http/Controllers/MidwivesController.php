@@ -15,7 +15,7 @@ class MidwivesController extends Controller
 
     public function index(MidwivesDataTable $dataTable)
     {
-        $page = (object)['icon' => 'fa-user-o', 'title' => 'Midwives'];
+        $page = (object)['icon' => 'fa-user-o', 'title' => 'Bidan'];
         return $dataTable->render('midwives.index', compact('page'));
     }
 

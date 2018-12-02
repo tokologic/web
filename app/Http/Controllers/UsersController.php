@@ -20,7 +20,7 @@ class UsersController extends Controller
         if (!\Sentinel::hasAnyAccess(['user.view']))
             abort(404);
 
-        $page = (object)['icon' => 'fa-user-o', 'title' => 'Users'];
+        $page = (object)['icon' => 'fa-user-o', 'title' => 'User'];
         return $dataTable->render('users.index', compact('page'));
     }
 

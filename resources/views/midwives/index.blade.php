@@ -9,11 +9,11 @@
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title">Midwives</h3>
+                <h3 class="panel-title">Bidan</h3>
             </div>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-midwife-add">
-                    <i class="fa fa-plus"></i> Add midwife
+                    <i class="fa fa-plus"></i> Tambah Bidan
                 </button>
             </div>
             <div class="clearfix"></div>
