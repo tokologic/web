@@ -135,6 +135,10 @@ try {
         $trail->push('PO #' . $id, route('stalls.gr.show', [$id]));
     });
 
+    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Sale', route('sale.index'));
+    });
 } catch (\DaveJamesMiller\Breadcrumbs\ExceptionsDuplicateBreadcrumbException $e) {
 
 }

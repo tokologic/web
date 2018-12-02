@@ -139,6 +139,12 @@
         </a>
     </li>
     @endif
+    <li>
+        <a href="{{route('stallitem.index')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Stall Item</span>
+        </a>
+    </li>
 </ul><!-- /.sidebar-menu -->
 <div class="sidebar-footer hidden-xs hidden-sm hidden-md">
     <a class="pull-left" href="javascript:;" data-toggle="tooltip" data-placement="top" data-title="Setting"><i

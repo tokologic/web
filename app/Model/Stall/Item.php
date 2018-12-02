@@ -2,6 +2,7 @@
 
 namespace App\Model\Stall;
 
+use App\Model\Product;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -35,4 +36,11 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     protected $table = 'store_items';
+    protected $primaryKey = 'id';
+    protected $fillable = ['product_id', 'retail_price', 'average_price', 'qty', 'min', 'max', 'whole_sale_price'];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
