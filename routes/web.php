@@ -24,7 +24,23 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/login', 'Auth\LoginController@index');
     Route::post('/login', 'Auth\LoginController@login');
+
+    Route::get('cashier/login', function(){
+        return view('cashier/login');
+    });
+
 });
+
+//Route::middleware(['cashier'])->group(function () {
+    Route::prefix('cashier')->name('cashier.')->group(function() {
+        Route::get('dashboard', function(){
+            return view('cashier.dashboard');
+        })->name('dashboard');
+        Route::get('neworder', function(){
+            return view('cashier.neworder');
+        })->name('neworder');
+    });
+//});
 
 Route::middleware(['auth'])->group(function () {
 
