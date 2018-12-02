@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
             $midwife = Midwife::find($user->id);
 
-            if (is_null($midwife->stall)) {
+            if (is_null($midwife->stall) || count($midwife->stall) == 0) {
                 return view('dashboard.empty', compact('page'));
             }
         }
