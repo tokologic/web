@@ -1,6 +1,6 @@
 <ul class="sidebar-menu">
     <li>
-        <a href="#">
+        <a href="{{ route('cashier.dashboard') }}">
             <span class="icon"><i class="fa fa-tachometer"></i></span>
             <span class="text">Dashboard</span>
         </a>
@@ -14,21 +14,21 @@
     </li>
 
     <li>
-        <a href="#">
+        <a href="{{ route('cashier.neworder') }}">
             <span class="icon"><i class="fa fa-plus-square"></i></span>
             <span class="text">New Order</span>
         </a>
     </li>
 
     <li>
-        <a href="#">
+        <a href="{{ route('cashier.previousorder') }}">
             <span class="icon"><i class="fa fa-list"></i></span>
             <span class="text">Previous Order</span>
         </a>
     </li>
 
     <li>
-        <a href="#">
+        <a href="{{ route('cashier.purchaseorder') }}">
             <span class="icon"><i class="fa fa-cart-plus"></i></span>
             <span class="text">Purchase Order</span>
         </a>

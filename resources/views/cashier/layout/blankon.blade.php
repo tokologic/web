@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="page-header-fixed page-sidebar-minimize">
+<body class="page-header-fixed">
 
 <section id="wrapper">
 
