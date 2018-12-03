@@ -1,7 +1,7 @@
 @extends('_layout.blankon')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('vendor/bootstrap-datepicker-vitalets/css/datepicker.css')}}">
+ccc
     <link rel="stylesheet" href="{{asset('vendor/select2/css/select2.min.css')}}">
 @endpush
 
