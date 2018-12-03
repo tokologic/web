@@ -9,7 +9,7 @@ use App\Http\Requests\SaleRequest;
 use App\Model\Sale;
 use App\Traits\Crud;
 
-class SaleController extends Controller
+class SalesController extends Controller
 {
     use Crud;
 
