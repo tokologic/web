@@ -139,6 +139,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::namespace('Sale')->group(function () {
         Route::prefix('sales')->name('sales.')->group(function () {
+            Route::get('update-qty', 'SalesController@updateQuantity')->name('update-qty');
             Route::get('/', 'SalesController@index')->name('index');
             Route::post('/', 'SalesController@store')->name('store');
             Route::get('create', 'SalesController@create')->name('create');

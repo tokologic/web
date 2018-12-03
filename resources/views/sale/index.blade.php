@@ -78,7 +78,7 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
+                                    <tr onclick="updateQty(this)">
                                         <td>Sunsilk</td>
                                         <td>{{rupiah(20000)}}</td>
                                         <td>7</td>
@@ -93,7 +93,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td>Xiomi</td>
+                                        <td>Xiaomi</td>
                                         <td>{{rupiah(20000)}}</td>
                                         <td>7</td>
                                         <td class="text-right">{{rupiah(20000 * 7)}}</td>
@@ -123,6 +123,23 @@
                     </div>
                 </div>
             </div>
+
+            <div class="panel shadow">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Print</button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Discount</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Tax</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -145,6 +162,19 @@
         $('#btn-sale-add').click(function () {
             create("{{route('sales.create')}}");
         });
+
+        function updateQty(obj) {
+            $('.modal-footer').removeClass('hidden');
+
+            let $obj = $(obj);
+            $('#modal .modal-body').html('Loading, please wait...');
+
+            $.get('{{ route('sales.update-qty') }}', function (response) {
+                $('#modal .modal-body').html(response);
+            });
+
+            $('#modal').modal('show');
+        }
 
     </script>
 @endpush

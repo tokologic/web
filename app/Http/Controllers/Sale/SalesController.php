@@ -39,4 +39,9 @@ class SalesController extends Controller
         $brand = new Sale();
         $brand->create($data);
     }
+
+    public function updateQuantity()
+    {
+        return view('sale.edit');
+    }
 }
