@@ -25,10 +25,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', 'Auth\LoginController@index');
     Route::post('/login', 'Auth\LoginController@login');
 
-    Route::get('cashier/login', function(){
-        return view('cashier/login');
-    });
-
 });
 
 //Route::middleware(['cashier'])->group(function () {
@@ -39,6 +35,18 @@ Route::middleware(['guest'])->group(function () {
         Route::get('neworder', function(){
             return view('cashier.neworder');
         })->name('neworder');
+        Route::get('previousorder', function(){
+            return view('cashier.previousorder');
+        })->name('previousorder');
+        Route::get('purchaseorder', function(){
+            return view('cashier.purchaseorder');
+        })->name('purchaseorder');
+        Route::get('newpo', function(){
+            return view('cashier.newpo');
+        })->name('newpo');
+        Route::get('newpoitem', function(){
+            return view('cashier.newpoitem');
+        });
     });
 //});
 
