@@ -44,4 +44,9 @@ class SalesController extends Controller
     {
         return view('sale.edit');
     }
+
+    public function checkout()
+    {
+        return view('sale.checkout');
+    }
 }

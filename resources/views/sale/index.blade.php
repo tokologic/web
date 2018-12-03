@@ -129,7 +129,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="checkout()">Checkout</button>
                             <button type="button" class="btn btn-primary btn-lg btn-block">Print</button>
                         </div>
 
@@ -166,10 +166,23 @@
         function updateQty(obj) {
             $('.modal-footer').removeClass('hidden');
 
-            let $obj = $(obj);
+            // let $obj = $(obj);
             $('#modal .modal-body').html('Loading, please wait...');
 
             $.get('{{ route('sales.update-qty') }}', function (response) {
+                $('#modal .modal-body').html(response);
+            });
+
+            $('#modal').modal('show');
+        }
+
+        function checkout() {
+            $('.modal-footer').addClass('hidden');
+
+            // let $obj = $(obj);
+            $('#modal .modal-body').html('Loading, please wait...');
+
+            $.get('{{ route('sales.checkout') }}', function (response) {
                 $('#modal .modal-body').html(response);
             });
 
