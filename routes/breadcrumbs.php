@@ -134,20 +134,25 @@ try {
         $trail->push('PO #' . $id, route('stalls.gr.show', [$id]));
     });
 
-    Breadcrumbs::for('sale.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+    Breadcrumbs::for('sales.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
-        $trail->push('Penjualan', route('sale.index'));
+        $trail->push('Penjualan', route('sales.index'));
     });
 
-    Breadcrumbs::for('sale.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+    Breadcrumbs::for('sales.previous', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('sales.index');
+        $trail->push('Riwayat', route('sales.previous'));
+    });
+
+    Breadcrumbs::for('sales.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $trail->parent('sale.index');
-        $trail->push('Penjualan #' . $id, route('sale.show', [$id]));
+        $trail->push('Penjualan #' . $id, route('sales.show', [$id]));
     });
 
-    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
-        $trail->parent('dashboard');
-        $trail->push('Sale', route('sale.index'));
-    });
+//    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+//        $trail->parent('dashboard');
+//        $trail->push('Sale', route('sale.index'));
+//    });
 } catch (\DaveJamesMiller\Breadcrumbs\BreadcrumbsException $e) {
 
 }

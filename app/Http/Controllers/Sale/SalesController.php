@@ -9,7 +9,7 @@ use App\Http\Requests\SaleRequest;
 use App\Model\Sale;
 use App\Traits\Crud;
 
-class SaleController extends Controller
+class SalesController extends Controller
 {
     use Crud;
 
@@ -38,5 +38,20 @@ class SaleController extends Controller
 
         $brand = new Sale();
         $brand->create($data);
+    }
+
+    public function updateQuantity()
+    {
+        return view('sale.edit');
+    }
+
+    public function checkout()
+    {
+        return view('sale.checkout');
+    }
+
+    public function previous()
+    {
+        return view('sale.previous');
     }
 }

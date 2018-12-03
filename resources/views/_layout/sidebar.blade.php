@@ -141,9 +141,16 @@
     @endif
 
     <li>
-        <a href="{{route('sale.index')}}">
+        <a href="{{route('sales.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
             <span class="text">Transaksi Toko</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{route('sales.previous')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Riwayat Transaksi</span>
         </a>
     </li>
 

@@ -138,11 +138,14 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::namespace('Sale')->group(function () {
-        Route::prefix('sale')->name('sale.')->group(function () {
-            Route::get('/', 'SaleController@index')->name('index');
-            Route::post('/', 'SaleController@store')->name('store');
-            Route::get('create', 'SaleController@create')->name('create');
-            Route::get('{sale}', 'SaleController@show')->name('show');
+        Route::prefix('sales')->name('sales.')->group(function () {
+            Route::get('update-qty', 'SalesController@updateQuantity')->name('update-qty');
+            Route::get('checkout', 'SalesController@checkout')->name('checkout');
+            Route::get('previous', 'SalesController@previous')->name('previous');
+            Route::get('/', 'SalesController@index')->name('index');
+            Route::post('/', 'SalesController@store')->name('store');
+            Route::get('create', 'SalesController@create')->name('create');
+            Route::get('{sale}', 'SalesController@show')->name('show');
 
             Route::prefix('{sale}/items')->name('item.')->group(function () {
                 Route::post('/', 'SaleItemController@store')->name('store');
