@@ -141,6 +141,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('sales')->name('sales.')->group(function () {
             Route::get('update-qty', 'SalesController@updateQuantity')->name('update-qty');
             Route::get('checkout', 'SalesController@checkout')->name('checkout');
+            Route::get('previous', 'SalesController@previous')->name('previous');
             Route::get('/', 'SalesController@index')->name('index');
             Route::post('/', 'SalesController@store')->name('store');
             Route::get('create', 'SalesController@create')->name('create');

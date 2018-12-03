@@ -148,6 +148,13 @@
     </li>
 
     <li>
+        <a href="{{route('sales.previous')}}">
+            <span class="icon"><i class="fa fa-leaf"></i></span>
+            <span class="text">Riwayat Transaksi</span>
+        </a>
+    </li>
+
+    <li>
         <a href="{{route('stallitem.index')}}">
             <span class="icon"><i class="fa fa-leaf"></i></span>
             <span class="text">Stall Item</span>

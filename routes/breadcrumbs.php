@@ -139,15 +139,20 @@ try {
         $trail->push('Penjualan', route('sales.index'));
     });
 
+    Breadcrumbs::for('sales.previous', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('sales.index');
+        $trail->push('Riwayat', route('sales.previous'));
+    });
+
     Breadcrumbs::for('sales.show', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
         $trail->parent('sale.index');
         $trail->push('Penjualan #' . $id, route('sales.show', [$id]));
     });
 
-    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
-        $trail->parent('dashboard');
-        $trail->push('Sale', route('sale.index'));
-    });
+//    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+//        $trail->parent('dashboard');
+//        $trail->push('Sale', route('sale.index'));
+//    });
 } catch (\DaveJamesMiller\Breadcrumbs\BreadcrumbsException $e) {
 
 }

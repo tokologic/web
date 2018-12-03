@@ -49,4 +49,9 @@ class SalesController extends Controller
     {
         return view('sale.checkout');
     }
+
+    public function previous()
+    {
+        return view('sale.previous');
+    }
 }
