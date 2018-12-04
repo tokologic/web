@@ -24,7 +24,10 @@ class StallDataTable extends DataTable
             ->editColumn('status', function ($item) {
                 if ($item->status == 'deployed') {
                     return $item->status . ' at ' . Carbon::parse($item->deployment_date)->format('d M Y');
-                } else {
+                } elseif ($item->status == 'paid') {
+                    return $item->status . ' at ' . rupiah($item->payment);
+                }
+                else {
                     return $item->status;
                 }
             })
