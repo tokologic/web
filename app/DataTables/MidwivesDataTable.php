@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Model\User\Midwife;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Yajra\DataTables\Services\DataTable;
 
@@ -33,14 +34,9 @@ class MidwivesDataTable extends DataTable
      * @param EloquentUser $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(EloquentUser $model)
+    public function query(Midwife $model)
     {
-        return $model->newQuery()->join('role_users', function ($join) {
-            $join->on('role_users.user_id', '=', 'users.id');
-        })->join('roles', function ($join) {
-            $join->on('roles.id', '=', 'role_users.role_id')
-                ->where('roles.slug','=','midwife');
-        })->select('users.id', 'email');
+        return $model->newQuery()->select('*');
     }
 
     /**
@@ -66,7 +62,7 @@ class MidwivesDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
-            ['data' => 'full_name', 'name' => 'full_name', 'title' => 'Nama Lengkap'],
+            ['data' => 'full_name', 'name' => 'first_name', 'title' => 'Nama Lengkap'],
             'email',
         ];
     }

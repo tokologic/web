@@ -66,9 +66,10 @@ class WarehousersDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
-            ['data' => 'full_name', 'name' => 'full_name', 'title' => 'Nama Lengkap'],
+            ['data' => 'full_name', 'name' => 'first_name', 'title' => 'Nama Lengkap'],
             'email',
             ['data' => 'warehouse', 'name' => 'warehouse', 'title' => 'Gudang'],
+
         ];
     }
 
