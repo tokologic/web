@@ -24,7 +24,7 @@ class StallController extends Controller
         if (!\Sentinel::hasAnyAccess(['stall.view']))
             abort(404);
 
-        $page = (object)['icon' => 'fa-home', 'title' => 'Stalls'];
+        $page = (object)['icon' => 'fa-home', 'title' => 'Kios'];
         return $dataTable->render('stalls.index', compact('page'));
     }
 

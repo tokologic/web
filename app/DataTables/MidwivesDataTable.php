@@ -16,6 +16,10 @@ class MidwivesDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
+            ->addColumn('full_name', function ($data) {
+                return $data->first_name . ' ' . $data->last_name;
+            })
             ->addColumn('action', function ($data) {
                 return view('midwives.action')
                     ->with(['midwife' => $data])
@@ -62,7 +66,8 @@ class MidwivesDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
-            'email'
+            ['data' => 'full_name', 'name' => 'full_name', 'title' => 'Nama Lengkap'],
+            'email',
         ];
     }
 

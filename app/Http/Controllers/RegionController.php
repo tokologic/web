@@ -14,7 +14,7 @@ class RegionController extends Controller
 
     public function index(RegionsDataTable $dataTable)
     {
-        $page = (object)['icon' => 'fa-globe', 'title' => 'Regions'];
+        $page = (object)['icon' => 'fa-globe', 'title' => 'Wilayah'];
         return $dataTable->render('regions.index', compact('page'));
     }
 

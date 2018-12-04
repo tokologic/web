@@ -19,6 +19,9 @@ class WarehousersDataTable extends DataTable
     {
         return datatables($query)
             ->escapeColumns([])
+            ->addColumn('full_name', function ($data) {
+                return $data->first_name . ' ' . $data->last_name;
+            })
             ->addColumn('warehouse', function ($data) {
                 return optional($data->warehouses->first())->name;
             })
@@ -63,7 +66,9 @@ class WarehousersDataTable extends DataTable
     {
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '100px'],
-            'email','warehouse'
+            ['data' => 'full_name', 'name' => 'full_name', 'title' => 'Nama Lengkap'],
+            'email',
+            ['data' => 'warehouse', 'name' => 'warehouse', 'title' => 'Gudang'],
         ];
     }
 

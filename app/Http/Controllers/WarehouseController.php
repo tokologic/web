@@ -38,7 +38,7 @@ class WarehouseController extends Controller
 
     public function index(WarehouseDataTable $dataTable)
     {
-        $page = (object)['icon' => 'fa-home', 'title' => 'Warehouses'];
+        $page = (object)['icon' => 'fa-home', 'title' => 'Gudang'];
         return $dataTable->render('warehouse.index', compact('page'));
     }
 

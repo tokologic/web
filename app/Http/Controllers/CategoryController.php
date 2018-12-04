@@ -14,7 +14,7 @@ class CategoryController extends Controller
 
     public function index(CategoriesDataTable $dataTable)
     {
-        $page = (object)['icon' => 'fa-tag', 'title' => 'Categories'];
+        $page = (object)['icon' => 'fa-tag', 'title' => 'Kategori'];
         return $dataTable->render('categories.index', compact('page'));
     }
 

@@ -9,11 +9,11 @@
     <div class="panel shadow">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title">Categories</h3>
+                <h3 class="panel-title">Kategori</h3>
             </div>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-category-add">
-                    <i class="fa fa-plus"></i> Add category
+                    <i class="fa fa-plus"></i> Tambah Kategori
                 </button>
             </div>
             <div class="clearfix"></div>
