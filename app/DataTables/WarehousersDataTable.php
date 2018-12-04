@@ -18,6 +18,7 @@ class WarehousersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->escapeColumns([])
             ->addColumn('warehouse', function ($data) {
                 return optional($data->warehouses->first())->name;
             })
