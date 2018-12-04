@@ -89,6 +89,7 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('{po}', 'PurchaseOrdersController@destroy')->name('destroy');
             Route::put('{po}/status', 'PurchaseOrdersController@status')->name('status');
             Route::get('confirmpayment/{po}', 'PurchaseOrdersController@confirmPayment')->name('confirm');
+            Route::get('confirm_received/{po}', 'PurchaseOrdersController@confirmReceived')->name('confirm_received');
 
             Route::prefix('{po}/items')->name('item.')->group(function () {
                 Route::post('/', 'PurchaseOrderItemsController@store')->name('store');

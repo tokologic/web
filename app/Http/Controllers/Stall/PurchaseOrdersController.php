@@ -52,13 +52,21 @@ class PurchaseOrdersController extends Controller
             ->render('stalls.po.show', compact('po'));
     }
 
-    public function confirmPayment($id, POItemDataTable $dataTable)
+    public function confirmPayment($id)
     {
         $po = PO::find($id);
         $po->payment_status = 'confirmed';
         $po->save();
 
+        return redirect()->route('stalls.po.index');
+    }
+
+    public function confirmReceived($id)
+    {
         $po = PO::find($id);
+        $po->received_payment = true;
+        $po->save();
+
         return redirect()->route('stalls.po.index');
     }
 
