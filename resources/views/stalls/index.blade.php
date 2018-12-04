@@ -59,6 +59,8 @@
 
 
         function pay(obj) {
+            $('.modal-footer').removeClass('hidden');
+
             let $obj = $(obj);
             $('#modal .modal-body').html('Loading, please wait...');
 

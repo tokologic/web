@@ -80,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('warehouses.stocks', 'StocksController');
     Route::resource('stallitem', 'StallItemController');
 
+
     Route::namespace('Stall')->group(function () {
         Route::prefix('stall/purchase-orders')->name('stalls.po.')->group(function () {
             Route::get('/', 'PurchaseOrdersController@index')->name('index');
@@ -116,6 +117,7 @@ Route::middleware(['auth'])->group(function () {
     Route::namespace('Warehouse')->group(function () {
         Route::prefix('warehouse/purchase-orders')->name('warehouse.po.')->group(function () {
 
+            Route::get('download/{id}', 'PurchaseOrdersController@download')->name('download');
             Route::get('/', 'PurchaseOrdersController@index')->name('index');
             Route::post('/', 'PurchaseOrdersController@store')->name('store');
             Route::get('create', 'PurchaseOrdersController@create')->name('create');

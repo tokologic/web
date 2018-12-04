@@ -95,4 +95,9 @@ class PurchaseOrdersController extends Controller
 
         if ($request->ajax()) return route('warehouse.po.show', $po->id);
     }
+
+    public function download($poId)
+    {
+        return response()->download(public_path('files/purchase_order.pdf'), 'SIKS - PO #' . $poId);
+    }
 }
