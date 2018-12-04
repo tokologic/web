@@ -43,7 +43,7 @@
         <div class="sign-header">
             <div class="form-group">
                 <div class="sign-text">
-                    <span>Member Area</span>
+                    <span>Kios Sehati</span>
                 </div>
             </div>
         </div>
