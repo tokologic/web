@@ -17,6 +17,9 @@ class PODatatable extends DataTable
             ->addColumn('stall', function($item) {
                 return $item->stall->name;
             })
+            ->addColumn('received_payment', function($item) {
+                return ($item->received_payment == 0) ? 'pending' : 'received';
+            })
             ->addColumn('action', function ($data) {
                 if ($this->module == 'gr') {
                     return view('stalls.gr.action')

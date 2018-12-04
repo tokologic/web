@@ -11,9 +11,6 @@ class POItemDataTable extends DataTable
     {
         return datatables($query)
             ->escapeColumns([])
-            ->editColumn('discount', function ($data) {
-                return $data->discount . "%";
-            })
             ->editColumn('unit_price', function ($data) {
                 return rupiah($data->unit_price);
             })
@@ -52,7 +49,7 @@ class POItemDataTable extends DataTable
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '10px'],
             ['data' => 'product', 'name' => 'product', 'title' => 'Product', 'orderable' => false, 'searchable' => false],
-            'qty', 'currency', 'unit_price', 'gross_price', 'sub_total', 'discount', 'action'
+            'qty', 'currency', 'unit_price', 'gross_price', 'sub_total', 'action'
         ];
     }
 

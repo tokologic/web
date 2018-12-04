@@ -124,6 +124,12 @@ try {
         $trail->push($po->id, route('stalls.po.show', $po->id));
     });
 
+    Breadcrumbs::for('stalls.po.confirm', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail, $id) {
+        $po = \App\Model\Stall\PurchaseOrder::find($id);
+        $trail->parent('stalls.po.index');
+        $trail->push($po->id, route('stalls.po.confirm', $po->id));
+    });
+
     Breadcrumbs::for('stalls.gr.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('GR (Penerimaan)', route('stalls.gr.index'));

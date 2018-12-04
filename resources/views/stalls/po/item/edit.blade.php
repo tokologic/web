@@ -21,13 +21,8 @@
 
             <div class="form-group">
                 <label for="unit_price">Unit Price</label>
-                <input type="text" id="unit_price" class="form-control form-control-sm" name="unit_price" value="{{ $item->unit_price }}">
-                <div class="invalid-feedback"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="discount">Discount</label>
-                <input type="text" id="discount" class="form-control form-control-sm" name="discount" value="{{ $item->discount }}">
+                <p id="unit_price">{{ rupiah($item->unit_price) }}</p>
+                <input type="hidden" class="form-control form-control-sm" name="unit_price" value="{{ $item->unit_price }}">
                 <div class="invalid-feedback"></div>
             </div>
 
@@ -46,21 +41,19 @@
 
     $('#product').select2({
         ajax: {
-            url: '{{route('products.select')}}',
+            url: '{{route('prices.select')}}',
             dataType: 'json',
             delay: 250,
             data: function (params) {
                 return {
                     q: params.term,
-                    poId: {{ $item->po->id }}
                 };
             },
             processResults: function (data, params) {
                 return {
                     results: data.data
                 };
-            },
-            cache: true
+            }
         },
         placeholder: 'Search for a product',
         minimumInputLength: 1,
@@ -68,16 +61,16 @@
             if (repo.loading)
                 return repo.text;
 
-            return repo.name;
+            return repo.product_name;
         },
         templateSelection: function (repo) {
-            return repo.name;
+            $("#unit_price").text(repo.unit_price_rupiah);
+            $("#input_unit_price").val(repo.unit_price);
+            return repo.product_name;
         },
         escapeMarkup: function (markup) {
             return markup;
-        },
-        // theme: "bootstrap",
-        // allowClear: true
+        }
     });
 
     $('#select2-product-container').text('{{ $item->product->name }}')

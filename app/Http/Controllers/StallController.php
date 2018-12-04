@@ -131,11 +131,17 @@ class StallController extends Controller
     {
         $q = $request->get('q');
         $q = strtolower($q);
+        $user = \Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
 
         if ($q == '')
             $suppliers = [];
         else {
-            $suppliers = Stall::whereRaw("LOWER(name) like '%$q%'")->limit(20)->get();
+            $suppliers = Stall::whereRaw("LOWER(name) like '%$q%'");
+
+            if(in_array('midwife', $roles))
+                $suppliers = $suppliers->where('midwife_id', $user->id);
+            $suppliers = $suppliers->limit(20)->get();
         }
 
         $resource = new Collection($suppliers, new StallTransformer());

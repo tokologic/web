@@ -20,7 +20,7 @@ class PurchaseOrderItemsController extends Controller
         return view('stalls.po.item.create', compact('po'));
     }
 
-    public function store($poId, POItemRequest $request)
+    public function store($poId, Request $request)
     {
 //        if (!\Sentinel::hasAnyAccess(['warehouse.po.item.create']))
 //            abort(404);
@@ -30,7 +30,7 @@ class PurchaseOrderItemsController extends Controller
         $poItem = new PurchaseOrderItem;
         $poItem->qty = $request->get('qty');
         $poItem->unit_price = $request->get('unit_price');
-        $poItem->discount = $request->get('discount');
+        $poItem->discount = 0;
         $poItem->product()->associate($product);
         $poItem->purchaseOrder()->associate($po);
         $poItem->save();
@@ -55,7 +55,7 @@ class PurchaseOrderItemsController extends Controller
         $poItem = PurchaseOrderItem::find($itemId);
         $poItem->qty = $request->get('qty');
         $poItem->unit_price = $request->get('unit_price');
-        $poItem->discount = $request->get('discount');
+        $poItem->discount = 0;
         $poItem->product()->associate($product);
         $poItem->save();
     }
