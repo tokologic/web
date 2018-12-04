@@ -54,4 +54,9 @@ class SalesController extends Controller
     {
         return view('sale.previous');
     }
+
+    public function download($id)
+    {
+        return response()->download(public_path('files/struk.JPG'), 'Transaksi #' . $id);
+    }
 }

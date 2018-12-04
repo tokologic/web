@@ -39,9 +39,9 @@
         <button type="button" class="btn btn-primary btn-block btn-lg">Save</button>
     </div>
     <div class="col-md-4">
-        <button type="button" class="btn btn-primary btn-block btn-lg">Print</button>
+        <a href="{{ route('sales.download', [34]) }}" class="btn btn-primary btn-block btn-lg">Print</a>
     </div>
     <div class="col-md-4">
-        <button type="button" class="btn btn-primary btn-block btn-lg">Save and Print</button>
+        <a href="{{ route('sales.download', [34]) }}" class="btn btn-primary btn-block btn-lg">Save and Print</a>
     </div>
 </div>

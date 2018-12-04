@@ -153,6 +153,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::namespace('Sale')->group(function () {
         Route::prefix('sales')->name('sales.')->group(function () {
+            Route::get('download/{id}', 'SalesController@download')->name('download');
             Route::get('update-qty', 'SalesController@updateQuantity')->name('update-qty');
             Route::get('checkout', 'SalesController@checkout')->name('checkout');
             Route::get('previous', 'SalesController@previous')->name('previous');

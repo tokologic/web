@@ -22,15 +22,15 @@
                 <div class="col-md-4">
                     <form class="form-horizontal">
                         <div class="form-group form-group-sm">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Date begin</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Date begin</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Date begin">
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Date end</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Date end</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Date end">
                             </div>
                         </div>
 
@@ -40,15 +40,15 @@
                 <div class="col-md-4">
                     <form class="form-horizontal">
                         <div class="form-group form-group-sm">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Total min</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Total min</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Total min">
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Total max</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Total max</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Total max">
                             </div>
                         </div>
 
@@ -57,7 +57,12 @@
 
                 <div class="col-md-4">
                     <form class="form-horizontal">
-
+                        <div class="form-group form-group-sm">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Toko</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Toko">
+                            </div>
+                        </div>
 
                         <button type="button" class="btn btn-warning btn-sm pull-right">Search</button>
 
@@ -72,7 +77,7 @@
                             <thead>
                             <tr>
                                 <th>Order #</th>
-                                <th>Cashier</th>
+                                <th>Toko</th>
                                 <th>Total</th>
                                 <th>Cash</th>
                                 <th>Change</th>
@@ -82,17 +87,19 @@
                             </thead>
 
                             <tbody>
-                            <tr>
-                                <td>343</td>
-                                <td>Budi</td>
-                                <td>{{rupiah(90000)}}</td>
-                                <td>{{rupiah(100000)}}</td>
-                                <td>{{rupiah(10000)}}</td>
-                                <td>{{\Carbon\Carbon::yesterday()->toDateString()}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-info">Show</button>
-                                </td>
-                            </tr>
+                            @for($i=0;$i<=10;$i++)
+                                <tr>
+                                    <td>343</td>
+                                    <td>Budi</td>
+                                    <td>{{rupiah(90000)}}</td>
+                                    <td>{{rupiah(100000)}}</td>
+                                    <td>{{rupiah(10000)}}</td>
+                                    <td>{{\Carbon\Carbon::yesterday()->toDateString()}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-xs btn-info">Show</button>
+                                    </td>
+                                </tr>
+                            @endfor
                             </tbody>
                         </table>
                     </div>
@@ -117,7 +124,6 @@
     {{--{!! $dataTable->scripts() !!}--}}
 
     <script>
-
 
 
     </script>

@@ -128,15 +128,12 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <button type="button" class="btn btn-primary btn-lg btn-block" onclick="checkout()">Checkout</button>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Print</button>
+                            <a href="{{ route('sales.download', [34]) }}" class="btn btn-primary btn-block btn-lg">Print</a>
                         </div>
 
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Discount</button>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Tax</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
