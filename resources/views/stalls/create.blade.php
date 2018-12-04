@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <form action="{{route('stalls.po.store')}}" method="post" id="form-store-add"> {{csrf_field()}}
+        <form action="{{route('stalls.store')}}" method="post" id="form-store-add"> {{csrf_field()}}
 
             <div class="form-group">
                 <label for="name">Name *</label>
