@@ -1,7 +1,6 @@
 @extends('_layout.blankon')
 
 @push('styles')
-ccc
     <link rel="stylesheet" href="{{asset('vendor/select2/css/select2.min.css')}}">
 @endpush
 

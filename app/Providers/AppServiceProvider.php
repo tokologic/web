@@ -6,6 +6,7 @@ use App\Model\Brand;
 use App\Model\Company;
 use App\Model\Product;
 use App\Model\Role;
+use App\Model\Stall;
 use App\Model\Stall\GoodsReceive;
 use App\Model\User;
 use App\Model\Warehouse\GoodsReceiveItem;
@@ -15,6 +16,7 @@ use App\Observers\BrandObserver;
 use App\Observers\CompanyObserver;
 use App\Observers\ProductObserver;
 use App\Observers\RoleObserver;
+use App\Observers\Stall\StallObserver;
 use App\Observers\UserObserver;
 use App\Observers\Warehouse\GoodsReceiveItemObserver;
 use App\Observers\Warehouse\PurchaseOrderItemObserver;
@@ -58,6 +60,7 @@ class AppServiceProvider extends ServiceProvider
         PurchaseOrderItem::observe(PurchaseOrderItemObserver::class);
         GoodsReceiveItem::observe(GoodsReceiveItemObserver::class);
         StockItem::observe(StockItemObserver::class);
+        Stall::observe(StallObserver::class);
 
         \App\Model\Stall\PurchaseOrderItem::observe(\App\Observers\Stall\PurchaseOrderItemObserver::class);
         \App\Model\Stall\GoodsReceiveItem::observe(\App\Observers\Stall\GoodsReceiveItemObserver::class);

@@ -41,6 +41,9 @@ class Stall extends Model
         'acreage',
         'latitude',
         'longitude',
+        'status',
+        'payment',
+        'deployment_date'
     ];
 
     public function midwife()

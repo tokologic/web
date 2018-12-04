@@ -54,11 +54,33 @@
 
         </div>
 
-        <div class="form-group">
-            <label for="pay">Payment status</label>
-            <p class="form-control-static">paid</p>
+        @if(is_administrative())
+        <form action="{{ route('stalls.update', [$store->id]) }}" method="post" id="form-store-status-edit">
+            {{csrf_field()}}
 
-        </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                {{--<p class="form-control-static">paid</p>--}}
+                <select name="status" id="status" class="form-control">
+                    <option @if($store->status == 'on-survey') selected @endif value="on-survey">On Survey</option>
+                    <option @if($store->status == 'surveyed') selected @endif value="surveyed">Surveyed</option>
+                    <option @if($store->status == 'paid') selected @endif value="paid">Paid</option>
+                    <option @if($store->status == 'deployed') selected @endif value="deployed">Deployed</option>
+                    <option @if($store->status == 'declined') selected @endif value="declined">Declined</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="deployment_date">Deploy date</label>
+                <input type="text" id="deployment_date" name="deployment_date" class="form-control" autocomplete="off">
+
+            </div>
+
+            <button type="button" class="btn btn-info" id="btn-status">Update</button>
+        </form>
+        @endif
+
     </div>
 
     <div class="row">
@@ -80,6 +102,19 @@
 </div>
 
 <script>
+
+    $('#deployment_date').datepicker({
+        // format: 'mm-dd-yyyy',
+        todayBtn: 'linked',
+        autoclose: true
+    });
+
+    $('#btn-status').on('click', function (event) {
+        event.preventDefault();
+        update('form-store-status-edit', 'dataTables-store-list')
+    });
+
+
     $('#btn-store-approve').on('click', function (event) {
         event.preventDefault();
 

@@ -42,3 +42,39 @@ if (!function_exists('increment_slug')) {
         }
     }
 }
+
+if (!function_exists('is_administrative')) {
+
+    function is_administrative()
+    {
+        if (!\Sentinel::check())
+            return false;
+
+        $user = Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        if (in_array('administrative', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+}
+
+if (!function_exists('is_midwife')) {
+
+    function is_midwife()
+    {
+        if (!\Sentinel::check())
+            return false;
+
+        $user = Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        if (in_array('midwife', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+}

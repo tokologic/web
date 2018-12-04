@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Model\Stall;
+use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 
 class StallDataTable extends DataTable
@@ -19,6 +20,13 @@ class StallDataTable extends DataTable
             })
             ->addColumn('region', function ($item) {
                 return optional($item->region)->name;
+            })
+            ->editColumn('status', function ($item) {
+                if ($item->status == 'deployed') {
+                    return $item->status . ' at ' . Carbon::parse($item->deployment_date)->format('d M Y');
+                } else {
+                    return $item->status;
+                }
             })
             ->addColumn('action', function ($data) {
                 return view('stalls.action')

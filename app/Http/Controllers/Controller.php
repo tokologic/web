@@ -18,4 +18,20 @@ class Controller extends BaseController
         if (\Sentinel::check())
             $this->user = \Sentinel::getUser();
     }
+
+    public function isMidwife()
+    {
+        $roles = $this->user->roles->pluck('slug')->toArray();
+
+        if (in_array('midwife', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isWarehouseKeeper()
+    {
+
+    }
 }

@@ -11,6 +11,7 @@ use App\Model\Region;
 use App\Model\Stall;
 use App\Traits\Crud;
 use App\Traits\Transformer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use League\Fractal\Resource\Collection;
 
@@ -91,16 +92,22 @@ class StallController extends Controller
         $store = Stall::find($storeId);
         $regions = Region::all();
         $midwives = Midwife::all();
+
         return view('stalls.edit', compact('regions', 'midwives', 'store'));
     }
 
-    public function update(Stall $stall, StallRequest $request)
+    public function update($storeId, Request $request)
     {
-
         if (!\Sentinel::hasAnyAccess(['stall.update']))
             abort(404);
 
         $data = $this->gatherRequest(Stall::class, $request);
+        $data = array_merge($data, [
+            'deployment_date' => Carbon::parse($request->get('deployment_date'))
+        ]);
+
+        $stall = Stall::find($storeId);
+//        dd($stall, $data);
         $stall->update($data);
     }
 
@@ -147,10 +154,12 @@ class StallController extends Controller
 
     }
 
-    public function pay($storeId, Request $request)
+    public function pay($storeId)
     {
 //        if (!\Sentinel::hasAnyAccess(['stall.pay']))
 //            abort(404);
-        return 'p';
+
+        $store = Stall::find($storeId);
+        return view('stalls.pay', compact('store'));
     }
 }
