@@ -18,7 +18,8 @@ class StallObserver
 
     public function saving(Stall $stall)
     {
-        if ($stall->payment != (int)$this->request->get('payment') and (int)$this->request->get('payment') != 0) {
+
+        if ($this->request->has('payment')) {
             $stall->status = 'paid';
         }
 
