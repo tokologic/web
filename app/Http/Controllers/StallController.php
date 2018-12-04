@@ -20,7 +20,6 @@ class StallController extends Controller
 
     public function index(StallDataTable $dataTable)
     {
-
         if (!\Sentinel::hasAnyAccess(['stall.view']))
             abort(404);
 
@@ -69,7 +68,7 @@ class StallController extends Controller
         $stall->save();
 
         if (!$request->ajax())
-            return redirect()->url('/dashboard');
+            return redirect('/stalls');
 
 
     }

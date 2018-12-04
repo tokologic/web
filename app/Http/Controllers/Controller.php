@@ -10,4 +10,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $user;
+
+    public function __construct()
+    {
+        if (\Sentinel::check())
+            $this->user = \Sentinel::getUser();
+    }
 }

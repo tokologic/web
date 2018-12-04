@@ -9,7 +9,7 @@ use App\Model\Warehouse\StockItem;
 
 class StockItemObserver
 {
-    public function created(StockItem $stockItem)
+    public function saved(StockItem $stockItem)
     {
         $stockItem->productPrices()->create([
             'product_id'    => $stockItem->product_id,
@@ -18,12 +18,12 @@ class StockItemObserver
         ]);
     }
 
-    public function updated(StockItem $stockItem)
-    {
-        $productPrices = $stockItem->productPrices()
-            ->where('average_price', $stockItem->average_price)
-            ->first();
-
-//        dd($productPrices);
-    }
+//    public function updated(StockItem $stockItem)
+//    {
+//        $productPrices = $stockItem->productPrices()
+//            ->where('average_price', $stockItem->average_price)
+//            ->first();
+//
+////        dd($productPrices);
+//    }
 }
