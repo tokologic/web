@@ -46,4 +46,9 @@ class Warehouse extends Model
     {
         return $this->hasMany(StockItem::class, 'warehouse_id');
     }
+
+    public function userLocations()
+    {
+        return $this->hasMany(UserLocation::class);
+    }
 }

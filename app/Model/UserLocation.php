@@ -28,5 +28,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UserLocation extends Model
 {
-    //
+    protected $table = 'user_locations';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
 }

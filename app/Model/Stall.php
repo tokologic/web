@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Model\User\Midwife;
 use Illuminate\Database\Eloquent\Model;
 
 /**

@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 
 use App\DataTables\UsersDataTable;
 use App\Http\Requests\UserRequest;
-use App\Model\Midwife;
 use App\Model\User;
 use App\Traits\Crud;
 use Illuminate\Http\Request;

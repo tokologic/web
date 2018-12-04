@@ -21,12 +21,6 @@
                 <div class="invalid-feedback"></div>
             </div>
 
-            <div class="form-group">
-                <label for="discount">Discount</label>
-                <input type="text" id="discount" class="form-control form-control-sm" name="discount">
-                <div class="invalid-feedback"></div>
-            </div>
-
         </form>
     </div>
 </div>

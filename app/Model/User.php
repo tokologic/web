@@ -73,4 +73,9 @@ class User extends EloquentUser
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function userLocations()
+    {
+        return $this->hasMany(UserLocation::class);
+    }
 }

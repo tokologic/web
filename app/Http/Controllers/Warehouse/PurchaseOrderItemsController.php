@@ -32,7 +32,7 @@ class PurchaseOrderItemsController extends Controller
         $poItem = new PurchaseOrderItem;
         $poItem->qty = $request->get('qty');
         $poItem->unit_price = $request->get('unit_price');
-        $poItem->discount = $request->get('discount');
+        $poItem->discount = 0;//$request->get('discount');
         $poItem->product()->associate($product);
         $poItem->purchaseOrder()->associate($po);
         $poItem->save();

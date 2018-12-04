@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Model\Midwife;
+use App\Model\User\Midwife;
 
 class DashboardController extends Controller
 {

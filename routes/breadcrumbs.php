@@ -20,6 +20,11 @@ try {
         $trail->push('Bidan', route('midwives.index'));
     });
 
+    Breadcrumbs::for('warehousers.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Penjaga Gudang', route('warehousers.index'));
+    });
+
     Breadcrumbs::for('brands.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
         $trail->parent('dashboard');
         $trail->push('Brand', route('brands.index'));
@@ -148,6 +153,8 @@ try {
         $trail->parent('sale.index');
         $trail->push('Penjualan #' . $id, route('sales.show', [$id]));
     });
+
+
 
 //    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
 //        $trail->parent('dashboard');

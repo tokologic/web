@@ -75,7 +75,7 @@ class POItemDataTable extends DataTable
         return [
             ['data' => 'id', 'name' => 'id', 'title' => '#', 'width' => '30px'],
             ['data' => 'product', 'name' => 'product', 'title' => 'Product', 'orderable' => false, 'searchable' => false],
-            'qty', 'unit_price', 'sub_total', 'discount', 'gross_price', 'action'
+            'qty', 'unit_price', 'sub_total', 'gross_price', 'action'
         ];
     }
 

@@ -30,13 +30,22 @@
     </li>
     @endif
 
-    @if(Sentinel::hasAnyAccess(['midwive.view']))
+    @if(Sentinel::hasAnyAccess(['midwife.view']))
     <li>
         <a href="{{route('midwives.index')}}">
             <span class="icon"><i class="fa fa-users"></i></span>
             <span class="text">Bidan</span>
         </a>
     </li>
+    @endif
+
+    @if(Sentinel::hasAnyAccess(['warehouser.view']))
+        <li>
+            <a href="{{route('warehousers.index')}}">
+                <span class="icon"><i class="fa fa-users"></i></span>
+                <span class="text">Penjaga gudang</span>
+            </a>
+        </li>
     @endif
 
     @if(Sentinel::hasAnyAccess(['category.view']))
