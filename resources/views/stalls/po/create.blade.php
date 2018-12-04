@@ -36,11 +36,6 @@
                                     <input type="text" id="delivery_date" name="delivery_date" class="form-control" autocomplete="off">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="amount">Amount</label>
-                                    <input type="number" id="amount" name="amount" class="form-control" autocomplete="off">
-                                </div>
-
                                 <div class="btn-group pull-right" role="group" aria-label="Action">
                                     <button type="submit" class="btn btn-success " id="btn-new">
                                         <i class="fa fa-floppy-o"></i> Save

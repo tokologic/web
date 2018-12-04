@@ -14,7 +14,7 @@
 
             <div class="form-group">
                 <label for="retail_price">Retail Price</label>
-                <input type="number" name="retail_price" class="form-control">
+                <input id="retail_price" type="number" name="retail_price" class="form-control">
                 <div class="invalid-feedback"></div>
             </div>
 

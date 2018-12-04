@@ -25,4 +25,14 @@ class PurchaseOrderItemObserver
         $amount = $sum + ($po->tax / 100 * $sum);
         $poItem->purchaseOrder()->update(['amount' => $amount]);
     }
+
+    public function deleted(PurchaseOrderItem $poItem)
+    {
+        $po = $poItem->purchaseOrder;
+
+        # select sum(gross_price) from po_item where po_id = x
+        $sum = PurchaseOrderItem::where('po_id', '=', $po->id)->sum('gross_price');
+        $amount = $sum + ($po->tax / 100 * $sum);
+        $poItem->purchaseOrder()->update(['amount' => $amount]);
+    }
 }

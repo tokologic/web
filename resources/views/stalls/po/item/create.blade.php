@@ -17,13 +17,8 @@
 
             <div class="form-group">
                 <label for="unit_price">Unit Price</label>
-                <input type="number" id="unit_price" class="form-control form-control-sm" name="unit_price">
-                <div class="invalid-feedback"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="discount">Discount</label>
-                <input type="text" id="discount" class="form-control form-control-sm" name="discount">
+                <p id="unit_price">Rp.0,00</p>
+                <input type="hidden" id="input_unit_price" class="form-control form-control-sm" name="unit_price">
                 <div class="invalid-feedback"></div>
             </div>
 
@@ -37,16 +32,14 @@
         store('form-po-item-add', 'dataTables-po-item-list');
     });
 
-
     $('#product').select2({
         ajax: {
-            url: '{{route('products.select')}}',
+            url: '{{route('prices.select')}}',
             dataType: 'json',
             delay: 250,
             data: function (params) {
                 return {
                     q: params.term,
-                    poId: {{ $po->id }}
                 };
             },
             processResults: function (data, params) {
@@ -61,10 +54,12 @@
             if (repo.loading)
                 return repo.text;
 
-            return repo.name;
+            return repo.product_name;
         },
         templateSelection: function (repo) {
-            return repo.name;
+            $("#unit_price").text(repo.unit_price_rupiah);
+            $("#input_unit_price").val(repo.unit_price);
+            return repo.product_name;
         },
         escapeMarkup: function (markup) {
             return markup;

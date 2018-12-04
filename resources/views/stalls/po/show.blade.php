@@ -35,6 +35,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="" class="control-label">Amount</label>
+                                <p class="form-control-static small">{{ rupiah($po->amount) }}</p>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Delivery date</label>
                                 <p class="form-control-static">{{ $po->delivery_date }}</p>
                             </div>
@@ -47,7 +52,13 @@
 
                             <div class="form-group">
                                 <label for="reference">Received payment</label>
-                                <p class="form-control-static">{{ $po->received_payment }}</p>
+                                <p class="form-control-static">
+                                    @if($po->received_payment == 0)
+                                        pending
+                                    @else
+                                        received
+                                    @endif
+                                </p>
                             </div>
 
                         </div>

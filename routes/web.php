@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('warehouses/select', 'WarehouseController@select2')->name('warehouses.select');
     Route::get('products/select', 'ProductsController@select2')->name('products.select');
     Route::get('stalls/select', 'StallController@select2')->name('stalls.select');
+    Route::get('prices/select', 'PricesController@select2')->name('prices.select');
 
     Route::resource('users', 'UsersController');
     Route::resource('midwives', 'MidwivesController');
@@ -87,6 +88,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('{po}', 'PurchaseOrdersController@show')->name('show');
             Route::delete('{po}', 'PurchaseOrdersController@destroy')->name('destroy');
             Route::put('{po}/status', 'PurchaseOrdersController@status')->name('status');
+            Route::get('confirmpayment/{po}', 'PurchaseOrdersController@confirmPayment')->name('confirm');
 
             Route::prefix('{po}/items')->name('item.')->group(function () {
                 Route::post('/', 'PurchaseOrderItemsController@store')->name('store');
