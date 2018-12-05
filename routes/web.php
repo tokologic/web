@@ -149,6 +149,11 @@ Route::middleware(['auth'])->group(function () {
 
             });
         });
+
+        Route::prefix('warehouse/stocks')->name('warehouse.stock.')->group(function () {
+
+            Route::get('/', 'StocksController@index')->name('index');
+        });
     });
 
     Route::namespace('Sale')->group(function () {

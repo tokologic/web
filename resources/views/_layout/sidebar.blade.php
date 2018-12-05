@@ -135,6 +135,23 @@
                 </a>
             </li>
         @endif
+
+        @if(Sentinel::hasAnyAccess(['warehouse.stock.view']))
+
+        <li>
+            <a href="{{route('warehouse.stock.index')}}">
+                <span class="icon"><i class="fa fa-leaf"></i></span>
+                <span class="text">Stok Item</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{route('warehouse.stock.index')}}">
+                <span class="icon"><i class="fa fa-leaf"></i></span>
+                <span class="text">Stok Issuence</span>
+            </a>
+        </li>
+        @endif
     @endif
 
     @if(Sentinel::hasAnyAccess(['stall.po.view','stall.gr.view']))
@@ -160,7 +177,11 @@
                     <span class="text">GR (Penerimaan)</span>
                 </a>
             </li>
+
+
         @endif
+
+
     @endif
 
     @if(Sentinel::hasAnyAccess(['sales.view','sales.create']))

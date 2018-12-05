@@ -160,6 +160,11 @@ try {
         $trail->push('Penjualan #' . $id, route('sales.show', [$id]));
     });
 
+    Breadcrumbs::for('warehouse.stock.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stok Gudang', route('warehouse.stock.index'));
+    });
+
 
 
 //    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
