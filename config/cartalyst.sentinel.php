@@ -53,7 +53,7 @@ return [
 
     'users' => [
 
-        'model' => \App\Model\User::class,
+        'model' => \Cartalyst\Sentinel\Users\EloquentUser::class,
 
     ],
 
