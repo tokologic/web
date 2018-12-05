@@ -165,7 +165,10 @@ try {
         $trail->push('Stok Gudang', route('warehouse.stock.index'));
     });
 
-
+    Breadcrumbs::for('warehouse.stock.send', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Stok Issence', route('warehouse.stock.send'));
+    });
 
 //    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
 //        $trail->parent('dashboard');

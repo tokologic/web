@@ -146,7 +146,7 @@
         </li>
 
         <li>
-            <a href="{{route('warehouse.stock.index')}}">
+            <a href="{{route('warehouse.stock.send')}}">
                 <span class="icon"><i class="fa fa-leaf"></i></span>
                 <span class="text">Stok Issuence</span>
             </a>
