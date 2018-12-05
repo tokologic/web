@@ -21,53 +21,58 @@
         </a>
     </li>
 
-    <li class="submenu">
-        <a href="javascript:void(0);">
-            <span class="icon"><i class="fa fa-user"></i></span>
-            <span class="text">Users</span>
-            <span class="arrow"></span>
-        </a>
-        <ul>
-            @if(Sentinel::hasAnyAccess(['user.view']))
-                <li>
-                    <a href="{{route('users.index')}}">Pengguna</a>
-                </li>
-            @endif
+    @if(Sentinel::hasAnyAccess(['user.view','midwife.view','warehouser.view']))
 
-            @if(Sentinel::hasAnyAccess(['midwife.view']))
-                <li>
-                    <a href="{{route('midwives.index')}}">Bidan</a>
-                </li>
-            @endif
+        <li class="submenu">
+            <a href="javascript:void(0);">
+                <span class="icon"><i class="fa fa-user"></i></span>
+                <span class="text">Users</span>
+                <span class="arrow"></span>
+            </a>
+            <ul>
+                @if(Sentinel::hasAnyAccess(['user.view']))
+                    <li>
+                        <a href="{{route('users.index')}}">Pengguna</a>
+                    </li>
+                @endif
 
-            @if(Sentinel::hasAnyAccess(['warehouser.view']))
-                <li>
-                    <a href="{{route('warehousers.index')}}">Penjaga gudang</a>
-                </li>
-            @endif
-        </ul>
-    </li>
+                @if(Sentinel::hasAnyAccess(['midwife.view']))
+                    <li>
+                        <a href="{{route('midwives.index')}}">Bidan</a>
+                    </li>
+                @endif
 
-    <li class="submenu">
-        <a href="javascript:void(0);">
-            <span class="icon"><i class="fa fa-tags"></i></span>
-            <span class="text">Brand & Produk</span>
-            <span class="arrow"></span>
-        </a>
-        <ul>
-            @if(Sentinel::hasAnyAccess(['category.view']))
-                <li>
-                    <a href="{{route('categories.index')}}">Kategori</a>
-                </li>
-            @endif
+                @if(Sentinel::hasAnyAccess(['warehouser.view']))
+                    <li>
+                        <a href="{{route('warehousers.index')}}">Penjaga gudang</a>
+                    </li>
+                @endif
+            </ul>
+        </li>
+    @endif
 
-            @if(Sentinel::hasAnyAccess(['brand.view']))
-                <li>
-                    <a href="{{route('brands.index')}}">Brand</a>
-                </li>
-            @endif
-        </ul>
-    </li>
+    @if(Sentinel::hasAnyAccess(['category.view','brand.view']))
+        <li class="submenu">
+            <a href="javascript:void(0);">
+                <span class="icon"><i class="fa fa-tags"></i></span>
+                <span class="text">Brand & Produk</span>
+                <span class="arrow"></span>
+            </a>
+            <ul>
+                @if(Sentinel::hasAnyAccess(['category.view']))
+                    <li>
+                        <a href="{{route('categories.index')}}">Kategori</a>
+                    </li>
+                @endif
+
+                @if(Sentinel::hasAnyAccess(['brand.view']))
+                    <li>
+                        <a href="{{route('brands.index')}}">Brand</a>
+                    </li>
+                @endif
+            </ul>
+        </li>
+    @endif
 
 
     @if(Sentinel::hasAnyAccess(['region.view']))
@@ -106,70 +111,76 @@
         </li>
     @endif
 
-    <li class="sidebar-category">
-        <span>Gudang</span>
-        <span class="pull-right"><i class="fa fa-magic"></i></span>
-    </li>
+    @if(Sentinel::hasAnyAccess(['warehouse.po.view','warehouse.gr.view']))
 
-    @if(Sentinel::hasAnyAccess(['warehouse.po.view']))
-        <li>
-            <a href="{{route('warehouse.po.index')}}">
-                <span class="icon"><i class="fa fa-leaf"></i></span>
-                <span class="text">PO (Pemesanan)</span>
-            </a>
+        <li class="sidebar-category">
+            <span>Gudang</span>
+            <span class="pull-right"><i class="fa fa-magic"></i></span>
         </li>
-    @endif
 
-    @if(Sentinel::hasAnyAccess(['warehouse.gr.view']))
-        <li>
-            <a href="{{route('warehouse.gr.index')}}">
-                <span class="icon"><i class="fa fa-leaf"></i></span>
-                <span class="text">GR (Penerimaan)</span>
-            </a>
-        </li>
-    @endif
-
-    <li class="sidebar-category">
-        <span>Kios</span>
-        <span class="pull-right"><i class="fa fa-magic"></i></span>
-    </li>
-
-    @if(Sentinel::hasAnyAccess(['stall.po.view']))
-        <li>
-            <a href="{{route('stalls.po.index')}}">
-                <span class="icon"><i class="fa fa-leaf"></i></span>
-                <span class="text">PO (Pemesanan)</span>
-            </a>
-        </li>
-    @endif
-
-    @if(Sentinel::hasAnyAccess(['stall.gr.view']))
-        <li>
-            <a href="{{route('stalls.gr.index')}}">
-                <span class="icon"><i class="fa fa-leaf"></i></span>
-                <span class="text">GR (Penerimaan)</span>
-            </a>
-        </li>
-    @endif
-
-    <li class="submenu">
-        <a href="javascript:void(0);">
-            <span class="icon"><i class="fa fa-exchange"></i></span>
-            <span class="text">Transaksi</span>
-            <span class="arrow"></span>
-        </a>
-        <ul>
+        @if(Sentinel::hasAnyAccess(['warehouse.po.view']))
             <li>
-                <a href="{{route('sales.index')}}">Transaksi Toko</a>
+                <a href="{{route('warehouse.po.index')}}">
+                    <span class="icon"><i class="fa fa-leaf"></i></span>
+                    <span class="text">PO (Pemesanan)</span>
+                </a>
             </li>
+        @endif
 
+        @if(Sentinel::hasAnyAccess(['warehouse.gr.view']))
             <li>
-                <a href="{{route('sales.previous')}}">Riwayat Transaksi</a>
+                <a href="{{route('warehouse.gr.index')}}">
+                    <span class="icon"><i class="fa fa-leaf"></i></span>
+                    <span class="text">GR (Penerimaan)</span>
+                </a>
             </li>
-        </ul>
-    </li>
+        @endif
+    @endif
 
+    @if(Sentinel::hasAnyAccess(['stall.po.view','warehouse.gr.view']))
 
+        <li class="sidebar-category">
+            <span>Kios</span>
+            <span class="pull-right"><i class="fa fa-magic"></i></span>
+        </li>
+
+        @if(Sentinel::hasAnyAccess(['stall.po.view']))
+            <li>
+                <a href="{{route('stalls.po.index')}}">
+                    <span class="icon"><i class="fa fa-leaf"></i></span>
+                    <span class="text">PO (Pemesanan)</span>
+                </a>
+            </li>
+        @endif
+
+        @if(Sentinel::hasAnyAccess(['stall.gr.view']))
+            <li>
+                <a href="{{route('stalls.gr.index')}}">
+                    <span class="icon"><i class="fa fa-leaf"></i></span>
+                    <span class="text">GR (Penerimaan)</span>
+                </a>
+            </li>
+        @endif
+    @endif
+
+    @if(Sentinel::hasAnyAccess(['sales.view','sales.create']))
+        <li class="submenu">
+            <a href="javascript:void(0);">
+                <span class="icon"><i class="fa fa-exchange"></i></span>
+                <span class="text">Transaksi</span>
+                <span class="arrow"></span>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{route('sales.index')}}">Transaksi Toko</a>
+                </li>
+
+                <li>
+                    <a href="{{route('sales.previous')}}">Riwayat Transaksi</a>
+                </li>
+            </ul>
+        </li>
+    @endif
 
     {{-- <li>
          <a href="{{route('stallitem.index')}}">

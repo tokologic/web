@@ -132,7 +132,9 @@ class DataRoles extends Command
             'stall.update'  => true,
             'stall.pay'     => true,
             'stall.po.view' => true,
-            'stall.gr.view' => true
+            'stall.gr.view' => true,
+            'sales.create'  => true,
+            'sales.view'    => true,
         ];
         $role->save();
     }
