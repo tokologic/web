@@ -78,3 +78,21 @@ if (!function_exists('is_midwife')) {
         return false;
     }
 }
+
+if (!function_exists('is_finance')) {
+
+    function is_finance()
+    {
+        if (!\Sentinel::check())
+            return false;
+
+        $user = Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        if (in_array('finance', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+}

@@ -108,6 +108,8 @@ class DataRoles extends Command
             'warehouse.po.status.approve'    => true,
             'warehouse.po.status.correction' => true,
             'warehouse.po.status.revoke'     => true,
+            'warehouse.po.update'            => true,
+
             //            'warehouse.po.status.attention'  => false,
             //            'warehouse.po.status.draft'      => false,
             //            'warehouse.po.status.issued'     => false,
@@ -120,7 +122,7 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'warehouse.gr.*'
+            'warehouse.gr.*' => true,
         ];
         $role->save();
     }

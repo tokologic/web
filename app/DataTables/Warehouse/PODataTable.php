@@ -53,6 +53,10 @@ class PODataTable extends DataTable
             $builder->where('status', 'issued');
         }
 
+        if (in_array('warehouse-keeper', $roles)) {
+            $builder->where('status', 'approved');
+        }
+
         return $builder;
 
     }

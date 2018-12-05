@@ -137,7 +137,7 @@
         @endif
     @endif
 
-    @if(Sentinel::hasAnyAccess(['stall.po.view','warehouse.gr.view']))
+    @if(Sentinel::hasAnyAccess(['stall.po.view','stall.gr.view']))
 
         <li class="sidebar-category">
             <span>Kios</span>

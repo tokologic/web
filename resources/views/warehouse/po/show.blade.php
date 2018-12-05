@@ -68,16 +68,18 @@
                             </a>
                             @endif
 
-                            @if($po->status == 'issued')
-                            <button type="button" class="btn btn-primary" id="btn-new">
-                                <i class="fa fa-money"></i> Approve
-                            </button>
-                            @endif
-
-                            @if($po->status == 'issued')
-                                <button type="button" class="btn btn-warning" id="btn-change">
-                                    <i class="fa fa-money"></i> Change
+                            @if(is_finance())
+                                @if($po->status == 'issued')
+                                <button type="button" class="btn btn-primary" id="btn-approve">
+                                    <i class="fa fa-money"></i> Approve
                                 </button>
+                                @endif
+
+                                @if($po->status == 'issued')
+                                    <button type="button" class="btn btn-warning" id="btn-change">
+                                        <i class="fa fa-money"></i> Change
+                                    </button>
+                                @endif
                             @endif
 
                         </div>
@@ -195,8 +197,33 @@
                     }
                 }
             })
+        });
 
 
+        $('#btn-approve').click(function () {
+            bootbox.confirm({
+                // title: "Destroy planet?",
+                message: "Do you want approve this PO?",
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            type: "PUT",
+                            url: "{{route('warehouse.po.status', [$po->id])}}",
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: 'approved'
+                            },
+                            success: function (data) {
+                                window.location.href = data
+                            },
+                            error: function (r) {
+
+                            }
+                        });
+
+                    }
+                }
+            })
         });
 
         $('#btn-issued').click(function () {
