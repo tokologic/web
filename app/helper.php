@@ -115,3 +115,21 @@ if (!function_exists('is_root')) {
         return false;
     }
 }
+
+if (!function_exists('is_executive')) {
+
+    function is_executive()
+    {
+        if (!\Sentinel::check())
+            return false;
+
+        $user = Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        if (in_array('executive', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+}

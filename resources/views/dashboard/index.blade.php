@@ -126,7 +126,7 @@
             </div>
 
         </div>
-        @elseif(is_administrative() or is_root())
+        @elseif(is_administrative() or is_root() or is_executive())
             <div class="row">
                 <div class="col-md-12">
 
