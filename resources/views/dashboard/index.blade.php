@@ -131,7 +131,16 @@
                 <div class="col-md-12">
 
                     <div class="row">
-                        <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-lg-4 col-md-3 col-sm-4 col-xs-12">
+                            <div class="mini-stat-type-2 shadow border-danger">
+                                <h3 class="text-center text-thin">New Stores</h3>
+                                <p class="text-center">
+                                    <span class="overview-icon bg-danger"><i class="fa fa-home"></i></span>
+                                </p>
+                                <h2 style="text-align: center;"><strong><span class="counter">8</span></strong></h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-3 col-sm-4 col-xs-12">
                             <div class="mini-stat-type-2 shadow border-danger">
                                 <h3 class="text-center text-thin">Total Stores</h3>
                                 <p class="text-center">
@@ -140,7 +149,7 @@
                                 <h2 style="text-align: center;"><strong><span class="counter">3,010</span></strong></h2>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-lg-4 col-md-3 col-sm-4 col-xs-12">
                             <div class="mini-stat-type-2 shadow border-success">
                                 <h3 class="text-center text-thin">Transaction Today</h3>
                                 <p class="text-center">
