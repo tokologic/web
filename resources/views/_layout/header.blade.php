@@ -12,9 +12,9 @@
     </div>
     <!-- Start offcanvas right: This menu will take position at the top of template header (mobile only). Make sure that only
 #header have the `position: relative`, or it may cause unwanted behavior -->
-    <div class="navbar-minimize-mobile right">
-        <i class="fa fa-cog"></i>
-    </div>
+    {{--<div class="navbar-minimize-mobile right">--}}
+        {{--<i class="fa fa-cog"></i>--}}
+    {{--</div>--}}
 
     <div class="clearfix"></div>
 </div>
