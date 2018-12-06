@@ -6,7 +6,7 @@
                 <label for="product_id">Product</label>
                 <p class="form-control-static">{{ $item->product->name }}</p>
             </div>
-            
+
 
             <div class="form-group">
                 <label for="average_price">Average Price</label>
@@ -32,13 +32,13 @@
 
             <div class="form-group">
                 <label for="retail_price">Retail Price</label>
-                <input type="number" name="retail_price" class="form-control" value="{{ rupiah($item->retail_price) }}">
+                <input type="number" name="retail_price" class="form-control" value="{{ $item->retail_price }}">
                 <div class="invalid-feedback"></div>
             </div>
 
             <div class="form-group">
                 <label for="whole_sale_price">Whole Sale Price</label>
-                <input type="number" name="whole_sale_price" class="form-control" value="{{ rupiah($item->whole_sale_price) }}">
+                <input type="number" name="whole_sale_price" class="form-control" value="{{ $item->whole_sale_price }}">
                 <div class="invalid-feedback"></div>
             </div>
         </form>
