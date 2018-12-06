@@ -61,6 +61,11 @@
                                 </p>
                             </div>
 
+                            @if(is_administrative() or is_root())
+                                <button class="btn btn-primary">Approve</button>
+                                <button class="btn btn-danger">Reject</button>
+                            @endif
+
                         </div>
                     </div>
                 </div>
