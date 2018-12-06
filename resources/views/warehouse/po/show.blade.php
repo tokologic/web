@@ -62,7 +62,9 @@
                             <button type="button" class="btn btn-success" id="btn-issued">
                                 <i class="fa fa-check"></i> Issued
                             </button>
+                            @endif
 
+                            @if(in_array($po->status, ['issued']))
                             <a href="{{route('warehouse.po.download', [$po->id])}}" class="btn btn-danger" id="btn-issued">
                                 <i class="fa fa-file-pdf-o"></i> Download PDF
                             </a>
