@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <form action="{{route('store-item.update', $item->id)}}" method="post" id="form-stallitem-edit"> {{csrf_field()}}
+        <form action="{{route('store-item.update', [$item->id])}}" method="post" id="form-stallitem-edit"> {{csrf_field()}}
 
             <div class="form-group">
                 <label for="name">Product</label>

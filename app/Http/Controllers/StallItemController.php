@@ -32,9 +32,10 @@ class StallItemController extends Controller
         $brand->create($data);
     }
 
-    public function edit(Product $item)
+    public function edit($itemId)
     {
         $products = Product::all();
+        $item = Item::find($itemId);
         return view('stalls.item.edit', compact('item', 'products'));
     }
 
