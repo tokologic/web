@@ -64,8 +64,8 @@
                             </button>
                             @endif
 
-                            @if(in_array($po->status, ['issued']))
-                            <a href="{{route('warehouse.po.download', [$po->id])}}" class="btn btn-danger" id="btn-issued">
+                            @if(in_array($po->status, ['issued','approved']))
+                            <a href="{{route('warehouse.po.download', [$po->id])}}" class="btn btn-danger" id="btn-pdf">
                                 <i class="fa fa-file-pdf-o"></i> Download PDF
                             </a>
                             @endif
