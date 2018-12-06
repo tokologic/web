@@ -8,6 +8,8 @@
     <meta name="keywords" content="admin, admin template, bootstrap3, clean, fontawesome4, good documentation, lightweight admin, responsive dashboard, webapp">
     <meta name="author" content="Djava UI">
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
     <title>Kios Sehati</title>
 

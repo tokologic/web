@@ -1,0 +1,14 @@
+{
+    "short_name": "SIKS",
+    "name": "Sistem Informasi Kios Sehati",
+    "icons": [
+        {
+            "src": "img/siks-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "orientation": "portrait"
+}

@@ -8,7 +8,9 @@
     <meta name="keywords" content="pos, kios, store, warehouse, sehati, point fo sales">
     <meta name="author" content="toKologic">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+
     <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="144x144">
     <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="114x114">
     <link href="{{ asset('img/siks-72x72.png') }}" rel="apple-touch-icon-precomposed" sizes="72x72">
