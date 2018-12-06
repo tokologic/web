@@ -20,14 +20,12 @@
     @endif
 </div>
 
-@if(is_midwife())
-    @if(!in_array($store->status, ['paid','deployed']))
-        <button class="btn btn-success btn-xs"
-                data-route="{{ route('stalls.pay', [$store->id]) }}"
-                data-table="dataTables-store-list"
-                data-token="{{csrf_token()}}"
-                onclick="pay(this)">
-            <i class="fa fa-money"></i> Confirm payment
-        </button>
-    @endif
+@if(is_midwife() and in_array($store->status, ['surveyed']))
+    <button class="btn btn-success btn-xs"
+            data-route="{{ route('stalls.pay', [$store->id]) }}"
+            data-table="dataTables-store-list"
+            data-token="{{csrf_token()}}"
+            onclick="pay(this)">
+        <i class="fa fa-money"></i> Confirm payment
+    </button>
 @endif
