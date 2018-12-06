@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-{{--                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-stallitem-list']) !!}--}}
+                        {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover','id' => 'dataTables-stallitem-list']) !!}
                         {{--<table class="table table-bordered table-striped">--}}
                             {{--<thead>--}}
                             {{--<tr>--}}
