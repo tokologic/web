@@ -126,7 +126,7 @@
             </div>
 
         </div>
-        @elseif(is_administrative())
+        @elseif(is_administrative() or is_root())
             <div class="row">
                 <div class="col-md-12">
 
@@ -512,8 +512,8 @@
                         {{--</div>--}}
                     {{--</div>--}}
 
-                </div>
-        @endif
+            </div>
+    @endif
 @endsection
 
 @push('styles')
@@ -588,7 +588,7 @@
             }  marketChart();
         @endif
 
-        @if(is_administrative())
+        @if(is_administrative() or is_root())
         function marketChartAdministrative(){
             window.line = Morris.Line({
                 element: 'market-chart-administrative',

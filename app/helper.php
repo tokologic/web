@@ -96,3 +96,22 @@ if (!function_exists('is_finance')) {
         return false;
     }
 }
+
+
+if (!function_exists('is_root')) {
+
+    function is_root()
+    {
+        if (!\Sentinel::check())
+            return false;
+
+        $user = Sentinel::getUser();
+        $roles = $user->roles->pluck('slug')->toArray();
+
+        if (in_array('super-administrator', $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+}
