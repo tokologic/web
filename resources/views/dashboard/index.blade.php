@@ -1,7 +1,7 @@
 @extends('_layout.blankon')
 
 @section('content')
-    @if(is_midwife())
+    @if(is_midwife() or is_executive())
     <div class="row">
         <div class="col-md-12">
 
@@ -568,7 +568,7 @@
             window.line.redraw();
         });
 
-        @if(is_midwife())
+        @if(is_midwife() or is_executive())
             function marketChart(){
                 window.line = Morris.Line({
                     element: 'market-chart',
@@ -597,7 +597,7 @@
             }  marketChart();
         @endif
 
-        @if(is_administrative() or is_root())
+        @if(is_administrative() or is_root() or is_executive())
         function marketChartAdministrative(){
             window.line = Morris.Line({
                 element: 'market-chart-administrative',
