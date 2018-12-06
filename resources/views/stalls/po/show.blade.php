@@ -61,10 +61,10 @@
                                 </p>
                             </div>
 
-                            @if(is_administrative() or is_root())
-                                <button class="btn btn-primary">Approve</button>
-                                <button class="btn btn-danger">Reject</button>
-                            @endif
+                            {{--@if(is_administrative() or is_root())--}}
+                                {{--<button class="btn btn-primary">Approve</button>--}}
+                                {{--<button class="btn btn-danger">Reject</button>--}}
+                            {{--@endif--}}
 
                         </div>
                     </div>
@@ -80,9 +80,11 @@
                         <h3 class="panel-title">Items</h3>
                     </div>
                     <div class="pull-right">
+                        @if(is_midwife() and $po->payment_status != 'confirmed')
                         <button type="button" class="btn btn-primary" data-toggle="modal" id="btn-po-item-add">
                             <i class="fa fa-plus"></i> Add item
                         </button>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 </div>
