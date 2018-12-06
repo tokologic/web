@@ -10,13 +10,13 @@
                     <div class="form-group form-group-sm">
                         <label for="inputEmail3" class="col-sm-3 control-label">Date begin</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Date begin">
+                            <input type="email" class="form-control date-picker-dashboard" id="inputEmail3" placeholder="Date begin" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <label for="inputPassword3" class="col-sm-3 control-label">Date end</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Date end">
+                            <input type="password" class="form-control date-picker-dashboard" id="inputPassword3" placeholder="Date end" autocomplete="off">
                         </div>
                     </div>
 
@@ -28,13 +28,13 @@
                     <div class="form-group form-group-sm">
                         <label for="inputEmail3" class="col-sm-3 control-label">Total min</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Total min">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Total min" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <label for="inputPassword3" class="col-sm-3 control-label">Total max</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Total max">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Total max" autocomplete="off">
                         </div>
                     </div>
 
@@ -72,6 +72,7 @@
 @endpush
 
 @push('scripts')
+    <script src="{{asset('vendor/bootstrap-datepicker-vitalets/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{ asset('vendor/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('vendor/flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('vendor/flot/jquery.flot.canvas.js') }}"></script>
@@ -98,6 +99,13 @@
 
 @push('script')
     <script>
+
+        $('.date-picker-dashboard').datepicker({
+            // format: 'mm-dd-yyyy',
+            todayBtn: 'linked',
+            autoclose: true
+        });
+
         if($('.counter').length){
             $('.counter').counterUp({
                 delay: 10,
