@@ -1,6 +1,62 @@
 @extends('_layout.blankon')
 
 @section('content')
+
+    @if(is_executive() or is_root() or is_administrative())
+
+        <div class="row mb-15">
+            <div class="col-md-4">
+                <form class="form-horizontal">
+                    <div class="form-group form-group-sm">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Date begin</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Date begin">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Date end</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Date end">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <form class="form-horizontal">
+                    <div class="form-group form-group-sm">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Total min</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Total min">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Total max</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Total max">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <form class="form-horizontal">
+                    <div class="form-group form-group-sm">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Toko</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Toko">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-warning btn-sm pull-right">Filter</button>
+
+                </form>
+            </div>
+        </div>
+    @endif
+
     @if(is_midwife() or is_executive())
         @include('dashboard.a')
     @endif
