@@ -7,6 +7,7 @@ use App\Http\Requests\StallItemRequest;
 use App\Model\Product;
 use App\Model\Stall\Item;
 use App\Traits\Crud;
+use Illuminate\Http\Request;
 
 class StallItemController extends Controller
 {
@@ -39,7 +40,7 @@ class StallItemController extends Controller
         return view('stalls.item.edit', compact('item', 'products'));
     }
 
-    public function update(Item $item, StallItemRequest $request)
+    public function update(Item $item, Request $request)
     {
         $data = $this->gatherRequest(Item::class, $request);
         $item->update($data);
