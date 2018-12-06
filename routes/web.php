@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('stalls', 'StallController');
     Route::resource('prices', 'PricesController');
     Route::resource('warehouses.stocks', 'StocksController');
-    Route::resource('stallitem', 'StallItemController');
+    Route::resource('store-item', 'StallItemController');
 
 
     Route::namespace('Stall')->group(function () {

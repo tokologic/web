@@ -170,6 +170,11 @@ try {
         $trail->push('Stok Issence', route('warehouse.stock.send'));
     });
 
+    Breadcrumbs::for('store-item.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
+        $trail->parent('dashboard');
+        $trail->push('Store Item', route('store-item.index'));
+    });
+
 //    Breadcrumbs::for('stallitem.index', function (\DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator $trail) {
 //        $trail->parent('dashboard');
 //        $trail->push('Sale', route('sale.index'));

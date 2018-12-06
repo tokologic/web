@@ -122,7 +122,7 @@ class DataRoles extends Command
     {
         $role = $this->findRole(__FUNCTION__);
         $role->permissions = [
-            'warehouse.gr.*' => true,
+            'warehouse.gr.*'       => true,
             'warehouse.stock.view' => true
         ];
         $role->save();
@@ -140,6 +140,8 @@ class DataRoles extends Command
             'stall.gr.view' => true,
             'sales.create'  => true,
             'sales.view'    => true,
+
+            'store.item.index' => true
         ];
         $role->save();
     }
