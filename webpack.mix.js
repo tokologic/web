@@ -19,6 +19,14 @@ mix.styles([
     'public/css/layout.css',
     'public/css/components.css',
     'public/css/plugins.css',
+    'public/css/theme-midwife.css',
+], 'public/css/kios-sehati-midwife.css').version();
+
+mix.styles([
+    'public/css/reset.css',
+    'public/css/layout.css',
+    'public/css/components.css',
+    'public/css/plugins.css',
     'public/css/theme.css',
 ], 'public/css/kios-sehati.css').version();
 

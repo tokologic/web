@@ -26,7 +26,11 @@
 
     @stack('styles')
 
-    <link href="{{asset(mix('css/kios-sehati.css'))}}" rel="stylesheet">
+    @if(is_midwife())
+        <link href="{{asset(mix('css/kios-sehati-midwife.css'))}}" rel="stylesheet">
+    @else
+        <link href="{{asset(mix('css/kios-sehati.css'))}}" rel="stylesheet">
+    @endif
 
     @stack('style')
 
