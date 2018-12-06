@@ -1,78 +1,46 @@
 @extends('_layout.blankon')
 
 @section('content')
+    @if(is_midwife())
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
 
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="mini-stat-type-2 shadow border-danger">
-                        <h3 class="text-center text-thin">Daily</h3>
+                    <div class="mini-stat-type-2 shadow border-success">
+                        <h3 class="text-center text-thin">Profit Today</h3>
                         <p class="text-center">
-                            <span class="overview-icon bg-danger"><i class="fa fa-arrow-down"></i></span>
+                            <span class="overview-icon bg-danger"><i class="fa fa-money"></i></span>
                         </p>
-                        <p>
-                            <b>$<span class="counter">2,452</span></b> <span class="fg-danger">-<span
-                                    class="counter">35</span>%</span>
-                        </p>
-                        <p class="text-muted">
-                            Last Month: 124,342/422,421
-                        </p>
+                        <h2 style="text-align: center;"><strong>Rp.<span class="counter">4,021000</span></strong></h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="mini-stat-type-2 shadow border-success">
-                        <h3 class="text-center text-thin">Weekly</h3>
+                        <h3 class="text-center text-thin">Profit Weekly</h3>
                         <p class="text-center">
-                            <span class="overview-icon bg-success"><i class="fa fa-arrow-up"></i></span>
+                            <span class="overview-icon bg-success"><i class="fa fa-money"></i></span>
                         </p>
-                        <p>
-                            <b>$<span class="counter">7,321</span></b> <span class="fg-success">+<span class="counter">15</span>%</span>
-                        </p>
-                        <p class="text-muted">
-                            Last Month: 452,342/784,421
-                        </p>
+                        <h2 style="text-align: center;"><strong>Rp.<span class="counter">25,102700</span></strong></h2>
                     </div>
                 </div>
-                <div class="col-md-6">
-
-                    <!-- Start list bank table -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-center">Bank - <b>Capital One</b></h3>
-                        </div><!-- /.panel-heading -->
-                        <div class="panel-body no-padding">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <span class="pull-left text-capitalize">Estimated next deposit</span>
-                                            <span class="pull-right text-strong fg-teals">$<span
-                                                    class="counter">230.45</span></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="pull-left text-capitalize">Pending transactions:</span>
-                                            <span class="pull-right text-strong fg-teals">$<span
-                                                    class="counter">34.11</span></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="pull-left text-capitalize">Reserves & holds:</span>
-                                            <span class="pull-right text-strong">$<span
-                                                    class="counter">0.00</span></span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div><!-- /.panel-body -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="mini-stat-type-2 shadow border-success">
+                        <h3 class="text-center text-thin">Profit Monthly</h3>
+                        <p class="text-center">
+                            <span class="overview-icon bg-warning"><i class="fa fa-money"></i></span>
+                        </p>
+                        <h2 style="text-align: center;"><strong>Rp.<span class="counter">78,940060</span></strong></h2>
                     </div>
-                    <!--/ End list bank table -->
-
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="mini-stat-type-2 shadow border-success">
+                        <h3 class="text-center text-thin">Profit Yearly</h3>
+                        <p class="text-center">
+                            <span class="overview-icon bg-info"><i class="fa fa-money"></i></span>
+                        </p>
+                        <h2 style="text-align: center;"><strong>Rp.<span class="counter">689,161130</span></strong></h2>
+                    </div>
                 </div>
             </div>
 
@@ -85,7 +53,7 @@
                                 <div class="col-sm-8">
                                     <div class="panel stat-left no-margin no-box-shadow">
                                         <div class="panel-body bg-teal">
-
+                                            <h4 class="no-margin">All transactions per year</h4>
                                             <div id="market-chart" class="resize-chart"></div>
 
                                         </div><!-- /.panel-body -->
@@ -93,12 +61,12 @@
                                             <div class="row text-center mb-5 mt-5">
                                                 <div class="col-xs-4 col-xs-override border-right dotted">
                                                     <div class="mini-stat no-padding no-margin">
-                                                                            <span class="mini-stat-chart text-center">
-                                                                                <span id="market-today-chart">2,3,3,4,5,7,9,5</span>
-                                                                            </span><!-- /.mini-stat-chart -->
+                                                            <span class="mini-stat-chart text-center">
+                                                                <span id="market-today-chart">2,3,3,4,5,7,9,5</span>
+                                                            </span><!-- /.mini-stat-chart -->
                                                         <div class="mini-stat-info text-right">
-                                                            <span>$<span
-                                                                    class="counter display-inline no-margin">1,201</span></span>
+                                                            <span>Rp<span
+                                                                    class="counter display-inline no-margin">4,021000</span></span>
                                                             <p class="text-muted no-margin">Today Sales</p>
                                                         </div><!-- /.mini-stat-info -->
                                                     </div><!-- /.mini-stat -->
@@ -109,8 +77,8 @@
                                                                                 <span id="market-average-chart">5,3,6,4,5,8,9,4</span>
                                                                             </span><!-- /.mini-stat-chart -->
                                                         <div class="mini-stat-info text-right">
-                                                            <span>$<span
-                                                                    class="counter display-inline no-margin">2,671</span></span>
+                                                            <span>Rp<span
+                                                            class="counter display-inline no-margin">5,902394</span></span>
                                                             <p class="text-muted no-margin">Average Sales</p>
                                                         </div><!-- /.mini-stat-info -->
                                                     </div><!-- /.mini-stat -->
@@ -121,8 +89,8 @@
                                                                                 <span id="market-total-chart">5,7,2,3,8,8,9,5</span>
                                                                             </span><!-- /.mini-stat-chart -->
                                                         <div class="mini-stat-info text-right">
-                                                            <span>$<span
-                                                                    class="counter display-inline no-margin">23,671</span></span>
+                                                            <span>Rp<span
+                                                            class="counter display-inline no-margin">90,203421</span></span>
                                                             <p class="text-muted no-margin">Total Sales</p>
                                                         </div><!-- /.mini-stat-info -->
                                                     </div><!-- /.mini-stat -->
@@ -134,13 +102,13 @@
                                 <div class="col-sm-4">
                                     <div class="panel no-margin no-box-shadow stat-right">
                                         <div class="panel-body">
-                                            <h4 class="no-margin">Market Status</h4>
-                                            <p class="text-muted">Summary of the market status.</p>
+                                            <h4 class="no-margin">Most popular product</h4>
+                                            <p class="text-muted"></p>
                                             <div id="market-status-chart" class="resize-chart"></div>
                                         </div><!-- /.panel-body -->
                                         <div class="panel-footer">
-                                            <span>Target Income ($23,671)</span><span
-                                                class="pull-right hidden-sm hidden-xs">$1.000.000</span>
+                                            <span>Target Income (Rp 90,203,421)</span><span
+                                                class="pull-right hidden-sm hidden-xs">Rp 1,000,000,000</span>
                                             <div class="progress progress-xs">
                                                 <div class="progress-bar progress-bar-success" role="progressbar"
                                                      aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
@@ -154,475 +122,398 @@
                     </div><!-- /.panel -->
                     <!--/ End market status chart -->
 
-                    <!-- Start seller dashboard -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-center">Seller Dashboard</h3>
-                        </div><!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-no-border table-middle table-lilac">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">American team soccer</b>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">230 of 300</b>
-                                            <span class="text-block text-muted">reserved</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">2d</b>
-                                            <span class="text-block text-muted">remaining</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">$1,500</b>
-                                            <span class="text-block text-muted">profit</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-warning label-circle">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">USA Olympic Soccer</b>
-                                            <span class="text-block text-muted">Large emblem</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">450 of 500</b>
-                                            <span class="text-block text-muted">sold</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">5d</b>
-                                            <span class="text-block text-muted">remaining</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">$5,530</b>
-                                            <span class="text-block text-muted">profit</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-success label-circle">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">USA Olympic Soccer</b>
-                                            <span class="text-block text-muted">Pocket emblem</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">1,000 of 2,000</b>
-                                            <span class="text-block text-muted">sold</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">5d</b>
-                                            <span class="text-block text-muted">5d ago</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">$130,530</b>
-                                            <span class="text-block text-muted">profit</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-primary label-circle label-stroke">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Team USA Soccer</b>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">75 of 100</b>
-                                            <span class="text-block text-muted">want this</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Ended</b>
-                                            <span class="text-block text-muted">10d ago</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block text-muted">N/A</b>
-                                            <span class="text-block text-muted">not funded</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-primary label-circle label-stroke">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Team USA Eagle</b>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">25 of 30</b>
-                                            <span class="text-block text-muted">want this</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Ended</b>
-                                            <span class="text-block text-muted">12d ago</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block text-muted">N/A</b>
-                                            <span class="text-block text-muted">not funded</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-primary label-circle label-stroke">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://img.djavaui.com/?create=50x50,6880B0?f=ffffff" alt="..."/>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Worn USA Flag</b>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">13 of 15</b>
-                                            <span class="text-block text-muted">want this</span>
-                                            <div class="progress progress-xxs no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 75%"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <b class="text-block">Ended</b>
-                                            <span class="text-block text-muted">15d ago</span>
-                                        </td>
-                                        <td>
-                                            <b class="text-block text-muted">N/A</b>
-                                            <span class="text-block text-muted">not funded</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View edit"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Settings"><i
-                                                    class="fa fa-cog"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Message buyers"><i
-                                                    class="fa fa-envelope"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Refresh data"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="View detail"><i
-                                                    class="fa fa-file"></i></a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-primary label-circle label-stroke">&nbsp;</span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div><!-- /.panel-body -->
-                    </div>
-                    <!--/ End seller dashboard -->
+                </div>
+            </div>
 
-                    <div class="panel panel-tab shadow">
-                        <div class="panel-heading no-border">
-                            <div class="pull-left">
-                                <h3 class="panel-title">World Map Retail</h3>
+        </div>
+        @elseif(is_administrative())
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat-type-2 shadow border-danger">
+                                <h3 class="text-center text-thin">Total Stores</h3>
+                                <p class="text-center">
+                                    <span class="overview-icon bg-danger"><i class="fa fa-home"></i></span>
+                                </p>
+                                <h2 style="text-align: center;"><strong><span class="counter">3,010</span></strong></h2>
                             </div>
-                            <div class="pull-right">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#visualization" aria-controls="visualization" role="tab" data-toggle="tab" class="no-border">Visualization</a></li>
-                                    <li role="presentation"><a href="#markers" aria-controls="markers" role="tab" data-toggle="tab" class="no-border">Markers</a></li>
-                                </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat-type-2 shadow border-success">
+                                <h3 class="text-center text-thin">Transaction Today</h3>
+                                <p class="text-center">
+                                    <span class="overview-icon bg-success"><i class="fa fa-suitcase"></i></span>
+                                </p>
+                                <h2 style="text-align: center;"><strong><span class="counter">7,290</span></strong></h2>
                             </div>
-                            <div class="clearfix"></div>
-                        </div><!-- /.panel-heading -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Start market status chart -->
+                    <div class="panel stat-stack widget-market rounded shadow">
                         <div class="panel-body no-padding">
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="visualization">
-                                    <div id="map-world-visualization" class="map" style="height: 500px;"></div>
+                            <div class="row row-merge">
+                                <div class="col-sm-4">
+                                    <div class="panel stat-left no-margin no-box-shadow">
+                                        <div class="panel-body bg-teal">
+                                            <h4 class="no-margin">All transactions per year</h4>
+                                            <div id="market-chart-administrative" class="resize-chart"></div>
+                                        </div><!-- /.panel-body -->
+                                    </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="markers" style="overflow: hidden">
-                                    <div id="map-world-markers" class="map" style="height: 500px;"></div>
+                                <div class="col-sm-4">
+                                    <div class="panel stat-left no-margin no-box-shadow">
+                                        <div class="panel-body">
+                                            <h4 class="no-margin">Most ordered products</h4>
+                                            <div id="donut-chart-administrative" class="resize-chart"></div>
+                                        </div><!-- /.panel-body -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="panel stat-left no-margin no-box-shadow">
+                                        <div class="panel-body">
+                                            <h4 class="no-margin">Quarterly Products sales</h4>
+                                            <div id="area-chart-administrative" class="resize-chart"></div>
+                                        </div><!-- /.panel-body -->
+                                    </div>
                                 </div>
                             </div>
-                        </div><!-- /.panel-body -->
-                    </div><!-- /.panel -->
-
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div class="col-md-3">
-            <div class="recent-activity">
-                <h3>Recent Activity</h3>
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-warning">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
+            <!-- Start seller dashboard -->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Seller Leaderboard</h3>
+                </div><!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-no-border table-middle table-lilac">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://sc01.alicdn.com/kf/HTB1Hb8JaP3z9KJjy0Fmq6xiwXXaU/Chinese-unique-design-clothing-display-store-counters.jpg_50x50.jpg" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Bidan Sehati</b>
+                                    <span class="text-block text-muted">Jl. Cirebon Raya 3</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">450,760</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">370 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(57900400) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://sc02.alicdn.com/kf/HTB1VdtrLFXXXXX3XVXXq6xXFXXXb/high-glass-finish-MDF-store-interior-design.jpg_50x50.jpg" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Si Kecil</b>
+                                    <span class="text-block text-muted">Jl. Jayadiningrat</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">378,239</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">353 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(43909000) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://i2.ypcdn.com/blob/f799ca80d9836a381cea6a946033e9664b990575_50x50_crop.jpg?074020d" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Tumbuh Kembang Anak</b>
+                                    <span class="text-block text-muted">Jl. KH Ahmad Khatib</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">301,293</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">270 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(40239402) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://washingtonstatewire.com/wp-content/uploads/2013/12/131202-Tumwater-liquor-store-50x50.jpg" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Milik Kita Bersama</b>
+                                    <span class="text-block text-muted">Jl. K M Idris</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">257,890</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">201 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(20631200) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://i2.ypcdn.com/blob/19120437410c616aeca2c75d863d7c7ba9f5a5b2_50x50_crop.jpg?074020d" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Koin Kasih</b>
+                                    <span class="text-block text-muted"> Jl. H Suri Jamhari</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">140,590</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">195 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(11247200) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://sc02.alicdn.com/kf/HTB1IjbhJFXXXXcRXXXXq6xXFXXXu/Cell-phone-store-fixtures-displays-for-mobile.jpg_50x50.jpg" alt="..."/>
+                                </td>
+                                <td>
+                                    <b class="text-block">Kios Santunan Kasih</b>
+                                    <span class="text-block text-muted">Jl. H.Tubagus Suwandhi</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">96,490</b>
+                                    <span class="text-block text-muted">items sold</span>
+                                    <div class="progress progress-xxs no-margin">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <b class="text-block">99 days</b>
+                                    <span class="text-block text-muted">since store registered</span>
+                                </td>
+                                <td>
+                                    <b class="text-block">{{ rupiah(7719200) }}</b>
+                                    <span class="text-block text-muted">profit</span>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View edit"><i
+                                                class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Settings"><i
+                                                class="fa fa-cog"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Message buyers"><i
+                                                class="fa fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="Refresh data"><i
+                                                class="fa fa-refresh"></i></a>
+                                    <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip"
+                                       data-placement="top" data-original-title="View detail"><i
+                                                class="fa fa-file"></i></a>
+                                </td>
+                                <td>
+                                    <span class="label label-success label-circle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Order</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Grace Hudson</a> ordered 2 items ($34.45)
-                                <span class="text-block text-muted">on 02/12/15</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-primary">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Product</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Project Blankon AngularJS</a> <span class="text-muted">was added on 02/12/15 by</span>
-                                Aaron Dias
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-success">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Content Page</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">About Us</a> <span class="text-muted">was edited on 02/12/15 by</span>
-                                Michelle Watkins
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-success">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">Theme Edit</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Dashboard Blankon</a> <span
-                                    class="text-muted">was edited on 02/12/15 by</span> Ngadiono CR
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-danger">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Product</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Project Blankon AngularJS</a> <span class="text-muted">was added on 02/12/15 by</span>
-                                Aaron Dias
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-lilac">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Order</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Grace Hudson</a> ordered 2 items ($34.45)
-                                <span class="text-block text-muted">on 02/12/15</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
-
-                <!-- Start recent activity item -->
-                <div class="recent-activity-item recent-activity-danger recent-activity-last">
-                    <div class="recent-activity-badge">
-                        <span class="recent-activity-badge-userpic"></span>
-                    </div>
-                    <div class="recent-activity-body">
-                        <div class="recent-activity-body-head">
-                            <div class="recent-activity-body-head-caption">
-                                <h3 class="recent-activity-body-title">New Order</h3>
-                            </div>
-                        </div>
-                        <div class="recent-activity-body-content">
-                            <p>
-                                <a href="#">Kelly Newman</a> ordered 4 items ($234.45)
-                                <span class="text-block text-muted">on 02/17/15</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End recent activity item -->
+                </div><!-- /.panel-body -->
             </div>
-        </div>
-    </div><!-- /.row -->
+            <!--/ End seller dashboard -->
+
+            {{--<div class="row">--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--<!-- Start market status chart -->--}}
+                            {{--<div class="panel stat-stack widget-market rounded shadow">--}}
+                                {{--<div class="panel-body no-padding">--}}
+                                    {{--<div class="row row-merge">--}}
+                                        {{--<div class="col-sm-8">--}}
+                                            {{--<div class="panel stat-left no-margin no-box-shadow">--}}
+                                                {{--<div class="panel-body bg-teal">--}}
+                                                    {{--<h4 class="no-margin">All transactions per year</h4>--}}
+                                                    {{--<div id="market-chart" class="resize-chart"></div>--}}
+
+                                                {{--</div><!-- /.panel-body -->--}}
+                                            {{--</div><!-- /.panel -->--}}
+                                        {{--</div>--}}
+                                        {{--<div class="col-sm-4">--}}
+                                            {{--<div class="panel no-margin no-box-shadow stat-right">--}}
+                                                {{--<div class="panel-body">--}}
+                                                    {{--<h4 class="no-margin">Most popular product</h4>--}}
+                                                    {{--<p class="text-muted"></p>--}}
+                                                    {{--<div id="market-status-chart" class="resize-chart"></div>--}}
+                                                {{--</div><!-- /.panel-body -->--}}
+                                            {{--</div><!-- /.panel -->--}}
+                                        {{--</div>--}}
+                                    {{--</div><!-- /.row -->--}}
+                                {{--</div><!-- /.panel-body -->--}}
+                            {{--</div><!-- /.panel -->--}}
+                            {{--<!--/ End market status chart -->--}}
+
+                        {{--</div>--}}
+                    {{--</div>--}}
+
+                </div>
+        @endif
 @endsection
 
 @push('styles')
@@ -668,23 +559,53 @@
             window.line.redraw();
         });
 
-        function marketChart(){
+        @if(is_midwife())
+            function marketChart(){
+                window.line = Morris.Line({
+                    element: 'market-chart',
+                    data: [
+                        { y: '2008', a: 120000000, b: 220000000, c: 130000000 },
+                        { y: '2009', a: 250000000, b: 500000000, c: 670000000 },
+                        { y: '2010', a: 250000000, b: 400000000, c: 320000000 },
+                        { y: '2011', a: 270000000,  b: 600000000, c: 780000000 },
+                        { y: '2012', a: 340000000,  b: 500000000, c: 120000000 },
+                        { y: '2013', a: 400000000,  b: 700000000, c: 780000000 },
+                        { y: '2014', a: 410000000, b: 600000000, c: 520000000 }
+                    ],
+                    xkey: 'y',
+                    ykeys: ['a', 'b', 'c'],
+                    labels: ['Aqua', 'Vitacimin', 'Decolgen'],
+                    lineColors: ['#8CC152', '#F6BB42', '#906094'],
+                    pointFillColors: ['#8CC152', '#F6BB42', '#906094'],
+                    pointStrokeColors: ['#FFFFFF'],
+                    lineWidth: '5px',
+                    hideHover: true,
+                    grid: false,
+                    gridTextColor: '#FFFFFF',
+                    resize: true,
+                    redraw: true
+                });
+            }  marketChart();
+        @endif
+
+        @if(is_administrative())
+        function marketChartAdministrative(){
             window.line = Morris.Line({
-                element: 'market-chart',
+                element: 'market-chart-administrative',
                 data: [
-                    { y: '2008', a: 30, b: 20, c: 10 },
-                    { y: '2009', a: 20,  b: 50, c: 67 },
-                    { y: '2010', a: 25,  b: 40, c: 32 },
-                    { y: '2011', a: 27,  b: 60, c: 78 },
-                    { y: '2012', a: 34,  b: 50, c: 12 },
-                    { y: '2013', a: 40,  b: 70, c: 78 },
-                    { y: '2014', a: 41, b: 60, c: 52 }
+                    { y: '2011', a: 120000000},
+                    { y: '2012', a: 250000000},
+                    { y: '2013', a: 250000000},
+                    { y: '2014', a: 270000000},
+                    { y: '2015', a: 340000000},
+                    { y: '2016', a: 300000000},
+                    { y: '2017', a: 410000000}
                 ],
                 xkey: 'y',
-                ykeys: ['a', 'b', 'c'],
-                labels: ['Apple', 'Android', 'Windows Phone'],
-                lineColors: ['#8CC152', '#F6BB42', '#906094'],
-                pointFillColors: ['#8CC152', '#F6BB42', '#906094'],
+                ykeys: ['a'],
+                labels: ['Profit'],
+                lineColors: ['#8CC152'],
+                pointFillColors: ['#8CC152'],
                 pointStrokeColors: ['#FFFFFF'],
                 lineWidth: '5px',
                 hideHover: true,
@@ -693,14 +614,52 @@
                 resize: true,
                 redraw: true
             });
-        }
+        }marketChartAdministrative();
 
-        marketChart();
+        function donutChartAdministrative() {
+            Morris.Donut({
+                element: 'donut-chart-administrative',
+                data: [
+                    {label: "Vitacimin", value: 9000, color: '#00B1E1'},
+                    {label: "U C1000", value: 4500, color: '#D39174'},
+                    {label: "Wedang Jahe", value: 7500, color: '#5577B4'},
+                    {label: "Paramex 20mg", value: 3000, color: '#B3998A'},
+                    {label: "Roti Tawar 8 Slices", value: 8500, color: '#6FA362'}
+                ]
+            });
+        } donutChartAdministrative();
+
+        function areaChartAdministrative()
+        {
+            Morris.Area({
+                element: 'area-chart-administrative',
+                data: [
+                    { y: '2011', a: 100, b: 10, c: 5, d: 1900, e: 5000 },
+                    { y: '2012', a: 150,  b: 50, c: 17, d: 2000, e: 8500 },
+                    { y: '2013', a: 125,  b: 700, c: 35, d: 2500, e: 10000 },
+                    { y: '2014', a: 300,  b: 500, c: 30, d: 2250, e: 7020 },
+                    { y: '2015', a: 450,  b: 800, c: 25, d: 2950, e: 5720 },
+                    { y: '2016', a: 700,  b: 1050, c: 70, d: 2102, e: 9420 },
+                    { y: '2017', a: 1200, b: 1500, c: 75, d: 2200, e: 8604 }
+                ],
+                xkey: 'y',
+                ykeys: ['a', 'b', 'c', 'd', 'e'],
+                labels: ['Vitacimin', 'U C1000', 'Wedang Jahe', 'Paramex 20mg', 'Roti Tawar']
+            })
+        } areaChartAdministrative();
+        @endif
 
         var piedata = [
-            { label: "Apple", data: [[1,40]], color: '#906094'},
-            { label: "Android", data: [[1,20]], color: '#8CC152'},
-            { label: "Windows Phone", data: [[1,50]], color: '#F6BB42'}
+            { label: "Aqua", data: [[1,50]], color: '#906094'},
+            { label: "Vitacimin", data: [[1,50]], color: '#8CC152'},
+            { label: "Decolgen", data: [[1,50]], color: '#F6BB42'},
+            { label: "Paramex", data: [[1,50]], color: '#383f89'},
+            { label: "U C1000", data: [[1,50]], color: '#F06F6F'},
+            { label: "Pocari Sweat", data: [[1,50]], color: '#F06F6F'},
+            { label: "Buavita", data: [[1,50]], color: '#D39174'},
+            { label: "Joya Susu Telur", data: [[1,50]], color: '#5577B4'},
+            { label: "Kunyit Asam", data: [[1,50]], color: '#AF86B9'},
+            { label: "Orange Water", data: [[1,50]], color: '#979797'},
         ];
 
         function labelFormatter(label, series) {
@@ -977,20 +936,6 @@
             "ZM": 15.69,
             "ZW": 5.57
         };
-
-        $('#map-world-visualization').vectorMap({
-            map: 'world_mill_en',
-            series: {
-                regions: [{
-                    values: gdpData,
-                    scale: ['#81B71A', '#457619'],
-                    normalizeFunction: 'polynomial'
-                }]
-            },
-            onRegionTipShow: function(e, el, code){
-                el.html(el.html()+' (GDP - $'+gdpData[code]+')');
-            }
-        });
 
         $('a[href="#markers"]').on('shown.bs.tab', function () {
             $('#map-world-markers').vectorMap({
