@@ -10,11 +10,11 @@
 
     <title>Kios Sehati</title>
 
-    <link href="http://themes.djavaui.com/blankon-fullpack-admin-theme/img/ico/html/apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
-    <link href="http://themes.djavaui.com/blankon-fullpack-admin-theme/img/ico/html/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
-    <link href="http://themes.djavaui.com/blankon-fullpack-admin-theme/img/ico/html/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
-    <link href="http://themes.djavaui.com/blankon-fullpack-admin-theme/img/ico/html/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon-precomposed">
-    <link href="http://themes.djavaui.com/blankon-fullpack-admin-theme/img/ico/html/apple-touch-icon.png" rel="shortcut icon">
+    <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="144x144">
+    <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="114x114">
+    <link href="{{ asset('img/siks-72x72.png') }}" rel="apple-touch-icon-precomposed" sizes="72x72">
+    <link href="{{ asset('img/siks-57x57.png') }}" rel="apple-touch-icon-precomposed">
+    <link href="{{ asset('img/siks-57x57.png') }}" rel="shortcut icon">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
 

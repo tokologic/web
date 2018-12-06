@@ -8,16 +8,12 @@
     <meta name="keywords" content="pos, kios, store, warehouse, sehati, point fo sales">
     <meta name="author" content="toKologic">
 
-    <link href="../../../assets/global/img/ico/apple-touch-icon-144x144-precomposed.png"
-          rel="apple-touch-icon-precomposed" sizes="144x144">
-    <link href="../../../assets/global/img/ico/apple-touch-icon-114x114-precomposed.png"
-          rel="apple-touch-icon-precomposed" sizes="114x114">
-    <link href="../../../assets/global/img/ico/apple-touch-icon-72x72-precomposed.png"
-          rel="apple-touch-icon-precomposed" sizes="72x72">
-    <link href="../../../assets/global/img/ico/apple-touch-icon-57x57-precomposed.png"
-          rel="apple-touch-icon-precomposed">
-    <link href="../../../assets/global/img/ico/apple-touch-icon.png" rel="shortcut icon">
-    <link href="../../../assets/global/img/ico/favicon.ico" rel="shortcut icon">
+    <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="144x144">
+    <link href="{{ asset('img/siks-144x144.png') }}" rel="apple-touch-icon-precomposed" sizes="114x114">
+    <link href="{{ asset('img/siks-72x72.png') }}" rel="apple-touch-icon-precomposed" sizes="72x72">
+    <link href="{{ asset('img/siks-57x57.png') }}" rel="apple-touch-icon-precomposed">
+    <link href="{{ asset('img/siks-57x57.png') }}" rel="shortcut icon">
+    {{--<link href="../../../assets/global/img/ico/favicon.ico" rel="shortcut icon">--}}
 
     <title>Kios Sehati</title>
 
@@ -53,8 +49,8 @@
             </h2>
             <div class="breadcrumb-wrapper hidden-xs">
                 {{--@if(Breadcrumbs::exists('errors.404'))--}}
-                    <span class="label">You are here:</span>
-                    {{ Breadcrumbs::render() }}
+                <span class="label">You are here:</span>
+                {{ Breadcrumbs::render() }}
                 {{--@endif--}}
             </div>
         </div>

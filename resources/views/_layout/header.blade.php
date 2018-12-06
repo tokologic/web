@@ -5,7 +5,7 @@
         <i class="fa fa-bars"></i>
     </div>
     <div class="navbar-header">
-        <a class="navbar-brand" href="dashboard.html">
+        <a class="navbar-brand" href="{{ url('/dashboard') }}">
             {{--<img class="logo" src="{{asset('img/blank-avatar.jpeg')}}" alt="brand logo"/>--}}
             <span>Kios Sehati</span>
         </a>

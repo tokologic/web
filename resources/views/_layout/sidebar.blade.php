@@ -1,6 +1,6 @@
 <div class="sidebar-content">
     <div class="media">
-        <a class="pull-left has-notif avatar" href="page-profile.html">
+        <a class="pull-left has-notif avatar" href="javascript:;">
             <img src="{{asset('img/blank-avatar.jpeg')}}" alt="admin">
             <i class="online"></i>
         </a>
